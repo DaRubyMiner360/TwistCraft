@@ -1,10 +1,11 @@
 package ml.darubyminer360.twistcraft.commands;
 
 import org.bukkit.*;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import org.bukkit.inventory.*;
+import org.bukkit.enchantments.*;
+import org.bukkit.inventory.meta.*;
+import org.bukkit.command.*;
+import org.bukkit.entity.*;
 
 public class TwistCommand implements CommandExecutor {
     @Override
@@ -16,7 +17,11 @@ public class TwistCommand implements CommandExecutor {
         }
         else if (args[0].toLowerCase() == "enable") {
           if (args[1].toLowerCase() == "craftablecommandblocks") {
-            // Enable Craftable Command Blocks
+            // Add recipe
+            ShapelessRecipe sr = new ShapelessRecipe(NamespacedKey.minecraft("command_block"), Material.COMMAND);
+            sr.addIngredient(1, Material.WORKBENCH);
+            sr.addIngredient(1, Material.WOOD_BUTTON);
+            Bukkit.getServer().addRecipe(sr);
 
             p.sendMessage("Craftable Command Blocks enabled!");
           }
@@ -25,7 +30,11 @@ public class TwistCommand implements CommandExecutor {
           }
         }
         else if (args[0].toLowerCase() == "disable") {
-          // Disable Craftable Command Blocks
+          // Remove recipe
+          ShapelessRecipe sr = new ShapelessRecipe(NamespacedKey.minecraft("command_block"), Material.AIR);
+          sr.addIngredient(1, Material.WORKBENCH);
+          sr.addIngredient(1, Material.WOOD_BUTTON);
+          Bukkit.getServer().addRecipe(sr);
 
           if (args[1].toLowerCase() == "craftablecommandblocks") {
             p.sendMessage("Craftable Command Blocks disabled!");

@@ -9,6 +9,7 @@ public class TwistCraft extends JavaPlugin {
     @Override
     public void onEnable() {
       getCommand("twist").setExecutor(new TwistCommand());
+      ItemManager.init();
     }
 
     @Override
