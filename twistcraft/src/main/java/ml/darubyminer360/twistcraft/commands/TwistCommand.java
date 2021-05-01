@@ -7,7 +7,11 @@ import org.bukkit.inventory.meta.*;
 import org.bukkit.command.*;
 import org.bukkit.entity.*;
 
+import java.util.Iterator;
+
 public class TwistCommand implements CommandExecutor {
+    ShapelessRecipe commandBlockRecipe;
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         Player p = (Player) sender;
@@ -18,10 +22,10 @@ public class TwistCommand implements CommandExecutor {
         else if (args[0].toLowerCase() == "enable") {
           if (args[1].toLowerCase() == "craftablecommandblocks") {
             // Add recipe
-            ShapelessRecipe sr = new ShapelessRecipe(NamespacedKey.minecraft("command_block"), Material.COMMAND);
-            sr.addIngredient(1, Material.WORKBENCH);
-            sr.addIngredient(1, Material.WOOD_BUTTON);
-            Bukkit.getServer().addRecipe(sr);
+              commandBlockRecipe = new ShapelessRecipe(new ItemStack(Material.COMMAND));
+              commandBlockRecipe.addIngredient(1, Material.WORKBENCH);
+              commandBlockRecipe.addIngredient(1, Material.WOOD_BUTTON);
+            Bukkit.getServer().addRecipe(commandBlockRecipe);
 
             p.sendMessage("Craftable Command Blocks enabled!");
           }
@@ -31,10 +35,14 @@ public class TwistCommand implements CommandExecutor {
         }
         else if (args[0].toLowerCase() == "disable") {
           // Remove recipe
-          ShapelessRecipe sr = new ShapelessRecipe(NamespacedKey.minecraft("command_block"), Material.AIR);
-          sr.addIngredient(1, Material.WORKBENCH);
-          sr.addIngredient(1, Material.WOOD_BUTTON);
-          Bukkit.getServer().addRecipe(sr);
+          Iterator<Recipe> iter = Bukkit.getServer().recipeIterator();
+          while (iter.hasNext()) {
+              Recipe r = iter.next();
+
+              if (r == commandBlockRecipe) {
+                  iter.remove();
+              }
+          }
 
           if (args[1].toLowerCase() == "craftablecommandblocks") {
             p.sendMessage("Craftable Command Blocks disabled!");
