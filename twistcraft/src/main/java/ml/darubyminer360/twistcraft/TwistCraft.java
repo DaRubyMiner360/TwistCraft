@@ -1,5 +1,6 @@
 package ml.darubyminer360.twistcraft;
 
+import ml.darubyminer360.twistcraft.commands.CraftableCommandBlocksCommand;
 import ml.darubyminer360.twistcraft.commands.TwistCommand;
 
 import ml.darubyminer360.twistcraft.items.ItemManager;
@@ -10,6 +11,7 @@ public class TwistCraft extends JavaPlugin {
     @Override
     public void onEnable() {
       getCommand("twist").setExecutor(new TwistCommand());
+        getCommand("craftablecommandblocks").setExecutor(new CraftableCommandBlocksCommand());
       ItemManager.init();
     }
 
