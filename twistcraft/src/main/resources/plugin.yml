@@ -10,3 +10,5 @@ website: http://darubyminer360.ml/
 commands:
   twist:
     usage: /twist [list, enable <twist>, disable <twist>, info <twist>]
+  craftablecommandblocks:
+    usage: /craftablecommandblocks
