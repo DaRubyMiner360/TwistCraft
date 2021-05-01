@@ -15,3 +15,7 @@ commands:
     usage: /craftablecommandblocks
   opmobs:
     usage: /opmobs
+  halfhearteating:
+    usage: /halfhearteating
+  craftableenchantedgoldenapples:
+    usage: /craftableenchantedgoldenapples

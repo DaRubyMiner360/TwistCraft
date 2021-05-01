@@ -17,6 +17,8 @@ public class TwistCommand implements CommandExecutor {
             case "list":
                 p.sendMessage("- Craftable Command Blocks (craftablecommandblocks)");
                 p.sendMessage("- OP Mobs (opmobs)");
+                p.sendMessage("- Half Heart Eating (halfhearteating)");
+                p.sendMessage("- Craftable Enchanted Golden Apples (craftableenchantedgoldenapples)");
                 break;
             case "enable":
                 if (args[1].equalsIgnoreCase("craftablecommandblocks")) {
@@ -32,6 +34,25 @@ public class TwistCommand implements CommandExecutor {
                 else if (args[1].equalsIgnoreCase("opmobs")) {
                     p.sendMessage("OP Mobs enabled!");
                     OPMobsCommand.enabled = true;
+                }
+                else if (args[1].equalsIgnoreCase("halfhearteating")) {
+                    p.sendMessage("Half Heart Eating enabled!");
+                    HalfHeartEatingCommand.enabled = true;
+                }
+                else if (args[1].equalsIgnoreCase("craftableenchantedgoldenapples")) {
+                    // Add recipe
+                    CraftableEnchantedGoldenApplesCommand.enchantedGoldenAppleRecipe = new ShapedRecipe(new NamespacedKey(TwistCraft.instance, "enchanted_golden_apple"), new ItemStack(Material.ENCHANTED_GOLDEN_APPLE));
+                    CraftableEnchantedGoldenApplesCommand.enchantedGoldenAppleRecipe.shape(
+                            "GGG",
+                            "GAG",
+                            "GGG"
+                    );
+                    CraftableEnchantedGoldenApplesCommand.enchantedGoldenAppleRecipe.setIngredient('G', Material.GOLD_BLOCK);
+                    CraftableEnchantedGoldenApplesCommand.enchantedGoldenAppleRecipe.setIngredient('A', Material.APPLE);
+                    Bukkit.getServer().addRecipe(CraftableEnchantedGoldenApplesCommand.enchantedGoldenAppleRecipe);
+
+                    p.sendMessage("Craftable Enchanted Golden Apples enabled!");
+                    CraftableEnchantedGoldenApplesCommand.enabled = true;
                 }
                 break;
             case "disable":
@@ -53,6 +74,24 @@ public class TwistCommand implements CommandExecutor {
                     p.sendMessage("OP Mobs disabled!");
                     OPMobsCommand.enabled = false;
                 }
+                else if (args[1].equalsIgnoreCase("halfhearteating")) {
+                    p.sendMessage("Half Heart Eating disabled!");
+                    HalfHeartEatingCommand.enabled = false;
+                }
+                else if (args[1].equalsIgnoreCase("craftableenchantedgoldenapples")) {
+                    // Remove recipe
+                    Iterator<Recipe> iter = Bukkit.getServer().recipeIterator();
+                    while (iter.hasNext()) {
+                        Recipe r = iter.next();
+
+                        if (r == CraftableEnchantedGoldenApplesCommand.enchantedGoldenAppleRecipe) {
+                            iter.remove();
+                        }
+                    }
+
+                    p.sendMessage("Craftable Enchanted Golden Apples disabled!");
+                    CraftableEnchantedGoldenApplesCommand.enabled = false;
+                }
                 break;
             case "info":
                 if (args[1].equalsIgnoreCase("craftablecommandblocks")) {
@@ -60,6 +99,12 @@ public class TwistCommand implements CommandExecutor {
                 }
                 else if (args[1].equalsIgnoreCase("opmobs")) {
                     p.sendMessage("OP Mobs makes every mob extremely overpowered.");
+                }
+                else if (args[1].equalsIgnoreCase("halfhearteating")) {
+                    p.sendMessage("Half Heart Eating makes eating bring you to half a heart.");
+                }
+                else if (args[1].equalsIgnoreCase("craftableenchantedgoldenapples")) {
+                    p.sendMessage("Craftable Enchanted Golden Apples you to craft enchanted golden apples.");
                 }
                 break;
         }

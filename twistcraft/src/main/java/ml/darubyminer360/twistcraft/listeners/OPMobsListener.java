@@ -19,52 +19,52 @@ public class OPMobsListener implements Listener {
                 creeper.setPowered(true);
 
                 ItemStack helmet = new ItemStack(Material.NETHERITE_HELMET);
-                helmet.addEnchantment(Enchantment.THORNS, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_FALL, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_FIRE, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-                helmet.addEnchantment(Enchantment.DEPTH_STRIDER, 5);
-                helmet.addEnchantment(Enchantment.WATER_WORKER, 5);
-                helmet.addEnchantment(Enchantment.OXYGEN, 5);
-                helmet.addEnchantment(Enchantment.SOUL_SPEED, 5);
+                helmet.addUnsafeEnchantment(Enchantment.THORNS, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+                helmet.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 5);
+                helmet.addUnsafeEnchantment(Enchantment.WATER_WORKER, 5);
+                helmet.addUnsafeEnchantment(Enchantment.OXYGEN, 5);
+                helmet.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 5);
 
                 ItemStack chestplate = new ItemStack(Material.NETHERITE_CHESTPLATE);
-                chestplate.addEnchantment(Enchantment.THORNS, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_FALL, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_FIRE, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-                chestplate.addEnchantment(Enchantment.DEPTH_STRIDER, 5);
-                chestplate.addEnchantment(Enchantment.WATER_WORKER, 5);
-                chestplate.addEnchantment(Enchantment.OXYGEN, 5);
-                chestplate.addEnchantment(Enchantment.SOUL_SPEED, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.THORNS, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.WATER_WORKER, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.OXYGEN, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 5);
 
                 ItemStack leggings = new ItemStack(Material.NETHERITE_LEGGINGS);
-                leggings.addEnchantment(Enchantment.THORNS, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_FALL, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_FIRE, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-                leggings.addEnchantment(Enchantment.DEPTH_STRIDER, 5);
-                leggings.addEnchantment(Enchantment.WATER_WORKER, 5);
-                leggings.addEnchantment(Enchantment.OXYGEN, 5);
-                leggings.addEnchantment(Enchantment.SOUL_SPEED, 5);
+                leggings.addUnsafeEnchantment(Enchantment.THORNS, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+                leggings.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 5);
+                leggings.addUnsafeEnchantment(Enchantment.WATER_WORKER, 5);
+                leggings.addUnsafeEnchantment(Enchantment.OXYGEN, 5);
+                leggings.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 5);
 
                 ItemStack boots = new ItemStack(Material.NETHERITE_BOOTS);
-                boots.addEnchantment(Enchantment.THORNS, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_FALL, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_FIRE, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-                boots.addEnchantment(Enchantment.DEPTH_STRIDER, 5);
-                boots.addEnchantment(Enchantment.WATER_WORKER, 5);
-                boots.addEnchantment(Enchantment.OXYGEN, 5);
-                boots.addEnchantment(Enchantment.SOUL_SPEED, 5);
+                boots.addUnsafeEnchantment(Enchantment.THORNS, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+                boots.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 5);
+                boots.addUnsafeEnchantment(Enchantment.WATER_WORKER, 5);
+                boots.addUnsafeEnchantment(Enchantment.OXYGEN, 5);
+                boots.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 5);
 
                 creeper.getEquipment().setHelmet(helmet);
                 creeper.getEquipment().setChestplate(chestplate);
@@ -72,62 +72,63 @@ public class OPMobsListener implements Listener {
                 creeper.getEquipment().setBoots(boots);
 
                 ItemStack shield = new ItemStack(Material.SHIELD);
-                boots.addEnchantment(Enchantment.THORNS, 5);
+                boots.addUnsafeEnchantment(Enchantment.THORNS, 5);
 
                 creeper.getEquipment().setItemInOffHand(shield);
 
                 creeper.setHealth(30);
             }
-            else if (event.getEntityType() == EntityType.ZOMBIE) {
+            
+            if (event.getEntityType() == EntityType.ZOMBIE) {
                 Zombie zombie = (Zombie) event.getEntity();
 
                 ItemStack helmet = new ItemStack(Material.NETHERITE_HELMET);
-                helmet.addEnchantment(Enchantment.THORNS, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_FALL, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_FIRE, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-                helmet.addEnchantment(Enchantment.DEPTH_STRIDER, 5);
-                helmet.addEnchantment(Enchantment.WATER_WORKER, 5);
-                helmet.addEnchantment(Enchantment.OXYGEN, 5);
-                helmet.addEnchantment(Enchantment.SOUL_SPEED, 5);
+                helmet.addUnsafeEnchantment(Enchantment.THORNS, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+                helmet.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 5);
+                helmet.addUnsafeEnchantment(Enchantment.WATER_WORKER, 5);
+                helmet.addUnsafeEnchantment(Enchantment.OXYGEN, 5);
+                helmet.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 5);
 
                 ItemStack chestplate = new ItemStack(Material.NETHERITE_CHESTPLATE);
-                chestplate.addEnchantment(Enchantment.THORNS, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_FALL, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_FIRE, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-                chestplate.addEnchantment(Enchantment.DEPTH_STRIDER, 5);
-                chestplate.addEnchantment(Enchantment.WATER_WORKER, 5);
-                chestplate.addEnchantment(Enchantment.OXYGEN, 5);
-                chestplate.addEnchantment(Enchantment.SOUL_SPEED, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.THORNS, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.WATER_WORKER, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.OXYGEN, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 5);
 
                 ItemStack leggings = new ItemStack(Material.NETHERITE_LEGGINGS);
-                leggings.addEnchantment(Enchantment.THORNS, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_FALL, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_FIRE, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-                leggings.addEnchantment(Enchantment.DEPTH_STRIDER, 5);
-                leggings.addEnchantment(Enchantment.WATER_WORKER, 5);
-                leggings.addEnchantment(Enchantment.OXYGEN, 5);
-                leggings.addEnchantment(Enchantment.SOUL_SPEED, 5);
+                leggings.addUnsafeEnchantment(Enchantment.THORNS, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+                leggings.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 5);
+                leggings.addUnsafeEnchantment(Enchantment.WATER_WORKER, 5);
+                leggings.addUnsafeEnchantment(Enchantment.OXYGEN, 5);
+                leggings.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 5);
 
                 ItemStack boots = new ItemStack(Material.NETHERITE_BOOTS);
-                boots.addEnchantment(Enchantment.THORNS, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_FALL, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_FIRE, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-                boots.addEnchantment(Enchantment.DEPTH_STRIDER, 5);
-                boots.addEnchantment(Enchantment.WATER_WORKER, 5);
-                boots.addEnchantment(Enchantment.OXYGEN, 5);
-                boots.addEnchantment(Enchantment.SOUL_SPEED, 5);
+                boots.addUnsafeEnchantment(Enchantment.THORNS, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+                boots.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 5);
+                boots.addUnsafeEnchantment(Enchantment.WATER_WORKER, 5);
+                boots.addUnsafeEnchantment(Enchantment.OXYGEN, 5);
+                boots.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 5);
 
                 zombie.getEquipment().setHelmet(helmet);
                 zombie.getEquipment().setChestplate(chestplate);
@@ -135,71 +136,72 @@ public class OPMobsListener implements Listener {
                 zombie.getEquipment().setBoots(boots);
 
                 ItemStack sword = new ItemStack(Material.NETHERITE_SWORD);
-                boots.addEnchantment(Enchantment.DAMAGE_ALL, 5);
-                boots.addEnchantment(Enchantment.DAMAGE_ARTHROPODS, 5);
-                boots.addEnchantment(Enchantment.DAMAGE_UNDEAD, 5);
-                boots.addEnchantment(Enchantment.FIRE_ASPECT, 5);
-                boots.addEnchantment(Enchantment.LOOT_BONUS_MOBS, 10);
-                boots.addEnchantment(Enchantment.KNOCKBACK, 2);
+                boots.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 5);
+                boots.addUnsafeEnchantment(Enchantment.DAMAGE_ARTHROPODS, 5);
+                boots.addUnsafeEnchantment(Enchantment.DAMAGE_UNDEAD, 5);
+                boots.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 5);
+                boots.addUnsafeEnchantment(Enchantment.LOOT_BONUS_MOBS, 10);
+                boots.addUnsafeEnchantment(Enchantment.KNOCKBACK, 2);
 
                 ItemStack shield = new ItemStack(Material.SHIELD);
-                boots.addEnchantment(Enchantment.THORNS, 5);
+                boots.addUnsafeEnchantment(Enchantment.THORNS, 5);
 
                 zombie.getEquipment().setItemInMainHand(sword);
                 zombie.getEquipment().setItemInOffHand(shield);
 
                 zombie.setHealth(30);
             }
-            else if (event.getEntityType() == EntityType.SKELETON) {
+            
+            if (event.getEntityType() == EntityType.SKELETON) {
                 Skeleton skeleton = (Skeleton) event.getEntity();
 
                 ItemStack helmet = new ItemStack(Material.NETHERITE_HELMET);
-                helmet.addEnchantment(Enchantment.THORNS, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_FALL, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_FIRE, 5);
-                helmet.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-                helmet.addEnchantment(Enchantment.DEPTH_STRIDER, 5);
-                helmet.addEnchantment(Enchantment.WATER_WORKER, 5);
-                helmet.addEnchantment(Enchantment.OXYGEN, 5);
-                helmet.addEnchantment(Enchantment.SOUL_SPEED, 5);
+                helmet.addUnsafeEnchantment(Enchantment.THORNS, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 5);
+                helmet.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+                helmet.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 5);
+                helmet.addUnsafeEnchantment(Enchantment.WATER_WORKER, 5);
+                helmet.addUnsafeEnchantment(Enchantment.OXYGEN, 5);
+                helmet.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 5);
 
                 ItemStack chestplate = new ItemStack(Material.NETHERITE_CHESTPLATE);
-                chestplate.addEnchantment(Enchantment.THORNS, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_FALL, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_FIRE, 5);
-                chestplate.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-                chestplate.addEnchantment(Enchantment.DEPTH_STRIDER, 5);
-                chestplate.addEnchantment(Enchantment.WATER_WORKER, 5);
-                chestplate.addEnchantment(Enchantment.OXYGEN, 5);
-                chestplate.addEnchantment(Enchantment.SOUL_SPEED, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.THORNS, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.WATER_WORKER, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.OXYGEN, 5);
+                chestplate.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 5);
 
                 ItemStack leggings = new ItemStack(Material.NETHERITE_LEGGINGS);
-                leggings.addEnchantment(Enchantment.THORNS, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_FALL, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_FIRE, 5);
-                leggings.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-                leggings.addEnchantment(Enchantment.DEPTH_STRIDER, 5);
-                leggings.addEnchantment(Enchantment.WATER_WORKER, 5);
-                leggings.addEnchantment(Enchantment.OXYGEN, 5);
-                leggings.addEnchantment(Enchantment.SOUL_SPEED, 5);
+                leggings.addUnsafeEnchantment(Enchantment.THORNS, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 5);
+                leggings.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+                leggings.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 5);
+                leggings.addUnsafeEnchantment(Enchantment.WATER_WORKER, 5);
+                leggings.addUnsafeEnchantment(Enchantment.OXYGEN, 5);
+                leggings.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 5);
 
                 ItemStack boots = new ItemStack(Material.NETHERITE_BOOTS);
-                boots.addEnchantment(Enchantment.THORNS, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_FALL, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_FIRE, 5);
-                boots.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
-                boots.addEnchantment(Enchantment.DEPTH_STRIDER, 5);
-                boots.addEnchantment(Enchantment.WATER_WORKER, 5);
-                boots.addEnchantment(Enchantment.OXYGEN, 5);
-                boots.addEnchantment(Enchantment.SOUL_SPEED, 5);
+                boots.addUnsafeEnchantment(Enchantment.THORNS, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_FIRE, 5);
+                boots.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 5);
+                boots.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 5);
+                boots.addUnsafeEnchantment(Enchantment.WATER_WORKER, 5);
+                boots.addUnsafeEnchantment(Enchantment.OXYGEN, 5);
+                boots.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 5);
 
                 skeleton.getEquipment().setHelmet(helmet);
                 skeleton.getEquipment().setChestplate(chestplate);
@@ -207,12 +209,12 @@ public class OPMobsListener implements Listener {
                 skeleton.getEquipment().setBoots(boots);
 
                 ItemStack bow = new ItemStack(Material.BOW);
-                bow.addEnchantment(Enchantment.ARROW_KNOCKBACK, 2);
-                bow.addEnchantment(Enchantment.ARROW_DAMAGE, 2);
-                bow.addEnchantment(Enchantment.ARROW_FIRE, 1);
+                bow.addUnsafeEnchantment(Enchantment.ARROW_KNOCKBACK, 2);
+                bow.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 2);
+                bow.addUnsafeEnchantment(Enchantment.ARROW_FIRE, 1);
 
                 ItemStack shield = new ItemStack(Material.SHIELD);
-                boots.addEnchantment(Enchantment.THORNS, 5);
+                boots.addUnsafeEnchantment(Enchantment.THORNS, 5);
 
                 skeleton.getEquipment().setItemInMainHand(bow);
                 skeleton.getEquipment().setItemInOffHand(shield);
