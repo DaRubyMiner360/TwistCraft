@@ -1,5 +1,6 @@
 name: TwistCraft
 version: 1.0-SNAPSHOT
+api-version: 1.16
 main: ml.darubyminer360.twistcraft.TwistCraft
 
 prefix: TwistCraft
@@ -10,3 +11,7 @@ website: http://darubyminer360.ml/
 commands:
   twist:
     usage: /twist [list, enable <twist>, disable <twist>, info <twist>]
+  craftablecommandblocks:
+    usage: /craftablecommandblocks
+  opmobs:
+    usage: /opmobs

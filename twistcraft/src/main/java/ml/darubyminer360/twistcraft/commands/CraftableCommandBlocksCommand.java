@@ -1,9 +1,8 @@
 package ml.darubyminer360.twistcraft.commands;
 
+import ml.darubyminer360.twistcraft.TwistCraft;
 import org.bukkit.*;
 import org.bukkit.inventory.*;
-import org.bukkit.enchantments.*;
-import org.bukkit.inventory.meta.*;
 import org.bukkit.command.*;
 import org.bukkit.entity.*;
 
@@ -19,9 +18,9 @@ public class CraftableCommandBlocksCommand implements CommandExecutor {
 
         if (!enabled) {
             // Add recipe
-            commandBlockRecipe = new ShapelessRecipe(new ItemStack(Material.COMMAND));
-            commandBlockRecipe.addIngredient(1, Material.WORKBENCH);
-            commandBlockRecipe.addIngredient(1, Material.WOOD_BUTTON);
+            commandBlockRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "command_block"), new ItemStack(Material.COMMAND_BLOCK));
+            commandBlockRecipe.addIngredient(1, Material.CRAFTING_TABLE);
+            commandBlockRecipe.addIngredient(1, Material.OAK_BUTTON);
             Bukkit.getServer().addRecipe(commandBlockRecipe);
 
             p.sendMessage("Craftable Command Blocks enabled!");
