@@ -238,6 +238,9 @@ public class TwistCommand implements CommandExecutor {
                     TwistCraft.instance.messageServer("TNT Runner makes TNT spawn on top of you every given amount of seconds!", p);
                 }
                 break;
+            default:
+                p.sendMessage("Use '/twist list' for a list of possible twists");
+                break;
         }
 
         return true;

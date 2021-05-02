@@ -16,30 +16,30 @@ commands:
   craftablecommandblocks:
     usage: /craftablecommandblocks
     aliases:
-      - /ccb
+      - ccb
   opmobs:
     usage: /opmobs
   halfhearteating:
     usage: /halfhearteating
     aliases:
-      - /hhe
+      - hhe
   craftableenchantedgoldenapples:
     usage: /craftableenchantedgoldenapples
     aliases:
-      - /craftableegapples
-      - /cega
+      - craftableegapples
+      - cega
   manhunt:
     usage: /manhunt
     aliases:
-      - /mh
+      - mh
   everywherelooked:
     usage: /everywherelooked
     aliases:
-      - /el
+      - el
   deathswap:
     usage: /deathswap <other>
     aliases:
-      - /dswap
-      - /ds
+      - dswap
+      - ds
   tntrunner:
     usage: /tntrunner <cooldown>
