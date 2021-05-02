@@ -26,7 +26,6 @@ public class CraftableCommandBlocksListener implements Listener {
             final org.bukkit.event.block.Action action = event.getAction();
             if (action == org.bukkit.event.block.Action.RIGHT_CLICK_BLOCK) {
                 if (event.getClickedBlock().getBlockData().getMaterial() == Material.COMMAND_BLOCK || event.getClickedBlock().getType() == Material.COMMAND_BLOCK || event.getMaterial() == Material.COMMAND_BLOCK) {
-                    event.getPlayer().sendMessage("Craftable Command Blocks 2 1");
                     previousGameMode = event.getPlayer().getGameMode();
                     event.getPlayer().setGameMode(GameMode.CREATIVE);
                     WrapperPlayClientUseItem wrapper = new WrapperPlayClientUseItem();
@@ -34,10 +33,8 @@ public class CraftableCommandBlocksListener implements Listener {
                     wrapper.sendPacket(event.getPlayer());
                     event.getPlayer().setGameMode(previousGameMode);
                     previousGameMode = null;
-                    event.getPlayer().sendMessage("Craftable Command Blocks 2 2");
                 }
                 if (event.getPlayer().getEquipment().getItemInMainHand().getType() == Material.COMMAND_BLOCK || event.getPlayer().getEquipment().getItemInOffHand().getType() == Material.COMMAND_BLOCK || event.getItem().getType() == Material.COMMAND_BLOCK) {
-                    event.getPlayer().sendMessage("Craftable Command Blocks 1 1");
                     previousGameMode = event.getPlayer().getGameMode();
                     event.getPlayer().setGameMode(GameMode.CREATIVE);
                     WrapperPlayClientBlockPlace wrapper = new WrapperPlayClientBlockPlace();
@@ -47,7 +44,6 @@ public class CraftableCommandBlocksListener implements Listener {
                         event.getPlayer().getEquipment().getItemInMainHand().setAmount(event.getPlayer().getEquipment().getItemInMainHand().getAmount() - 1);
                     }
                     previousGameMode = null;
-                    event.getPlayer().sendMessage("Craftable Command Blocks 1 2");
                 }
             }
         }

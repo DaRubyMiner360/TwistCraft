@@ -1,5 +1,6 @@
 package ml.darubyminer360.twistcraft.commands;
 
+import ml.darubyminer360.twistcraft.TwistCraft;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -13,11 +14,11 @@ public class HalfHeartEatingCommand implements CommandExecutor {
         Player p = (Player) sender;
 
         if (!enabled) {
-            p.sendMessage("Half Heart Eating enabled!");
+            TwistCraft.instance.messageServer("Half Heart Eating enabled!", p);
             enabled = true;
         }
         else {
-            p.sendMessage("Half Heart Eating disabled!");
+            TwistCraft.instance.messageServer("Half Heart Eating disabled!", p);
             enabled = false;
         }
 

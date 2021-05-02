@@ -1,5 +1,6 @@
 package ml.darubyminer360.twistcraft.commands;
 
+import ml.darubyminer360.twistcraft.TwistCraft;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,7 +19,7 @@ public class ManhuntCommand implements CommandExecutor {
             if (args.length > 0) {
                 hunted = args[0];
 
-                p.sendMessage("Manhunt enabled! " + args[0] + " is the speedrunner!");
+                TwistCraft.instance.messageServer("Manhunt enabled! " + args[0] + " is the speedrunner!", p);
                 enabled = true;
             }
             else {
@@ -26,7 +27,7 @@ public class ManhuntCommand implements CommandExecutor {
             }
         }
         else {
-            p.sendMessage("Manhunt disabled!");
+            TwistCraft.instance.messageServer("Manhunt disabled!", p);
             enabled = false;
         }
 

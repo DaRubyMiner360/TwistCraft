@@ -23,7 +23,7 @@ public class CraftableCommandBlocksCommand implements CommandExecutor {
             commandBlockRecipe.addIngredient(1, Material.OAK_BUTTON);
             Bukkit.getServer().addRecipe(commandBlockRecipe);
 
-            p.sendMessage("Craftable Command Blocks enabled!");
+            TwistCraft.instance.messageServer("Craftable Command Blocks enabled!", p);
             enabled = true;
         }
         else {
@@ -37,7 +37,7 @@ public class CraftableCommandBlocksCommand implements CommandExecutor {
                 }
             }
 
-            p.sendMessage("Craftable Command Blocks disabled!");
+            TwistCraft.instance.messageServer("Craftable Command Blocks disabled!", p);
             enabled = false;
         }
 

@@ -13,13 +13,31 @@ commands:
     usage: /twist [list, enable <twist>, disable <twist>, info <twist>]
   craftablecommandblocks:
     usage: /craftablecommandblocks
+    aliases:
+      - /ccb
   opmobs:
     usage: /opmobs
   halfhearteating:
     usage: /halfhearteating
+    aliases:
+      - /hhe
   craftableenchantedgoldenapples:
     usage: /craftableenchantedgoldenapples
+    aliases:
+      - /craftableegapples
+      - /cega
   manhunt:
     usage: /manhunt
+    aliases:
+      - /mh
   everywherelooked:
     usage: /everywherelooked
+    aliases:
+      - /el
+  deathswap:
+    usage: /deathswap <other>
+    aliases:
+      - /dswap
+      - /ds
+  tntrunner:
+    usage: /tntrunner <cooldown>

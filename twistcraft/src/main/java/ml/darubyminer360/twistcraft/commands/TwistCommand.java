@@ -5,6 +5,7 @@ import org.bukkit.*;
 import org.bukkit.inventory.*;
 import org.bukkit.command.*;
 import org.bukkit.entity.*;
+import org.bukkit.scheduler.BukkitScheduler;
 
 import java.util.Iterator;
 
@@ -15,12 +16,14 @@ public class TwistCommand implements CommandExecutor {
 
         switch (args[0].toLowerCase()) {
             case "list":
-                p.sendMessage("- Craftable Command Blocks (craftablecommandblocks)");
-                p.sendMessage("- OP Mobs (opmobs)");
-                p.sendMessage("- Half Heart Eating (halfhearteating)");
-                p.sendMessage("- Craftable Enchanted Golden Apples (craftableenchantedgoldenapples)");
-                p.sendMessage("- Manhunt (manhunt <speedrunner>)");
-                p.sendMessage("- Everywhere Looked (everywherelooked <mode>)");
+                TwistCraft.instance.messageServer("- Craftable Command Blocks (craftablecommandblocks)", p);
+                TwistCraft.instance.messageServer("- OP Mobs (opmobs)", p);
+                TwistCraft.instance.messageServer("- Half Heart Eating (halfhearteating)", p);
+                TwistCraft.instance.messageServer("- Craftable Enchanted Golden Apples (craftableenchantedgoldenapples)", p);
+                TwistCraft.instance.messageServer("- Manhunt (manhunt <speedrunner>)", p);
+                TwistCraft.instance.messageServer("- Everywhere Looked (everywherelooked <mode>)", p);
+                TwistCraft.instance.messageServer("- Death Swap (deathswap <other>)", p);
+                TwistCraft.instance.messageServer("- TNT Runner (tntrunner <cooldown>)", p);
                 break;
             case "enable":
                 if (args[1].equalsIgnoreCase("craftablecommandblocks")) {
@@ -30,15 +33,15 @@ public class TwistCommand implements CommandExecutor {
                     CraftableCommandBlocksCommand.commandBlockRecipe.addIngredient(1, Material.OAK_BUTTON);
                     Bukkit.getServer().addRecipe(CraftableCommandBlocksCommand.commandBlockRecipe);
 
-                    p.sendMessage("Craftable Command Blocks enabled!");
+                    TwistCraft.instance.messageServer("Craftable Command Blocks enabled!", p);
                     CraftableCommandBlocksCommand.enabled = true;
                 }
                 else if (args[1].equalsIgnoreCase("opmobs")) {
-                    p.sendMessage("OP Mobs enabled!");
+                    TwistCraft.instance.messageServer("OP Mobs enabled!", p);
                     OPMobsCommand.enabled = true;
                 }
                 else if (args[1].equalsIgnoreCase("halfhearteating")) {
-                    p.sendMessage("Half Heart Eating enabled!");
+                    TwistCraft.instance.messageServer("Half Heart Eating enabled!", p);
                     HalfHeartEatingCommand.enabled = true;
                 }
                 else if (args[1].equalsIgnoreCase("craftableenchantedgoldenapples")) {
@@ -53,14 +56,14 @@ public class TwistCommand implements CommandExecutor {
                     CraftableEnchantedGoldenApplesCommand.enchantedGoldenAppleRecipe.setIngredient('A', Material.APPLE);
                     Bukkit.getServer().addRecipe(CraftableEnchantedGoldenApplesCommand.enchantedGoldenAppleRecipe);
 
-                    p.sendMessage("Craftable Enchanted Golden Apples enabled!");
+                    TwistCraft.instance.messageServer("Craftable Enchanted Golden Apples enabled!", p);
                     CraftableEnchantedGoldenApplesCommand.enabled = true;
                 }
                 else if (args[1].equalsIgnoreCase("manhunt")) {
                     if (args.length > 2) {
                         ManhuntCommand.hunted = args[2];
 
-                        p.sendMessage("Manhunt enabled! " + args[2] + " is the speedrunner!");
+                        TwistCraft.instance.messageServer("Manhunt enabled! " + args[2] + " is the speedrunner!", p);
                         ManhuntCommand.enabled = true;
                     }
                     else {
@@ -69,11 +72,79 @@ public class TwistCommand implements CommandExecutor {
                 }
                 else if (args[1].equalsIgnoreCase("everywherelooked")) {
                     if (args.length > 2) {
-                        p.sendMessage("Everywhere Looked enabled! " + args[2] + " is the selected mode!");
+                        TwistCraft.instance.messageServer("Everywhere Looked enabled! " + args[2] + " is the selected mode!", p);
                         EverywhereLookedCommand.enabled = true;
                     }
                     else {
                         p.sendMessage("Add the mode as an argument!");
+                    }
+                }
+                else if (args[1].equalsIgnoreCase("deathswap")) {
+                    if (args.length > 2) {
+                        Player p2 = p.getServer().getPlayer(args[2]);
+
+                        BukkitScheduler scheduler = p.getServer().getScheduler();
+                        DeathSwapCommand.task1 = scheduler.scheduleSyncRepeatingTask(TwistCraft.instance, new Runnable() {
+                            int num = 10;
+
+                            @Override
+                            public void run() {
+                                if (num == 0) {
+                                    p.getServer().broadcastMessage("Go!");
+                                    p.getServer().getScheduler().cancelTask(DeathSwapCommand.task1);
+                                }
+                                else {
+                                    p.getServer().broadcastMessage(Integer.toString(num--));
+                                }
+                            }
+                        }, 20L, 20L);
+                        DeathSwapCommand.task2 = scheduler.scheduleSyncRepeatingTask(TwistCraft.instance, new Runnable() {
+                            @Override
+                            public void run() {
+                                DeathSwapCommand.task3 = scheduler.scheduleSyncRepeatingTask(TwistCraft.instance, new Runnable() {
+                                    int num = 20;
+
+                                    @Override
+                                    public void run() {
+                                        if (num == 0) {
+                                            Location l1 = p.getLocation();
+                                            p.teleport(p2.getLocation());
+                                            p2.teleport(l1);
+                                            p.getServer().getScheduler().cancelTask(DeathSwapCommand.task3);
+                                        }
+                                        else {
+                                            p.getServer().broadcastMessage(Integer.toString(num--));
+                                        }
+                                    }
+                                }, 0L, 20L);
+                            }
+                        }, 6020L, 6000L);
+
+                        TwistCraft.instance.messageServer("Death Swap enabled! The players are " + p.getDisplayName() + " and " + args[2] + "!", p);
+                        DeathSwapCommand.enabled = true;
+                    }
+                    else {
+                        p.sendMessage("Add the other player as an argument!");
+                    }
+                }
+                else if (args[1].equalsIgnoreCase("tntrunner")) {
+                    if (args.length > 2) {
+                        int cooldown = Integer.getInteger(args[2]);
+
+                        BukkitScheduler scheduler = p.getServer().getScheduler();
+                        scheduler.scheduleSyncRepeatingTask(TwistCraft.instance, new Runnable() {
+                            @Override
+                            public void run() {
+                                Entity tnt = p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
+                                ((TNTPrimed)tnt).setFuseTicks(80);
+                            }
+                        }, cooldown * 20L, cooldown * 20L);
+
+                        TwistCraft.instance.messageServer("TNT Runner enabled with a cooldown of " + args[2] + "!", p);
+                        TNTRunnerCommand.enabled = true;
+                    }
+                    else {
+                        p.sendMessage("Add the amount of time between TNT spawns (in seconds) as an argument!");
                     }
                 }
                 break;
@@ -89,15 +160,15 @@ public class TwistCommand implements CommandExecutor {
                         }
                     }
 
-                    p.sendMessage("Craftable Command Blocks disabled!");
+                    TwistCraft.instance.messageServer("Craftable Command Blocks disabled!", p);
                     CraftableCommandBlocksCommand.enabled = false;
                 }
                 else if (args[1].equalsIgnoreCase("opmobs")) {
-                    p.sendMessage("OP Mobs disabled!");
+                    TwistCraft.instance.messageServer("OP Mobs disabled!", p);
                     OPMobsCommand.enabled = false;
                 }
                 else if (args[1].equalsIgnoreCase("halfhearteating")) {
-                    p.sendMessage("Half Heart Eating disabled!");
+                    TwistCraft.instance.messageServer("Half Heart Eating disabled!", p);
                     HalfHeartEatingCommand.enabled = false;
                 }
                 else if (args[1].equalsIgnoreCase("craftableenchantedgoldenapples")) {
@@ -111,38 +182,53 @@ public class TwistCommand implements CommandExecutor {
                         }
                     }
 
-                    p.sendMessage("Craftable Enchanted Golden Apples disabled!");
+                    TwistCraft.instance.messageServer("Craftable Enchanted Golden Apples disabled!", p);
                     CraftableEnchantedGoldenApplesCommand.enabled = false;
                 }
                 else if (args[1].equalsIgnoreCase("manhunt")) {
-                    p.sendMessage("Manhunt disabled!");
+                    TwistCraft.instance.messageServer("Manhunt disabled!", p);
                     ManhuntCommand.enabled = false;
                 }
                 else if (args[1].equalsIgnoreCase("everywherelooked")) {
-                    p.sendMessage("Everywhere Looked disabled!");
+                    TwistCraft.instance.messageServer("Everywhere Looked disabled!", p);
                     EverywhereLookedCommand.enabled = false;
+                }
+                else if (args[1].equalsIgnoreCase("deathswap")) {
+                    p.getServer().getScheduler().cancelTask(DeathSwapCommand.task1);
+                    p.getServer().getScheduler().cancelTask(DeathSwapCommand.task2);
+                    p.getServer().getScheduler().cancelTask(DeathSwapCommand.task3);
+                    TwistCraft.instance.messageServer("Death Swap disabled!", p);
+                    DeathSwapCommand.enabled = false;
+                }
+                else if (args[1].equalsIgnoreCase("tntrunner")) {
+                    TwistCraft.instance.messageServer("TNT Runner disabled!", p);
+                    TNTRunnerCommand.enabled = false;
                 }
                 break;
             case "info":
                 if (args[1].equalsIgnoreCase("craftablecommandblocks")) {
-                    p.sendMessage("Craftable Command Blocks allows you to craft and use command blocks in survival mode.");
+                    TwistCraft.instance.messageServer("Craftable Command Blocks allows you to craft and use command blocks in survival mode.", p);
                 }
                 else if (args[1].equalsIgnoreCase("opmobs")) {
-                    p.sendMessage("OP Mobs makes every mob extremely overpowered.");
+                    TwistCraft.instance.messageServer("OP Mobs makes every mob extremely overpowered.", p);
                 }
                 else if (args[1].equalsIgnoreCase("halfhearteating")) {
-                    p.sendMessage("Half Heart Eating makes eating bring you to half a heart.");
+                    TwistCraft.instance.messageServer("Half Heart Eating makes eating bring you to half a heart.", p);
                 }
                 else if (args[1].equalsIgnoreCase("craftableenchantedgoldenapples")) {
-                    p.sendMessage("Craftable Enchanted Golden Apples you to craft enchanted golden apples.");
+                    TwistCraft.instance.messageServer("Craftable Enchanted Golden Apples you to craft enchanted golden apples.", p);
                 }
                 else if (args[1].equalsIgnoreCase("manhunt")) {
-                    p.sendMessage("Manhunt is the gamemode where a speedrunner attempts to defeat the Ender Dragon while one or more hunters try to kill the speedrunner.");
-                    ManhuntCommand.enabled = false;
+                    TwistCraft.instance.messageServer("Manhunt is the gamemode where a speedrunner attempts to defeat the Ender Dragon while one or more hunters try to kill the speedrunner.", p);
                 }
                 else if (args[1].equalsIgnoreCase("everywherelooked")) {
-                    p.sendMessage("Everywhere Looked is the gamemode where whereever a player looks, something happens!");
-                    EverywhereLookedCommand.enabled = false;
+                    TwistCraft.instance.messageServer("Everywhere Looked is the gamemode where whereever a player looks, something happens!", p);
+                }
+                else if (args[1].equalsIgnoreCase("deathswap")) {
+                    TwistCraft.instance.messageServer("Death Swap is the gamemode where two players try to kill each other with traps when they swap positions!", p);
+                }
+                else if (args[1].equalsIgnoreCase("tntrunner")) {
+                    TwistCraft.instance.messageServer("TNT Runner makes TNT spawn on top of you every given amount of seconds!", p);
                 }
                 break;
         }

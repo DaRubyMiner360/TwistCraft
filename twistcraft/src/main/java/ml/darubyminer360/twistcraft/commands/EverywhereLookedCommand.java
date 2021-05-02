@@ -1,5 +1,6 @@
 package ml.darubyminer360.twistcraft.commands;
 
+import ml.darubyminer360.twistcraft.TwistCraft;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -7,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ShapedRecipe;
 
 public class EverywhereLookedCommand implements CommandExecutor {
-    public static EverywhereLookedMode mode = EverywhereLookedMode.Random;
+    public static EverywhereLookedMode mode;
     public static boolean enabled;
 
     @Override
@@ -25,7 +26,7 @@ public class EverywhereLookedCommand implements CommandExecutor {
                 else if (args[0].equalsIgnoreCase("explodes") || args[0].equalsIgnoreCase("explode") || args[0].equalsIgnoreCase("explosion")) {
                     mode = EverywhereLookedMode.Explodes;
                 }
-                p.sendMessage("Everywhere Looked enabled! '" + args[0] + "' is the selected mode!");
+                TwistCraft.instance.messageServer("Everywhere Looked enabled! '" + args[0] + "' is the selected mode!", p);
                 enabled = true;
             }
             else {
@@ -33,7 +34,7 @@ public class EverywhereLookedCommand implements CommandExecutor {
             }
         }
         else {
-            p.sendMessage("Everywhere Looked disabled!");
+            TwistCraft.instance.messageServer("Everywhere Looked disabled!", p);
             enabled = false;
         }
 

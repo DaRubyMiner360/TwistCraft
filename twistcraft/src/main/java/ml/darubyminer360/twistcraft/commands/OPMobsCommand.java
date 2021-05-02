@@ -1,5 +1,6 @@
 package ml.darubyminer360.twistcraft.commands;
 
+import ml.darubyminer360.twistcraft.TwistCraft;
 import org.bukkit.command.*;
 import org.bukkit.entity.*;
 
@@ -11,11 +12,11 @@ public class OPMobsCommand implements CommandExecutor {
         Player p = (Player) sender;
 
         if (!enabled) {
-            p.sendMessage("OP Mobs enabled!");
+            TwistCraft.instance.messageServer("OP Mobs enabled!", p);
             enabled = true;
         }
         else {
-            p.sendMessage("OP Mobs disabled!");
+            TwistCraft.instance.messageServer("OP Mobs disabled!", p);
             enabled = false;
         }
 

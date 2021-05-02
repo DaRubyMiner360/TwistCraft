@@ -57,7 +57,7 @@ public class EverywhereLookedListener implements Listener {
                             oloc.getBlock().setType(newMaterial);
                         }
                         else if (EverywhereLookedCommand.mode == EverywhereLookedCommand.EverywhereLookedMode.Explodes) {
-                            Entity tnt = player.getWorld().spawn(oloc, TNTPrimed.class);
+                            Entity tnt = player.getWorld().spawn(location, TNTPrimed.class);
                             ((TNTPrimed)tnt).setFuseTicks(0);
                         }
                     }
