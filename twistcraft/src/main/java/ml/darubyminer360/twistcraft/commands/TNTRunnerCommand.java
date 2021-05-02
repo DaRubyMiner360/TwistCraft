@@ -12,16 +12,18 @@ import org.bukkit.scheduler.BukkitScheduler;
 public class TNTRunnerCommand implements CommandExecutor {
     public static boolean enabled;
 
+    public static int task;
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         Player p = (Player) sender;
 
         if (!enabled) {
             if (args.length > 0) {
-                int cooldown = Integer.getInteger(args[0]);
+                int cooldown = Integer.parseInt(args[0]);
 
                 BukkitScheduler scheduler = p.getServer().getScheduler();
-                scheduler.scheduleSyncRepeatingTask(TwistCraft.instance, new Runnable() {
+                task = scheduler.scheduleSyncRepeatingTask(TwistCraft.instance, new Runnable() {
                     @Override
                     public void run() {
                         Entity tnt = p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
@@ -37,6 +39,8 @@ public class TNTRunnerCommand implements CommandExecutor {
             }
         }
         else {
+            p.getServer().getScheduler().cancelTask(task);
+
             TwistCraft.instance.messageServer("TNT Runner disabled!", p);
             enabled = false;
         }

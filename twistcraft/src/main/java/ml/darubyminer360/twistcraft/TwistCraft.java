@@ -35,9 +35,6 @@ public class TwistCraft extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ManhuntListener(), this);
         getServer().getPluginManager().registerEvents(new EverywhereLookedListener(), this);
 
-        getConfig().options().copyDefaults();
-        saveDefaultConfig();
-
         Config.setup();
         Config.get().addDefault("BroadcastMessages", false);
         Config.get().options().copyDefaults(true);

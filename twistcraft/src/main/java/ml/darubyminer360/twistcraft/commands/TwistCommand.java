@@ -129,10 +129,10 @@ public class TwistCommand implements CommandExecutor {
                 }
                 else if (args[1].equalsIgnoreCase("tntrunner")) {
                     if (args.length > 2) {
-                        int cooldown = Integer.getInteger(args[2]);
+                        int cooldown = Integer.parseInt(args[2]);
 
                         BukkitScheduler scheduler = p.getServer().getScheduler();
-                        scheduler.scheduleSyncRepeatingTask(TwistCraft.instance, new Runnable() {
+                        TNTRunnerCommand.task = scheduler.scheduleSyncRepeatingTask(TwistCraft.instance, new Runnable() {
                             @Override
                             public void run() {
                                 Entity tnt = p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
@@ -194,15 +194,22 @@ public class TwistCommand implements CommandExecutor {
                     EverywhereLookedCommand.enabled = false;
                 }
                 else if (args[1].equalsIgnoreCase("deathswap")) {
-                    p.getServer().getScheduler().cancelTask(DeathSwapCommand.task1);
-                    p.getServer().getScheduler().cancelTask(DeathSwapCommand.task2);
-                    p.getServer().getScheduler().cancelTask(DeathSwapCommand.task3);
-                    TwistCraft.instance.messageServer("Death Swap disabled!", p);
-                    DeathSwapCommand.enabled = false;
+                    if (DeathSwapCommand.enabled) {
+                        p.getServer().getScheduler().cancelTask(DeathSwapCommand.task1);
+                        p.getServer().getScheduler().cancelTask(DeathSwapCommand.task2);
+                        p.getServer().getScheduler().cancelTask(DeathSwapCommand.task3);
+
+                        TwistCraft.instance.messageServer("Death Swap disabled!", p);
+                        DeathSwapCommand.enabled = false;
+                    }
                 }
                 else if (args[1].equalsIgnoreCase("tntrunner")) {
-                    TwistCraft.instance.messageServer("TNT Runner disabled!", p);
-                    TNTRunnerCommand.enabled = false;
+                    if (TNTRunnerCommand.enabled) {
+                        p.getServer().getScheduler().cancelTask(TNTRunnerCommand.task);
+
+                        TwistCraft.instance.messageServer("TNT Runner disabled!", p);
+                        TNTRunnerCommand.enabled = false;
+                    }
                 }
                 break;
             case "info":
