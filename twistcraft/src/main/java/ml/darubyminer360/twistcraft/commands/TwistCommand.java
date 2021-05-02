@@ -19,6 +19,7 @@ public class TwistCommand implements CommandExecutor {
                 p.sendMessage("- OP Mobs (opmobs)");
                 p.sendMessage("- Half Heart Eating (halfhearteating)");
                 p.sendMessage("- Craftable Enchanted Golden Apples (craftableenchantedgoldenapples)");
+                p.sendMessage("- Manhunt (manhunt <speedrunner>)");
                 break;
             case "enable":
                 if (args[1].equalsIgnoreCase("craftablecommandblocks")) {
@@ -53,6 +54,26 @@ public class TwistCommand implements CommandExecutor {
 
                     p.sendMessage("Craftable Enchanted Golden Apples enabled!");
                     CraftableEnchantedGoldenApplesCommand.enabled = true;
+                }
+                else if (args[1].equalsIgnoreCase("manhunt")) {
+                    if (args.length > 2) {
+                        ManhuntCommand.hunted = args[2];
+
+                        p.sendMessage("Manhunt enabled! " + args[2] + " is the speedrunner!");
+                        ManhuntCommand.enabled = true;
+                    }
+                    else {
+                        p.sendMessage("Add the speedrunner as an argument!");
+                    }
+                }
+                else if (args[1].equalsIgnoreCase("everywherelooked")) {
+                    if (args.length > 2) {
+                        p.sendMessage("Everywhere Looked enabled! " + args[2] + " is the selected mode!");
+                        EverywhereLookedCommand.enabled = true;
+                    }
+                    else {
+                        p.sendMessage("Add the mode as an argument!");
+                    }
                 }
                 break;
             case "disable":
@@ -92,6 +113,14 @@ public class TwistCommand implements CommandExecutor {
                     p.sendMessage("Craftable Enchanted Golden Apples disabled!");
                     CraftableEnchantedGoldenApplesCommand.enabled = false;
                 }
+                else if (args[1].equalsIgnoreCase("manhunt")) {
+                    p.sendMessage("Manhunt disabled!");
+                    ManhuntCommand.enabled = false;
+                }
+                else if (args[1].equalsIgnoreCase("everywherelooked")) {
+                    p.sendMessage("Everywhere Looked disabled!");
+                    EverywhereLookedCommand.enabled = false;
+                }
                 break;
             case "info":
                 if (args[1].equalsIgnoreCase("craftablecommandblocks")) {
@@ -105,6 +134,14 @@ public class TwistCommand implements CommandExecutor {
                 }
                 else if (args[1].equalsIgnoreCase("craftableenchantedgoldenapples")) {
                     p.sendMessage("Craftable Enchanted Golden Apples you to craft enchanted golden apples.");
+                }
+                else if (args[1].equalsIgnoreCase("manhunt")) {
+                    p.sendMessage("Manhunt is the gamemode where a speedrunner attempts to defeat the Ender Dragon while one or more hunters try to kill the speedrunner.");
+                    ManhuntCommand.enabled = false;
+                }
+                else if (args[1].equalsIgnoreCase("everywherelooked")) {
+                    p.sendMessage("Everywhere Looked is the gamemode where whereever a player looks, something happens!");
+                    EverywhereLookedCommand.enabled = false;
                 }
                 break;
         }

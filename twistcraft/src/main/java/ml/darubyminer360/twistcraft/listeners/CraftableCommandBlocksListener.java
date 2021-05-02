@@ -36,7 +36,7 @@ public class CraftableCommandBlocksListener implements Listener {
                     previousGameMode = null;
                     event.getPlayer().sendMessage("Craftable Command Blocks 2 2");
                 }
-                if (event.getPlayer().getEquipment().getItemInMainHand().getType() == Material.COMMAND_BLOCK || event.getPlayer().getEquipment().getItemInMainHand().getData().getItemType() == Material.COMMAND_BLOCK || event.getPlayer().getEquipment().getItemInOffHand().getType() == Material.COMMAND_BLOCK || event.getPlayer().getEquipment().getItemInOffHand().getData().getItemType() == Material.COMMAND_BLOCK || event.getItem().getData().getItemType() == Material.COMMAND_BLOCK || event.getItem().getType() == Material.COMMAND_BLOCK) {
+                if (event.getPlayer().getEquipment().getItemInMainHand().getType() == Material.COMMAND_BLOCK || event.getPlayer().getEquipment().getItemInOffHand().getType() == Material.COMMAND_BLOCK || event.getItem().getType() == Material.COMMAND_BLOCK) {
                     event.getPlayer().sendMessage("Craftable Command Blocks 1 1");
                     previousGameMode = event.getPlayer().getGameMode();
                     event.getPlayer().setGameMode(GameMode.CREATIVE);

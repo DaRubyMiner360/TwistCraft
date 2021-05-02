@@ -19,3 +19,7 @@ commands:
     usage: /halfhearteating
   craftableenchantedgoldenapples:
     usage: /craftableenchantedgoldenapples
+  manhunt:
+    usage: /manhunt
+  everywherelooked:
+    usage: /everywherelooked
