@@ -20,6 +20,7 @@ public class TwistCommand implements CommandExecutor {
                 p.sendMessage("- Half Heart Eating (halfhearteating)");
                 p.sendMessage("- Craftable Enchanted Golden Apples (craftableenchantedgoldenapples)");
                 p.sendMessage("- Manhunt (manhunt <speedrunner>)");
+                p.sendMessage("- Everywhere Looked (everywherelooked <mode>)");
                 break;
             case "enable":
                 if (args[1].equalsIgnoreCase("craftablecommandblocks")) {

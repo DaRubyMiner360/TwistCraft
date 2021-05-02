@@ -16,7 +16,6 @@ public class EverywhereLookedCommand implements CommandExecutor {
 
         if (!enabled) {
             if (args.length > 0 && (args[0].equalsIgnoreCase("random") || args[0].equalsIgnoreCase("bedrock") || args[0].equalsIgnoreCase("explodes") || args[0].equalsIgnoreCase("explode") || args[0].equalsIgnoreCase("explosion"))) {
-
                 if (args[0].equalsIgnoreCase("random")) {
                     mode = EverywhereLookedMode.Random;
                 }
