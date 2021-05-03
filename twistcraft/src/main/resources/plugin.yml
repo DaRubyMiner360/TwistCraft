@@ -43,3 +43,7 @@ commands:
       - ds
   tntrunner:
     usage: /tntrunner <cooldown>
+  fallingblocks:
+    usage: /fallingblocks <cooldown>
+  rainingitems:
+    usage: /rainingitems <cooldown>

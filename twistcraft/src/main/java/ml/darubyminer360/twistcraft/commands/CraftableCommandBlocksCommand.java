@@ -28,14 +28,7 @@ public class CraftableCommandBlocksCommand implements CommandExecutor {
         }
         else {
             // Remove recipe
-            Iterator<Recipe> iter = Bukkit.getServer().recipeIterator();
-            while (iter.hasNext()) {
-                Recipe r = iter.next();
-
-                if (r == commandBlockRecipe) {
-                    iter.remove();
-                }
-            }
+            Bukkit.getServer().removeRecipe(commandBlockRecipe.getKey());
 
             TwistCraft.instance.messageServer("Craftable Command Blocks disabled!", p);
             enabled = false;

@@ -29,13 +29,13 @@ public class TNTRunnerCommand implements CommandExecutor {
                         Entity tnt = p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
                         ((TNTPrimed)tnt).setFuseTicks(80);
                     }
-                }, cooldown * 20L, cooldown * 20L);
+                }, cooldown, cooldown);
 
                 TwistCraft.instance.messageServer("TNT Runner enabled with a cooldown of " + args[0] + "!", p);
                 enabled = true;
-            }
+        }
             else {
-                p.sendMessage("Add the amount of time between TNT spawns (in seconds) as an argument!");
+                p.sendMessage("Add the amount of time between TNT spawns in ticks (20 ticks is 1 second) as an argument!");
             }
         }
         else {
