@@ -1,2 +1,0 @@
-language="Java"
-run="cd twistcraft && mvn clean install"

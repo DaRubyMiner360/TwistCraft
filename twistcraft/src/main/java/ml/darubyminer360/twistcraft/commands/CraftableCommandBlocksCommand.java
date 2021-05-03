@@ -7,6 +7,7 @@ import org.bukkit.command.*;
 import org.bukkit.entity.*;
 
 import java.util.Iterator;
+import java.util.HashMap;
 
 public class CraftableCommandBlocksCommand implements CommandExecutor {
     public static ShapelessRecipe commandBlockRecipe;

@@ -1,5 +1,5 @@
 name: TwistCraft
-version: 1.0-SNAPSHOT
+version: 1.0.0
 api-version: 1.16
 main: ml.darubyminer360.twistcraft.TwistCraft
 
@@ -47,3 +47,11 @@ commands:
     usage: /fallingblocks <cooldown>
   rainingitems:
     usage: /rainingitems <cooldown>
+  sneakinvisibility:
+    usage: /sneakinvisibility
+      - sneakinvis
+      - si
+  allowedflight:
+    usage: /allowedflight
+    aliases:
+      - af

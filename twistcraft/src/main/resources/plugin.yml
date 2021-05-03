@@ -47,3 +47,11 @@ commands:
     usage: /fallingblocks <cooldown>
   rainingitems:
     usage: /rainingitems <cooldown>
+  sneakinvisibility:
+    usage: /sneakinvisibility
+      - sneakinvis
+      - si
+  allowedflight:
+    usage: /allowedflight
+    aliases:
+      - af

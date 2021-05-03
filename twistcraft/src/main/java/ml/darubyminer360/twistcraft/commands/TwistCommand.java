@@ -28,6 +28,8 @@ public class TwistCommand implements CommandExecutor {
                 TwistCraft.instance.messageServer("- TNT Runner (tntrunner <cooldown>)", p);
                 TwistCraft.instance.messageServer("- Falling Blocks (fallingblocks <cooldown>)", p);
                 TwistCraft.instance.messageServer("- Raining Items (rainingitems <cooldown>)", p);
+                TwistCraft.instance.messageServer("- Sneak Invisibility (sneakinvisibility)", p);
+                TwistCraft.instance.messageServer("- Allowed Flight (allowedflight)", p);
                 break;
             case "enable":
                 if (args[1].equalsIgnoreCase("craftablecommandblocks")) {
@@ -255,6 +257,18 @@ public class TwistCommand implements CommandExecutor {
                         p.sendMessage("Add the amount of time between items in ticks (20 ticks is 1 second) as an argument!");
                     }
                 }
+                else if (args[1].equalsIgnoreCase("sneakinvisibility")) {
+                    TwistCraft.instance.messageServer("Sneak Invisibility enabled!", p);
+                    SneakInvisibilityCommand.enabled = true;
+                }
+                else if (args[1].equalsIgnoreCase("allowedflight")) {
+                    for (Player player: Bukkit.getOnlinePlayers()) {
+                        player.setAllowFlight(true);
+                    }
+                    
+                    TwistCraft.instance.messageServer("Allowed Flight enabled!", p);
+                    AllowedFlightCommand.enabled = true;
+                }
                 break;
             case "disable":
                 if (args[1].equalsIgnoreCase("craftablecommandblocks")) {
@@ -329,6 +343,20 @@ public class TwistCommand implements CommandExecutor {
                         RainingItemsCommand.enabled = false;
                     }
                 }
+                else if (args[1].equalsIgnoreCase("sneakinvisibility")) {
+                    TwistCraft.instance.messageServer("Sneak Invisibility disabled!", p);
+                    SneakInvisibilityCommand.enabled = false;
+                }
+                else if (args[1].equalsIgnoreCase("allowedflight")) {
+                    for (Player player : Bukkit.getOnlinePlayers()) {
+                        if (player.getGameMode() != GameMode.CREATIVE && player.getGameMode() != GameMode.SPECTATOR) {
+                            player.setAllowFlight(false);
+                        }
+                    }
+                    
+                    TwistCraft.instance.messageServer("Allowed Flight disabled!", p);
+                    AllowedFlightCommand.enabled = false;
+                }
                 break;
             case "info":
                 if (args[1].equalsIgnoreCase("craftablecommandblocks")) {
@@ -363,6 +391,12 @@ public class TwistCommand implements CommandExecutor {
                 }
                 else if (args[1].equalsIgnoreCase("rainingitems")) {
                     TwistCraft.instance.messageServer("Raining Items makes random items fall from the sky every given amount of time!", p);
+                }
+                else if (args[1].equalsIgnoreCase("sneakinvisibility")) {
+                    TwistCraft.instance.messageServer("Sneak Invisibility makes it to where whenever a player sneaks, they become invisible!", p);
+                }
+                else if (args[1].equalsIgnoreCase("allowedflight")) {
+                    TwistCraft.instance.messageServer("Allowed Flight allows everyone to fly like creative mode.!", p);
                 }
                 break;
             default:
