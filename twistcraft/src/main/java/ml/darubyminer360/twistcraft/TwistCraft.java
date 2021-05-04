@@ -4,6 +4,7 @@ import ml.darubyminer360.twistcraft.commands.*;
 
 import ml.darubyminer360.twistcraft.listeners.*;
 import ml.darubyminer360.twistcraft.util.Config;
+import ml.darubyminer360.twistcraft.util.CustomEnchants;
 import org.bukkit.Material;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -52,8 +53,10 @@ public class TwistCraft extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EverywhereLookedListener(), this);
         getServer().getPluginManager().registerEvents(new SneakInvisibilityListener(), this);
 
-        // // Setup enchantments
-        // CustomEnchants.register();
+        // Setup enchantments
+        CustomEnchants.register();
+        getCommand("customenchants").setExecutor(new CustomEnchantsCommand());
+        getServer().getPluginManager().registerEvents(new CustomEnchantsListener(), this);
 
         // Setup config
         Config.setup();

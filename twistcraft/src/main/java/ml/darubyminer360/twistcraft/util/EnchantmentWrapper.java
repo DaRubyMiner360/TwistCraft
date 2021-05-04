@@ -1,4 +1,4 @@
-package ml.darubyminer360.twistcraft;
+package ml.darubyminer360.twistcraft.util;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
