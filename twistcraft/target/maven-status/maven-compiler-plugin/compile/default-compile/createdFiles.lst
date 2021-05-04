@@ -14,9 +14,12 @@ ml/darubyminer360/twistcraft/TwistCraft.class
 ml/darubyminer360/twistcraft/commands/EverywhereLookedCommand.class
 ml/darubyminer360/twistcraft/commands/OPMobsCommand.class
 ml/darubyminer360/twistcraft/commands/RainingItemsCommand.class
+ml/darubyminer360/twistcraft/commands/CustomEnchantsCommand.class
 ml/darubyminer360/twistcraft/commands/TNTRunnerCommand$1.class
+ml/darubyminer360/twistcraft/listeners/CustomEnchantsListener.class
 ml/darubyminer360/twistcraft/commands/TwistCommand$3.class
 ml/darubyminer360/twistcraft/listeners/ManhuntListener.class
+ml/darubyminer360/twistcraft/commands/AddCustomEnchantCommand.class
 ml/darubyminer360/twistcraft/WrapperPlayClientUseItem.class
 ml/darubyminer360/twistcraft/WrapperPlayClientUseItem$MovingObjectPosition.class
 ml/darubyminer360/twistcraft/commands/AllowedFlightCommand.class
@@ -26,6 +29,7 @@ ml/darubyminer360/twistcraft/commands/ConfigCommand.class
 ml/darubyminer360/twistcraft/commands/RainingItemsCommand$1.class
 ml/darubyminer360/twistcraft/commands/TwistCommand$5.class
 ml/darubyminer360/twistcraft/commands/TwistCommand.class
+ml/darubyminer360/twistcraft/util/EnchantmentWrapper.class
 ml/darubyminer360/twistcraft/commands/DeathSwapCommand.class
 ml/darubyminer360/twistcraft/commands/HalfHeartEatingCommand.class
 ml/darubyminer360/twistcraft/commands/SneakInvisibilityCommand.class
@@ -38,4 +42,5 @@ ml/darubyminer360/twistcraft/commands/CraftableEnchantedGoldenApplesCommand.clas
 ml/darubyminer360/twistcraft/commands/CraftableCommandBlocksCommand.class
 ml/darubyminer360/twistcraft/listeners/CraftableCommandBlocksListener.class
 ml/darubyminer360/twistcraft/util/Config.class
+ml/darubyminer360/twistcraft/util/CustomEnchants.class
 ml/darubyminer360/twistcraft/commands/DeathSwapCommand$1.class

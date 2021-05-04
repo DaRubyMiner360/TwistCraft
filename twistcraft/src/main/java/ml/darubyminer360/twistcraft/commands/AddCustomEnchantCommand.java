@@ -15,12 +15,36 @@ public class AddCustomEnchantCommand implements CommandExecutor {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
 
-                if (!(player.getInventory().getItemInMainHand().getType() == Material.AIR)) {
+                if (player.getInventory().getItemInMainHand().getType() != Material.AIR) {
                     if (args[0].equalsIgnoreCase("oploot")) {
                         player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.OPLOOT, 1);
                     }
                     if (args[0].equalsIgnoreCase("telepathy")) {
                         player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.TELEPATHY, 1);
+                    }
+                    if (args[0].equalsIgnoreCase("infection")) {
+                        if (args.length > 1 && args[1] == "2") {
+                            player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.INFECTION, 2);
+                        }
+                        else {
+                            player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.INFECTION, 1);
+                        }
+                    }
+                    if (args[0].equalsIgnoreCase("withering")) {
+                        if (args.length > 1 && args[1] == "2") {
+                            player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.WITHERING, 2);
+                        }
+                        else {
+                            player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.WITHERING, 1);
+                        }
+                    }
+                    if (args[0].equalsIgnoreCase("heaviness")) {
+                        if (args.length > 1 && args[1] == "2") {
+                            player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.HEAVINESS, 2);
+                        }
+                        else {
+                            player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.HEAVINESS, 1);
+                        }
                     }
                 }
             }

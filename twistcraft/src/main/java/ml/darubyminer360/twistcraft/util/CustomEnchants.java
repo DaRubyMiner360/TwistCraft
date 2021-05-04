@@ -10,6 +10,11 @@ import org.bukkit.enchantments.Enchantment;
 public class CustomEnchants {
     public static final Enchantment OPLOOT = new EnchantmentWrapper("oploot", "OP Loot", 1);
     public static final Enchantment TELEPATHY = new EnchantmentWrapper("telepathy", "Telepathy", 1);
+    public static final Enchantment LIFESTEAL = new EnchantmentWrapper("lifesteal", "Lifesteal", 5);
+
+    public static final Enchantment INFECTION = new EnchantmentWrapper("infection", "Infection", 2);
+    public static final Enchantment WITHERING = new EnchantmentWrapper("withering", "Withering", 2);
+    public static final Enchantment HEAVINESS = new EnchantmentWrapper("heaviness", "Heaviness", 2);
 
     public static void register() {
         boolean registered = Arrays.stream(Enchantment.values()).collect(Collectors.toList()).contains(TELEPATHY);
@@ -17,6 +22,11 @@ public class CustomEnchants {
         if (!registered) {
             registerEnchantment(OPLOOT);
             registerEnchantment(TELEPATHY);
+            registerEnchantment(LIFESTEAL);
+
+            registerEnchantment(INFECTION);
+            registerEnchantment(WITHERING);
+            registerEnchantment(HEAVINESS);
         }
     }
 

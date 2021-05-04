@@ -4,6 +4,7 @@
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/commands/ManhuntCommand.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/listeners/EverywhereLookedListener.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/listeners/SneakInvisibilityListener.java
+/home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/listeners/CustomEnchantsListener.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/WrapperPlayClientBlockPlace.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/commands/TNTRunnerCommand.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/commands/OPMobsCommand.java
@@ -16,11 +17,15 @@
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/util/Removed.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/listeners/ManhuntListener.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/listeners/OPMobsListener.java
+/home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/commands/CustomEnchantsCommand.java
+/home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/commands/AddCustomEnchantCommand.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/commands/DeathSwapCommand.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/commands/ConfigCommand.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/commands/HalfHeartEatingCommand.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/commands/TwistCommand.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/WrapperPlayClientUseItem.java
+/home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/util/EnchantmentWrapper.java
+/home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/util/CustomEnchants.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/commands/AllowedFlightCommand.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/listeners/HalfHeartEatingListener.java
 /home/runner/TwistCraft/twistcraft/src/main/java/ml/darubyminer360/twistcraft/commands/CraftableBarrierBlocksCommand.java
