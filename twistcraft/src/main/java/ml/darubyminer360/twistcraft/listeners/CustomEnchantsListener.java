@@ -26,7 +26,7 @@ public class CustomEnchantsListener implements Listener {
 
             Collection<ItemStack> drops = block.getDrops(player.getInventory().getItemInMainHand());
 
-            if (player.getInventory().getItemInMainHand().getType() == Material.AIR)
+            if (player.getInventory().getItemInMainHand() == null)
                 return;
             if (!player.getInventory().getItemInMainHand().hasItemMeta())
                 return;
@@ -52,8 +52,6 @@ public class CustomEnchantsListener implements Listener {
             if (player.getInventory().getItemInMainHand().getItemMeta().hasEnchant(CustomEnchants.TELEPATHY)) {
                 boolean valid = true;
                 if (player.getGameMode() == GameMode.CREATIVE || player.getGameMode() == GameMode.SPECTATOR)
-                    valid = false;
-                if (player.getInventory().firstEmpty() == -1)
                     valid = false;
                 if (block.getState() instanceof Container)
                     valid = false;
@@ -84,7 +82,7 @@ public class CustomEnchantsListener implements Listener {
 
         List<ItemStack> drops = event.getDrops();
 
-        if (player.getInventory().getItemInMainHand().getType() == Material.AIR)
+        if (player.getInventory().getItemInMainHand() == null)
             return;
         if (!player.getInventory().getItemInMainHand().hasItemMeta())
             return;

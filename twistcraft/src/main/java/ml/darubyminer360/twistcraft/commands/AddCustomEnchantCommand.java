@@ -23,7 +23,7 @@ public class AddCustomEnchantCommand implements CommandExecutor {
                         player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.TELEPATHY, 1);
                     }
                     if (args[0].equalsIgnoreCase("infection")) {
-                        if (args.length > 1 && args[1] == "2") {
+                        if (args.length > 1 && args[1].equals("2")) {
                             player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.INFECTION, 2);
                         }
                         else {
@@ -31,7 +31,7 @@ public class AddCustomEnchantCommand implements CommandExecutor {
                         }
                     }
                     if (args[0].equalsIgnoreCase("withering")) {
-                        if (args.length > 1 && args[1] == "2") {
+                        if (args.length > 1 && args[1].equals("2")) {
                             player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.WITHERING, 2);
                         }
                         else {
@@ -39,7 +39,7 @@ public class AddCustomEnchantCommand implements CommandExecutor {
                         }
                     }
                     if (args[0].equalsIgnoreCase("heaviness")) {
-                        if (args.length > 1 && args[1] == "2") {
+                        if (args.length > 1 && args[1].equals("2")) {
                             player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.HEAVINESS, 2);
                         }
                         else {

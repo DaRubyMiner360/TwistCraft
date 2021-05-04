@@ -20,44 +20,44 @@ public class GetCustomEnchantCommand implements CommandExecutor {
                 if (args[0].equalsIgnoreCase("oploot")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
                     meta.addStoredEnchant(CustomEnchants.OPLOOT, 1, true);
-                    // item.addUnsafeEnchantment(CustomEnchants.OPLOOT, 1);
+                     item.addUnsafeEnchantment(CustomEnchants.OPLOOT, 1);
                 }
                 if (args[0].equalsIgnoreCase("telepathy")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
                     meta.addStoredEnchant(CustomEnchants.TELEPATHY, 1, true);
-                    // item.addUnsafeEnchantment(CustomEnchants.TELEPATHY, 1);
+                     item.addUnsafeEnchantment(CustomEnchants.TELEPATHY, 1);
                 }
                 if (args[0].equalsIgnoreCase("infection")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
                     if (args.length > 1 && args[1] == "2") {
                         meta.addStoredEnchant(CustomEnchants.INFECTION, 2, true);
-                        // item.addUnsafeEnchantment(CustomEnchants.INFECTION, 2);
+                         item.addUnsafeEnchantment(CustomEnchants.INFECTION, 2);
                     }
                     else {
                         meta.addStoredEnchant(CustomEnchants.INFECTION, 1, true);
-                        // item.addUnsafeEnchantment(CustomEnchants.INFECTION, 1);
+                         item.addUnsafeEnchantment(CustomEnchants.INFECTION, 1);
                     }
                 }
                 if (args[0].equalsIgnoreCase("withering")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
                     if (args.length > 1 && args[1] == "2") {
                         meta.addStoredEnchant(CustomEnchants.WITHERING, 2, true);
-                        // item.addUnsafeEnchantment(CustomEnchants.WITHERING, 2);
+                         item.addUnsafeEnchantment(CustomEnchants.WITHERING, 2);
                     }
                     else {
                         meta.addStoredEnchant(CustomEnchants.WITHERING, 1, true);
-                        // item.addUnsafeEnchantment(CustomEnchants.WITHERING, 1);
+                         item.addUnsafeEnchantment(CustomEnchants.WITHERING, 1);
                     }
                 }
                 if (args[0].equalsIgnoreCase("heaviness")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
                     if (args.length > 1 && args[1] == "2") {
                         meta.addStoredEnchant(CustomEnchants.HEAVINESS, 2, true);
-                        // item.addUnsafeEnchantment(CustomEnchants.HEAVINESS, 2);
+                         item.addUnsafeEnchantment(CustomEnchants.HEAVINESS, 2);
                     }
                     else {
                         meta.addStoredEnchant(CustomEnchants.HEAVINESS, 1, true);
-                        // item.addUnsafeEnchantment(CustomEnchants.HEAVINESS, 1);
+                         item.addUnsafeEnchantment(CustomEnchants.HEAVINESS, 1);
                     }
                 }
 
