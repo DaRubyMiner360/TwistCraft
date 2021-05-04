@@ -55,6 +55,7 @@ public class TwistCraft extends JavaPlugin {
 
         // Setup enchantments
         CustomEnchants.register();
+        getCommand("addcustomenchant").setExecutor(new AddCustomEnchantCommand());
         getCommand("customenchants").setExecutor(new CustomEnchantsCommand());
         getServer().getPluginManager().registerEvents(new CustomEnchantsListener(), this);
 
