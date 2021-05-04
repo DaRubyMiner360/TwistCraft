@@ -57,3 +57,5 @@ commands:
       - af
   customenchants:
     usage: /customenchants
+  addcustomenchant:
+    usage: /addcustomenchant
