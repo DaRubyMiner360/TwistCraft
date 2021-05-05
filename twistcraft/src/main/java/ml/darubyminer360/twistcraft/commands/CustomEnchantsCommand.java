@@ -33,138 +33,138 @@ public class CustomEnchantsCommand implements CommandExecutor {
 
         if (!enabled) {
             // Add recipe
-            ItemStack opLootEnchantedBook = new ItemStack(Material.ENCHANTED_BOOK);
-            EnchantmentStorageMeta opLootEnchantedBookMeta = (EnchantmentStorageMeta) opLootEnchantedBook.getItemMeta();
-            opLootEnchantedBookMeta.addStoredEnchant(CustomEnchants.OPLOOT, 1, true);
-            opLootEnchantedBook.setItemMeta(opLootEnchantedBookMeta);
+            ItemStack opLootBook = new ItemStack(Material.ENCHANTED_BOOK);
+            EnchantmentStorageMeta opLootBookMeta = (EnchantmentStorageMeta) opLootBook.getItemMeta();
+            opLootBookMeta.addStoredEnchant(CustomEnchants.OPLOOT, 1, true);
+            opLootBook.setItemMeta(opLootBookMeta);
 
-            ItemStack telepathyEnchantedBook = new ItemStack(Material.ENCHANTED_BOOK);
-            EnchantmentStorageMeta telepathyEnchantedBookMeta = (EnchantmentStorageMeta) telepathyEnchantedBook.getItemMeta();
-            telepathyEnchantedBookMeta.addStoredEnchant(CustomEnchants.TELEPATHY, 1, true);
-            telepathyEnchantedBook.setItemMeta(telepathyEnchantedBookMeta);
+            ItemStack telepathyBook = new ItemStack(Material.ENCHANTED_BOOK);
+            EnchantmentStorageMeta telepathyBookMeta = (EnchantmentStorageMeta) telepathyBook.getItemMeta();
+            telepathyBookMeta.addStoredEnchant(CustomEnchants.TELEPATHY, 1, true);
+            telepathyBook.setItemMeta(telepathyBookMeta);
 
-            ItemStack lifestealOneEnchantedBook = new ItemStack(Material.ENCHANTED_BOOK);
-            EnchantmentStorageMeta lifestealOneEnchantedBookMeta = (EnchantmentStorageMeta) lifestealOneEnchantedBook.getItemMeta();
-            lifestealOneEnchantedBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 1, true);
-            lifestealOneEnchantedBook.setItemMeta(lifestealOneEnchantedBookMeta);
+            ItemStack lifestealOneBook = new ItemStack(Material.ENCHANTED_BOOK);
+            EnchantmentStorageMeta lifestealOneBookMeta = (EnchantmentStorageMeta) lifestealOneBook.getItemMeta();
+            lifestealOneBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 1, true);
+            lifestealOneBook.setItemMeta(lifestealOneBookMeta);
 
-            ItemStack lifestealTwoEnchantedBook = new ItemStack(Material.ENCHANTED_BOOK);
-            EnchantmentStorageMeta lifestealTwoEnchantedBookMeta = (EnchantmentStorageMeta) lifestealTwoEnchantedBook.getItemMeta();
-            lifestealTwoEnchantedBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 2, true);
-            lifestealTwoEnchantedBook.setItemMeta(lifestealTwoEnchantedBookMeta);
+            ItemStack lifestealTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
+            EnchantmentStorageMeta lifestealTwoBookMeta = (EnchantmentStorageMeta) lifestealTwoBook.getItemMeta();
+            lifestealTwoBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 2, true);
+            lifestealTwoBook.setItemMeta(lifestealTwoBookMeta);
 
-            ItemStack lifestealThreeEnchantedBook = new ItemStack(Material.ENCHANTED_BOOK);
-            EnchantmentStorageMeta lifestealThreeEnchantedBookMeta = (EnchantmentStorageMeta) lifestealThreeEnchantedBook.getItemMeta();
-            lifestealThreeEnchantedBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 3, true);
-            lifestealThreeEnchantedBook.setItemMeta(lifestealThreeEnchantedBookMeta);
+            ItemStack lifestealThreeBook = new ItemStack(Material.ENCHANTED_BOOK);
+            EnchantmentStorageMeta lifestealThreeBookMeta = (EnchantmentStorageMeta) lifestealThreeBook.getItemMeta();
+            lifestealThreeBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 3, true);
+            lifestealThreeBook.setItemMeta(lifestealThreeBookMeta);
 
-            ItemStack lifestealFourEnchantedBook = new ItemStack(Material.ENCHANTED_BOOK);
-            EnchantmentStorageMeta lifestealFourEnchantedBookMeta = (EnchantmentStorageMeta) lifestealFourEnchantedBook.getItemMeta();
-            lifestealFourEnchantedBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 4, true);
-            lifestealFourEnchantedBook.setItemMeta(lifestealFourEnchantedBookMeta);
+            ItemStack lifestealFourBook = new ItemStack(Material.ENCHANTED_BOOK);
+            EnchantmentStorageMeta lifestealFourBookMeta = (EnchantmentStorageMeta) lifestealFourBook.getItemMeta();
+            lifestealFourBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 4, true);
+            lifestealFourBook.setItemMeta(lifestealFourBookMeta);
 
-            ItemStack lifestealFiveEnchantedBook = new ItemStack(Material.ENCHANTED_BOOK);
-            EnchantmentStorageMeta lifestealFiveEnchantedBookMeta = (EnchantmentStorageMeta) lifestealFiveEnchantedBook.getItemMeta();
-            lifestealFiveEnchantedBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 5, true);
-            lifestealFiveEnchantedBook.setItemMeta(lifestealFiveEnchantedBookMeta);
+            ItemStack lifestealFiveBook = new ItemStack(Material.ENCHANTED_BOOK);
+            EnchantmentStorageMeta lifestealFiveBookMeta = (EnchantmentStorageMeta) lifestealFiveBook.getItemMeta();
+            lifestealFiveBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 5, true);
+            lifestealFiveBook.setItemMeta(lifestealFiveBookMeta);
 
-            ItemStack infectionOneEnchantedBook = new ItemStack(Material.ENCHANTED_BOOK);
-            EnchantmentStorageMeta infectionOneEnchantedBookMeta = (EnchantmentStorageMeta) infectionOneEnchantedBook.getItemMeta();
-            infectionOneEnchantedBookMeta.addStoredEnchant(CustomEnchants.INFECTION, 1, true);
-            infectionOneEnchantedBook.setItemMeta(infectionOneEnchantedBookMeta);
+            ItemStack infectionOneBook = new ItemStack(Material.ENCHANTED_BOOK);
+            EnchantmentStorageMeta infectionOneBookMeta = (EnchantmentStorageMeta) infectionOneBook.getItemMeta();
+            infectionOneBookMeta.addStoredEnchant(CustomEnchants.INFECTION, 1, true);
+            infectionOneBook.setItemMeta(infectionOneBookMeta);
 
-            ItemStack infectionTwoEnchantedBook = new ItemStack(Material.ENCHANTED_BOOK);
-            EnchantmentStorageMeta infectionTwoEnchantedBookMeta = (EnchantmentStorageMeta) infectionTwoEnchantedBook.getItemMeta();
-            infectionTwoEnchantedBookMeta.addStoredEnchant(CustomEnchants.INFECTION, 2, true);
-            infectionTwoEnchantedBook.setItemMeta(infectionTwoEnchantedBookMeta);
+            ItemStack infectionTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
+            EnchantmentStorageMeta infectionTwoBookMeta = (EnchantmentStorageMeta) infectionTwoBook.getItemMeta();
+            infectionTwoBookMeta.addStoredEnchant(CustomEnchants.INFECTION, 2, true);
+            infectionTwoBook.setItemMeta(infectionTwoBookMeta);
 
-            ItemStack witheringOneEnchantedBook = new ItemStack(Material.ENCHANTED_BOOK);
-            EnchantmentStorageMeta witheringOneEnchantedBookMeta = (EnchantmentStorageMeta) witheringOneEnchantedBook.getItemMeta();
-            witheringOneEnchantedBookMeta.addStoredEnchant(CustomEnchants.WITHERING, 1, true);
-            witheringOneEnchantedBook.setItemMeta(witheringOneEnchantedBookMeta);
+            ItemStack witheringOneBook = new ItemStack(Material.ENCHANTED_BOOK);
+            EnchantmentStorageMeta witheringOneBookMeta = (EnchantmentStorageMeta) witheringOneBook.getItemMeta();
+            witheringOneBookMeta.addStoredEnchant(CustomEnchants.WITHERING, 1, true);
+            witheringOneBook.setItemMeta(witheringOneBookMeta);
 
-            ItemStack witheringTwoEnchantedBook = new ItemStack(Material.ENCHANTED_BOOK);
-            EnchantmentStorageMeta witheringTwoEnchantedBookMeta = (EnchantmentStorageMeta) witheringTwoEnchantedBook.getItemMeta();
-            witheringTwoEnchantedBookMeta.addStoredEnchant(CustomEnchants.WITHERING, 2, true);
-            witheringTwoEnchantedBook.setItemMeta(witheringTwoEnchantedBookMeta);
+            ItemStack witheringTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
+            EnchantmentStorageMeta witheringTwoBookMeta = (EnchantmentStorageMeta) witheringTwoBook.getItemMeta();
+            witheringTwoBookMeta.addStoredEnchant(CustomEnchants.WITHERING, 2, true);
+            witheringTwoBook.setItemMeta(witheringTwoBookMeta);
 
-            ItemStack heavinessOneEnchantedBook = new ItemStack(Material.ENCHANTED_BOOK);
-            EnchantmentStorageMeta heavinessOneEnchantedBookMeta = (EnchantmentStorageMeta) heavinessOneEnchantedBook.getItemMeta();
-            heavinessOneEnchantedBookMeta.addStoredEnchant(CustomEnchants.HEAVINESS, 1, true);
-            heavinessOneEnchantedBook.setItemMeta(heavinessOneEnchantedBookMeta);
+            ItemStack heavinessOneBook = new ItemStack(Material.ENCHANTED_BOOK);
+            EnchantmentStorageMeta heavinessOneBookMeta = (EnchantmentStorageMeta) heavinessOneBook.getItemMeta();
+            heavinessOneBookMeta.addStoredEnchant(CustomEnchants.HEAVINESS, 1, true);
+            heavinessOneBook.setItemMeta(heavinessOneBookMeta);
 
-            ItemStack heavinessTwoEnchantedBook = new ItemStack(Material.ENCHANTED_BOOK);
-            EnchantmentStorageMeta heavinessTwoEnchantedBookMeta = (EnchantmentStorageMeta) heavinessTwoEnchantedBook.getItemMeta();
-            heavinessTwoEnchantedBookMeta.addStoredEnchant(CustomEnchants.HEAVINESS, 2, true);
-            heavinessTwoEnchantedBook.setItemMeta(heavinessTwoEnchantedBookMeta);
+            ItemStack heavinessTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
+            EnchantmentStorageMeta heavinessTwoBookMeta = (EnchantmentStorageMeta) heavinessTwoBook.getItemMeta();
+            heavinessTwoBookMeta.addStoredEnchant(CustomEnchants.HEAVINESS, 2, true);
+            heavinessTwoBook.setItemMeta(heavinessTwoBookMeta);
 
-            opLootBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "op_loot_enchanted_book"), opLootEnchantedBook);
+            opLootBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "op_loot_enchanted_book"), opLootBook);
             opLootBookRecipe.addIngredient(1, Material.BOOK);
             opLootBookRecipe.addIngredient(1, Material.IRON_INGOT);
             opLootBookRecipe.addIngredient(1, Material.GOLD_INGOT);
             opLootBookRecipe.addIngredient(1, Material.DIAMOND);
             Bukkit.getServer().addRecipe(opLootBookRecipe);
 
-            telepathyBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "telepathy_enchanted_book"), telepathyEnchantedBook);
+            telepathyBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "telepathy_enchanted_book"), telepathyBook);
             telepathyBookRecipe.addIngredient(1, Material.BOOK);
             telepathyBookRecipe.addIngredient(1, Material.ENDER_PEARL);
             Bukkit.getServer().addRecipe(telepathyBookRecipe);
 
-            lifestealOneEnchantedBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_one_enchanted_book"), lifestealOneEnchantedBook);
-            lifestealOneEnchantedBookRecipe.addIngredient(1, Material.BOOK);
-            lifestealOneEnchantedBookRecipe.addIngredient(1, Material.REDSTONE);
-            Bukkit.getServer().addRecipe(lifestealOneEnchantedBookRecipe);
+            lifestealOneBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_one_enchanted_book"), lifestealOneBook);
+            lifestealOneBookRecipe.addIngredient(1, Material.BOOK);
+            lifestealOneBookRecipe.addIngredient(1, Material.REDSTONE);
+            Bukkit.getServer().addRecipe(lifestealOneBookRecipe);
 
-            lifestealTwoEnchantedBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_two_enchanted_book"), lifestealTwoEnchantedBook);
-            lifestealTwoEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(lifestealOneEnchantedBook));
-            lifestealTwoEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(lifestealOneEnchantedBook));
-            Bukkit.getServer().addRecipe(lifestealTwoEnchantedBookRecipe);
+            lifestealTwoBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_two_enchanted_book"), lifestealTwoBook);
+            lifestealTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealOneBook));
+            lifestealTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealOneBook));
+            Bukkit.getServer().addRecipe(lifestealTwoBookRecipe);
 
-            lifestealThreeEnchantedBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_three_enchanted_book"), lifestealThreeEnchantedBook);
-            lifestealThreeEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(lifestealTwoEnchantedBook));
-            lifestealThreeEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(lifestealTwoEnchantedBook));
-            Bukkit.getServer().addRecipe(lifestealThreeEnchantedBookRecipe);
+            lifestealThreeBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_three_enchanted_book"), lifestealThreeBook);
+            lifestealThreeBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealTwoBook));
+            lifestealThreeBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealTwoBook));
+            Bukkit.getServer().addRecipe(lifestealThreeBookRecipe);
 
-            lifestealFourEnchantedBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_four_enchanted_book"), lifestealFourEnchantedBook);
-            lifestealFourEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(lifestealThreeEnchantedBook));
-            lifestealFourEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(lifestealThreeEnchantedBook));
-            Bukkit.getServer().addRecipe(lifestealFourEnchantedBookRecipe);
+            lifestealFourBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_four_enchanted_book"), lifestealFourBook);
+            lifestealFourBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealThreeBook));
+            lifestealFourBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealThreeBook));
+            Bukkit.getServer().addRecipe(lifestealFourBookRecipe);
 
-            lifestealFiveEnchantedBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_five_enchanted_book"), lifestealFiveEnchantedBook);
-            lifestealFiveEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(lifestealFourEnchantedBook));
-            lifestealFiveEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(lifestealFourEnchantedBook));
-            Bukkit.getServer().addRecipe(lifestealFiveEnchantedBookRecipe);
+            lifestealFiveBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_five_enchanted_book"), lifestealFiveBook);
+            lifestealFiveBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealFourBook));
+            lifestealFiveBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealFourBook));
+            Bukkit.getServer().addRecipe(lifestealFiveBookRecipe);
 
-            infectionOneEnchantedBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "infection_one_enchanted_book"), infectionOneEnchantedBook);
-            infectionOneEnchantedBookRecipe.addIngredient(1, Material.BOOK);
-            infectionOneEnchantedBookRecipe.addIngredient(1, Material.SPIDER_EYE);
-            Bukkit.getServer().addRecipe(infectionOneEnchantedBookRecipe);
+            infectionOneBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "infection_one_enchanted_book"), infectionOneBook);
+            infectionOneBookRecipe.addIngredient(1, Material.BOOK);
+            infectionOneBookRecipe.addIngredient(1, Material.SPIDER_EYE);
+            Bukkit.getServer().addRecipe(infectionOneBookRecipe);
 
-            infectionTwoEnchantedBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "infection_two_enchanted_book"), infectionTwoEnchantedBook);
-            infectionTwoEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(infectionOneEnchantedBook));
-            infectionTwoEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(infectionOneEnchantedBook));
-            Bukkit.getServer().addRecipe(infectionTwoEnchantedBookRecipe);
+            infectionTwoBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "infection_two_enchanted_book"), infectionTwoBook);
+            infectionTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(infectionOneBook));
+            infectionTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(infectionOneBook));
+            Bukkit.getServer().addRecipe(infectionTwoBookRecipe);
 
-            witheringOneEnchantedBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "withering_one_enchanted_book"), witheringOneEnchantedBook);
-            witheringOneEnchantedBookRecipe.addIngredient(1, Material.BOOK);
-            witheringOneEnchantedBookRecipe.addIngredient(1, Material.COAL);
-            witheringOneEnchantedBookRecipe.addIngredient(1, Material.BONE);
-            Bukkit.getServer().addRecipe(witheringOneEnchantedBookRecipe);
+            witheringOneBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "withering_one_enchanted_book"), witheringOneBook);
+            witheringOneBookRecipe.addIngredient(1, Material.BOOK);
+            witheringOneBookRecipe.addIngredient(1, Material.COAL);
+            witheringOneBookRecipe.addIngredient(1, Material.BONE);
+            Bukkit.getServer().addRecipe(witheringOneBookRecipe);
 
-            witheringTwoEnchantedBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "withering_two_enchanted_book"), witheringTwoEnchantedBook);
-            witheringTwoEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(witheringOneEnchantedBook));
-            witheringTwoEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(witheringOneEnchantedBook));
-            Bukkit.getServer().addRecipe(witheringTwoEnchantedBookRecipe);
+            witheringTwoBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "withering_two_enchanted_book"), witheringTwoBook);
+            witheringTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(witheringOneBook));
+            witheringTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(witheringOneBook));
+            Bukkit.getServer().addRecipe(witheringTwoBookRecipe);
 
-            heavinessOneEnchantedBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "heaviness_one_enchanted_book"), heavinessOneEnchantedBook);
-            heavinessOneEnchantedBookRecipe.addIngredient(1, Material.BOOK);
-            heavinessOneEnchantedBookRecipe.addIngredient(1, Material.IRON_BLOCK);
-            Bukkit.getServer().addRecipe(heavinessOneEnchantedBookRecipe);
+            heavinessOneBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "heaviness_one_enchanted_book"), heavinessOneBook);
+            heavinessOneBookRecipe.addIngredient(1, Material.BOOK);
+            heavinessOneBookRecipe.addIngredient(1, Material.IRON_BLOCK);
+            Bukkit.getServer().addRecipe(heavinessOneBookRecipe);
 
-            heavinessTwoEnchantedBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "heaviness_two_enchanted_book"), heavinessTwoEnchantedBook);
-            heavinessTwoEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(heavinessOneEnchantedBook));
-            heavinessTwoEnchantedBookRecipe.addIngredient(1, new RecipeChoice.ExactChoice(heavinessOneEnchantedBook));
-            Bukkit.getServer().addRecipe(heavinessTwoEnchantedBookRecipe);
+            heavinessTwoBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "heaviness_two_enchanted_book"), heavinessTwoBook);
+            heavinessTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(heavinessOneBook));
+            heavinessTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(heavinessOneBook));
+            Bukkit.getServer().addRecipe(heavinessTwoBookRecipe);
             
             TwistCraft.instance.messageServer("Custom Enchants enabled!", p);
             enabled = true;
