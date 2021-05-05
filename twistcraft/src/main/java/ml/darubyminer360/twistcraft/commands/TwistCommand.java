@@ -30,6 +30,7 @@ public class TwistCommand implements CommandExecutor {
                 TwistCraft.instance.messageServer("- Raining Items (rainingitems <cooldown>)", p);
                 TwistCraft.instance.messageServer("- Sneak Invisibility (sneakinvisibility)", p);
                 TwistCraft.instance.messageServer("- Allowed Flight (allowedflight)", p);
+                TwistCraft.instance.messageServer("- Custom Enchants (customenchants)", p);
                 break;
             case "enable":
                 if (args[1].equalsIgnoreCase("craftablecommandblocks")) {
@@ -269,6 +270,10 @@ public class TwistCommand implements CommandExecutor {
                     TwistCraft.instance.messageServer("Allowed Flight enabled!", p);
                     AllowedFlightCommand.enabled = true;
                 }
+                else if (args[1].equalsIgnoreCase("customenchants")) {
+                    TwistCraft.instance.messageServer("Custom Enchants enabled!", p);
+                    CustomEnchantsCommand.enabled = true;
+                }
                 break;
             case "disable":
                 if (args[1].equalsIgnoreCase("craftablecommandblocks")) {
@@ -357,6 +362,10 @@ public class TwistCommand implements CommandExecutor {
                     TwistCraft.instance.messageServer("Allowed Flight disabled!", p);
                     AllowedFlightCommand.enabled = false;
                 }
+                else if (args[1].equalsIgnoreCase("customenchants")) {
+                    TwistCraft.instance.messageServer("Custom Enchants disabled!", p);
+                    CustomEnchantsCommand.enabled = false;
+                }
                 break;
             case "info":
                 if (args[1].equalsIgnoreCase("craftablecommandblocks")) {
@@ -396,7 +405,10 @@ public class TwistCommand implements CommandExecutor {
                     TwistCraft.instance.messageServer("Sneak Invisibility makes it to where whenever a player sneaks, they become invisible!", p);
                 }
                 else if (args[1].equalsIgnoreCase("allowedflight")) {
-                    TwistCraft.instance.messageServer("Allowed Flight allows everyone to fly like creative mode.!", p);
+                    TwistCraft.instance.messageServer("Allowed Flight allows everyone to fly like creative mode!", p);
+                }
+                else if (args[1].equalsIgnoreCase("customenchants")) {
+                    TwistCraft.instance.messageServer("Custom Enchants adds new enchantments!", p);
                 }
                 break;
             default:

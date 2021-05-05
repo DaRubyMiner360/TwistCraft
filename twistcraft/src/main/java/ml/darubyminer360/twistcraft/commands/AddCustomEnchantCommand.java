@@ -22,6 +22,28 @@ public class AddCustomEnchantCommand implements CommandExecutor {
                     if (args[0].equalsIgnoreCase("telepathy")) {
                         player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.TELEPATHY, 1);
                     }
+                    if (args[0].equalsIgnoreCase("lifesteal")) {
+                        if (args.length > 1) {
+                            if (args[1].equals("2")) {
+                                player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 2);
+                            }
+                            else if (args[1].equals("3")) {
+                                player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 3);
+                            }
+                            else if (args[1].equals("4")) {
+                                player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 4);
+                            }
+                            else if (args[1].equals("5")) {
+                                player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 5);
+                            }
+                            else {
+                                player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 1);
+                            }
+                        }
+                        else {
+                            player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 1);
+                        }
+                    }
                     if (args[0].equalsIgnoreCase("infection")) {
                         if (args.length > 1 && args[1].equals("2")) {
                             player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.INFECTION, 2);
