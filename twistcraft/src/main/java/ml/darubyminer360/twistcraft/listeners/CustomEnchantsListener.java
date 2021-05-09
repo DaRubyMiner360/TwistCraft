@@ -3,6 +3,7 @@ package ml.darubyminer360.twistcraft.listeners;
 import ml.darubyminer360.twistcraft.TwistCraft;
 import ml.darubyminer360.twistcraft.commands.CustomEnchantsCommand;
 import ml.darubyminer360.twistcraft.util.*;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -32,26 +33,37 @@ public class CustomEnchantsListener implements Listener {
                 if (e.getCursor() != null && e.getCurrentItem() != null) {
                     ItemStack book = e.getCursor();
                     ItemStack item = e.getCurrentItem();
+                    ItemMeta meta;
+//					EnchantmentStorageMeta meta;
                     if (book.hasItemMeta()) {
-                        if (item.getType() != Material.AIR && book.getType() != Material.AIR) {
-                            if (book.getType() == Material.ENCHANTED_BOOK) {
-                                EnchantmentStorageMeta meta = (EnchantmentStorageMeta) book.getItemMeta();
-                                for (Map.Entry<Enchantment, Integer> entry : meta.getStoredEnchants().entrySet()) {
-                                    if (entry.getKey() instanceof ml.darubyminer360.twistcraft.util.EnchantmentWrapper) {
-                                        if (item.getType() == Material.ENCHANTED_BOOK) {
-                                            meta.addStoredEnchant(entry.getKey(), entry.getValue(), false);
-                                        }
-                                        else {
-                                            item.addUnsafeEnchantment(entry.getKey(), entry.getValue());
-                                        }
-                                        meta.removeStoredEnchant(entry.getKey());
+                        meta = book.getItemMeta();
+//                        meta = (EnchantmentStorageMeta) book.getItemMeta();
+                    }
+                    else {
+                        meta = Bukkit.getItemFactory().getItemMeta(book.getType());
+//                        meta = (EnchantmentStorageMeta) Bukkit.getItemFactory().getItemMeta(book.getType());
+                    }
+                    if (item.getType() != Material.AIR && book.getType() != Material.AIR) {
+                        if (book.getType() == Material.ENCHANTED_BOOK) {
+                            for (Map.Entry<Enchantment, Integer> entry : book.getEnchantments().entrySet()) {
+//							for (Map.Entry<Enchantment, Integer> entry : meta.getStoredEnchants().entrySet()) {
+                                if (entry.getKey() instanceof ml.darubyminer360.twistcraft.util.EnchantmentWrapper) {
+                                    if (item.getType() == Material.ENCHANTED_BOOK) {
+                                        item.addUnsafeEnchantment(entry.getKey(), entry.getValue());
+//										meta.addStoredEnchant(entry.getKey(), entry.getValue(), false);
                                     }
+                                    else {
+                                        item.addUnsafeEnchantment(entry.getKey(), entry.getValue());
+                                    }
+                                    book.removeEnchantment(entry.getKey());
+//                                    meta.removeStoredEnchant(entry.getKey());
                                 }
-                                if (meta.getStoredEnchants().size() == 0) {
-                                    e.getWhoClicked().setItemOnCursor(new ItemStack(Material.AIR));
-                                }
-                                item.setItemMeta(meta);
                             }
+                            if (book.getEnchantments().size() == 0) {
+//                            if (meta.getStoredEnchants().size() == 0) {
+                                player.setItemOnCursor(new ItemStack(Material.AIR));
+                            }
+                            book.setItemMeta(meta);
                         }
                     }
                 }
@@ -133,7 +145,7 @@ public class CustomEnchantsListener implements Listener {
 
     @EventHandler
     public void onEntityDeath(EntityDeathEvent event) {
-        if (CustomEnchantsCommand.enabled) {
+        if (CustomEnchantsCommand.enabled && event.getEntity().getKiller() instanceof Player) {
             LivingEntity victim = event.getEntity();
             Player player = victim.getKiller();
 

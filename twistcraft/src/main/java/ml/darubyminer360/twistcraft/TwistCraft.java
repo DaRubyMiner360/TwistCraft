@@ -69,75 +69,105 @@ public class TwistCraft extends JavaPlugin {
             public void run() {
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     for (ItemStack item : player.getInventory().getContents()) {
-                        if (item.containsEnchantment(CustomEnchants.OPLOOT)) {
-                            if (item.getItemMeta().hasLore()) {
-                                List<String> lore = item.getItemMeta().getLore();
-                                if (item.getItemMeta().getLore().contains("OP Loot")) {
+                        if (item != null && item.getType() != null && item.getType() != Material.AIR) {
+                            ItemMeta meta = item.getItemMeta();
+//                            ItemMeta meta;
+//                            if (item.hasItemMeta()) {
+//                                meta = item.getItemMeta();
+//                            }
+//                            else {
+//                                meta = Bukkit.getItemFactory().getItemMeta(item.getType());
+//                            }
+                            if (item.containsEnchantment(CustomEnchants.OPLOOT)) {
+                                if (meta.hasLore()) {
+                                    List<String> lore = meta.getLore();
+                                    if (meta.getLore().contains("OP Loot")) {
+                                    }
+                                    else {
+                                        lore.add("OP Loot");
+                                    }
+                                    meta.setLore(lore);
                                 }
                                 else {
+                                    List<String> lore = new ArrayList<String>();
                                     lore.add("OP Loot");
+                                    meta.setLore(lore);
                                 }
-                                item.getItemMeta().setLore(lore);
                             }
-                            else {
-                                List<String> lore = new ArrayList<String>();
-                                lore.add("OP Loot");
-                                item.getItemMeta().setLore(lore);
-                            }
-                        }
-                        if (item.containsEnchantment(CustomEnchants.TELEPATHY)) {
-                            if (item.getItemMeta().hasLore()) {
-                                List<String> lore = item.getItemMeta().getLore();
-                                if (item.getItemMeta().getLore().contains("Telepathy")) {
+                            if (item.containsEnchantment(CustomEnchants.TELEPATHY)) {
+                                if (meta.hasLore()) {
+                                    List<String> lore = meta.getLore();
+                                    if (meta.getLore().contains("Telepathy")) {
+                                    }
+                                    else {
+                                        lore.add("Telepathy");
+                                    }
+                                    meta.setLore(lore);
                                 }
                                 else {
+                                    List<String> lore = new ArrayList<String>();
                                     lore.add("Telepathy");
+                                    meta.setLore(lore);
                                 }
-                                item.getItemMeta().setLore(lore);
                             }
-                            else {
-                                List<String> lore = new ArrayList<String>();
-                                lore.add("Telepathy");
-                                item.getItemMeta().setLore(lore);
-                            }
-                        }
-                        if (item.containsEnchantment(CustomEnchants.LIFESTEAL)) {
-                            if (item.getItemMeta().hasLore()) {
-                                List<String> lore = item.getItemMeta().getLore();
-                                if (item.getItemMeta().getLore().contains("Lifesteal I") || item.getItemMeta().getLore().contains("Lifesteal II") || item.getItemMeta().getLore().contains("Lifesteal III") || item.getItemMeta().getLore().contains("Lifesteal IV") || item.getItemMeta().getLore().contains("Lifesteal V")) {
-                                    String l = "Lifesteal ";
-                                    if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 1) {
-                                        l += "I";
+                            if (item.containsEnchantment(CustomEnchants.LIFESTEAL)) {
+                                if (meta.hasLore()) {
+                                    List<String> lore = meta.getLore();
+                                    if (meta.getLore().contains("Lifesteal I") || meta.getLore().contains("Lifesteal II") || meta.getLore().contains("Lifesteal III") || meta.getLore().contains("Lifesteal IV") || meta.getLore().contains("Lifesteal V")) {
+                                        String l = "Lifesteal ";
+                                        if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 1) {
+                                            l += "I";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 2) {
+                                            l += "II";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 3) {
+                                            l += "III";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 4) {
+                                            l += "IV";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 5) {
+                                            l += "V";
+                                        }
+                                        int index = -1;
+                                        if (meta.getLore().contains("Lifesteal I")) {
+                                            index = lore.indexOf("Lifesteal I");
+                                        }
+                                        else if (meta.getLore().contains("Lifesteal II")) {
+                                            index = lore.indexOf("Lifesteal II");
+                                        }
+                                        else if (meta.getLore().contains("Lifesteal III")) {
+                                            index = lore.indexOf("Lifesteal III");
+                                        }
+                                        else if (meta.getLore().contains("Lifesteal IV")) {
+                                            index = lore.indexOf("Lifesteal IV");
+                                        }
+                                        else if (meta.getLore().contains("Lifesteal V")) {
+                                            index = lore.indexOf("Lifesteal V");
+                                        }
+                                        lore.set(index, l);
                                     }
-                                    else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 2) {
-                                        l += "II";
+                                    else {
+                                        String l = "Lifesteal ";
+                                        if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 1) {
+                                            l += "I";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 2) {
+                                            l += "II";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 3) {
+                                            l += "III";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 4) {
+                                            l += "IV";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 5) {
+                                            l += "V";
+                                        }
+                                        lore.add(l);
                                     }
-                                    else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 3) {
-                                        l += "III";
-                                    }
-                                    else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 4) {
-                                        l += "IV";
-                                    }
-                                    else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 5) {
-                                        l += "V";
-                                    }
-                                    int index = -1;
-                                    if (item.getItemMeta().getLore().contains("Lifesteal I")) {
-                                        index = lore.indexOf("Lifesteal I");
-                                    }
-                                    else if (item.getItemMeta().getLore().contains("Lifesteal II")) {
-                                        index = lore.indexOf("Lifesteal II");
-                                    }
-                                    else if (item.getItemMeta().getLore().contains("Lifesteal III")) {
-                                        index = lore.indexOf("Lifesteal III");
-                                    }
-                                    else if (item.getItemMeta().getLore().contains("Lifesteal IV")) {
-                                        index = lore.indexOf("Lifesteal IV");
-                                    }
-                                    else if (item.getItemMeta().getLore().contains("Lifesteal V")) {
-                                        index = lore.indexOf("Lifesteal V");
-                                    }
-                                    lore.set(index, l);
+                                    meta.setLore(lore);
                                 }
                                 else {
                                     String l = "Lifesteal ";
@@ -156,52 +186,43 @@ public class TwistCraft extends JavaPlugin {
                                     else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 5) {
                                         l += "V";
                                     }
-                                    lore.add(l);
-                                }
-                                item.getItemMeta().setLore(lore);
-                            }
-                            else {
-                                String l = "Lifesteal ";
-                                if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 1) {
-                                    l += "I";
-                                }
-                                else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 2) {
-                                    l += "II";
-                                }
-                                else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 3) {
-                                    l += "III";
-                                }
-                                else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 4) {
-                                    l += "IV";
-                                }
-                                else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 5) {
-                                    l += "V";
-                                }
 
-                                List<String> lore = new ArrayList<String>();
-                                lore.add(l);
-                                item.getItemMeta().setLore(lore);
+                                    List<String> lore = new ArrayList<String>();
+                                    lore.add(l);
+                                    meta.setLore(lore);
+                                }
                             }
-                        }
-                        if (item.containsEnchantment(CustomEnchants.INFECTION)) {
-                            if (item.getItemMeta().hasLore()) {
-                                List<String> lore = item.getItemMeta().getLore();
-                                if (item.getItemMeta().getLore().contains("Infection I") || item.getItemMeta().getLore().contains("Infection II")) {
-                                    String l = "Infection ";
-                                    if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 1) {
-                                        l += "I";
+                            if (item.containsEnchantment(CustomEnchants.INFECTION)) {
+                                if (meta.hasLore()) {
+                                    List<String> lore = meta.getLore();
+                                    if (meta.getLore().contains("Infection I") || meta.getLore().contains("Infection II")) {
+                                        String l = "Infection ";
+                                        if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 1) {
+                                            l += "I";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 2) {
+                                            l += "II";
+                                        }
+                                        int index = -1;
+                                        if (meta.getLore().contains("Infection I")) {
+                                            index = lore.indexOf("Infection I");
+                                        }
+                                        else if (meta.getLore().contains("Infection II")) {
+                                            index = lore.indexOf("Infection II");
+                                        }
+                                        lore.set(index, l);
                                     }
-                                    else if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 2) {
-                                        l += "II";
+                                    else {
+                                        String l = "Infection ";
+                                        if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 1) {
+                                            l += "I";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 2) {
+                                            l += "II";
+                                        }
+                                        lore.add(l);
                                     }
-                                    int index = -1;
-                                    if (item.getItemMeta().getLore().contains("Infection I")) {
-                                        index = lore.indexOf("Infection I");
-                                    }
-                                    else if (item.getItemMeta().getLore().contains("Infection II")) {
-                                        index = lore.indexOf("Infection II");
-                                    }
-                                    lore.set(index, l);
+                                    meta.setLore(lore);
                                 }
                                 else {
                                     String l = "Infection ";
@@ -211,43 +232,43 @@ public class TwistCraft extends JavaPlugin {
                                     else if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 2) {
                                         l += "II";
                                     }
-                                    lore.add(l);
-                                }
-                                item.getItemMeta().setLore(lore);
-                            }
-                            else {
-                                String l = "Infection ";
-                                if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 1) {
-                                    l += "I";
-                                }
-                                else if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 2) {
-                                    l += "II";
-                                }
 
-                                List<String> lore = new ArrayList<String>();
-                                lore.add(l);
-                                item.getItemMeta().setLore(lore);
+                                    List<String> lore = new ArrayList<String>();
+                                    lore.add(l);
+                                    meta.setLore(lore);
+                                }
                             }
-                        }
-                        if (item.containsEnchantment(CustomEnchants.WITHERING)) {
-                            if (item.getItemMeta().hasLore()) {
-                                List<String> lore = item.getItemMeta().getLore();
-                                if (item.getItemMeta().getLore().contains("Withering I") || item.getItemMeta().getLore().contains("Withering II")) {
-                                    String l = "Withering ";
-                                    if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 1) {
-                                        l += "I";
+                            if (item.containsEnchantment(CustomEnchants.WITHERING)) {
+                                if (meta.hasLore()) {
+                                    List<String> lore = meta.getLore();
+                                    if (meta.getLore().contains("Withering I") || meta.getLore().contains("Withering II")) {
+                                        String l = "Withering ";
+                                        if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 1) {
+                                            l += "I";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 2) {
+                                            l += "II";
+                                        }
+                                        int index = -1;
+                                        if (meta.getLore().contains("Withering I")) {
+                                            index = lore.indexOf("Withering I");
+                                        }
+                                        else if (meta.getLore().contains("Withering II")) {
+                                            index = lore.indexOf("Withering II");
+                                        }
+                                        lore.set(index, l);
                                     }
-                                    else if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 2) {
-                                        l += "II";
+                                    else {
+                                        String l = "Withering ";
+                                        if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 1) {
+                                            l += "I";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 2) {
+                                            l += "II";
+                                        }
+                                        lore.add(l);
                                     }
-                                    int index = -1;
-                                    if (item.getItemMeta().getLore().contains("Withering I")) {
-                                        index = lore.indexOf("Withering I");
-                                    }
-                                    else if (item.getItemMeta().getLore().contains("Withering II")) {
-                                        index = lore.indexOf("Withering II");
-                                    }
-                                    lore.set(index, l);
+                                    meta.setLore(lore);
                                 }
                                 else {
                                     String l = "Withering ";
@@ -257,43 +278,43 @@ public class TwistCraft extends JavaPlugin {
                                     else if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 2) {
                                         l += "II";
                                     }
-                                    lore.add(l);
-                                }
-                                item.getItemMeta().setLore(lore);
-                            }
-                            else {
-                                String l = "Withering ";
-                                if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 1) {
-                                    l += "I";
-                                }
-                                else if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 2) {
-                                    l += "II";
-                                }
 
-                                List<String> lore = new ArrayList<String>();
-                                lore.add(l);
-                                item.getItemMeta().setLore(lore);
+                                    List<String> lore = new ArrayList<String>();
+                                    lore.add(l);
+                                    meta.setLore(lore);
+                                }
                             }
-                        }
-                        if (item.containsEnchantment(CustomEnchants.HEAVINESS)) {
-                            if (item.getItemMeta().hasLore()) {
-                                List<String> lore = item.getItemMeta().getLore();
-                                if (item.getItemMeta().getLore().contains("Heaviness I") || item.getItemMeta().getLore().contains("Heaviness II")) {
-                                    String l = "Heaviness ";
-                                    if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 1) {
-                                        l += "I";
+                            if (item.containsEnchantment(CustomEnchants.HEAVINESS)) {
+                                if (meta.hasLore()) {
+                                    List<String> lore = meta.getLore();
+                                    if (meta.getLore().contains("Heaviness I") || meta.getLore().contains("Heaviness II")) {
+                                        String l = "Heaviness ";
+                                        if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 1) {
+                                            l += "I";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 2) {
+                                            l += "II";
+                                        }
+                                        int index = -1;
+                                        if (meta.getLore().contains("Heaviness I")) {
+                                            index = lore.indexOf("Heaviness I");
+                                        }
+                                        else if (meta.getLore().contains("Heaviness II")) {
+                                            index = lore.indexOf("Heaviness II");
+                                        }
+                                        lore.set(index, l);
                                     }
-                                    else if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 2) {
-                                        l += "II";
+                                    else {
+                                        String l = "Heaviness ";
+                                        if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 1) {
+                                            l += "I";
+                                        }
+                                        else if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 2) {
+                                            l += "II";
+                                        }
+                                        lore.add(l);
                                     }
-                                    int index = -1;
-                                    if (item.getItemMeta().getLore().contains("Heaviness I")) {
-                                        index = lore.indexOf("Heaviness I");
-                                    }
-                                    else if (item.getItemMeta().getLore().contains("Heaviness II")) {
-                                        index = lore.indexOf("Heaviness II");
-                                    }
-                                    lore.set(index, l);
+                                    meta.setLore(lore);
                                 }
                                 else {
                                     String l = "Heaviness ";
@@ -303,23 +324,13 @@ public class TwistCraft extends JavaPlugin {
                                     else if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 2) {
                                         l += "II";
                                     }
-                                    lore.add(l);
-                                }
-                                item.getItemMeta().setLore(lore);
-                            }
-                            else {
-                                String l = "Heaviness ";
-                                if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 1) {
-                                    l += "I";
-                                }
-                                else if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 2) {
-                                    l += "II";
-                                }
 
-                                List<String> lore = new ArrayList<String>();
-                                lore.add(l);
-                                item.getItemMeta().setLore(lore);
+                                    List<String> lore = new ArrayList<String>();
+                                    lore.add(l);
+                                    meta.setLore(lore);
+                                }
                             }
+                            item.setItemMeta(meta);
                         }
                     }
                 }
