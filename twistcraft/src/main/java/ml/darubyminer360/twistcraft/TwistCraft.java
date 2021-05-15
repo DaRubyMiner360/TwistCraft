@@ -20,20 +20,27 @@ import org.bukkit.*;
 import java.io.File;
 import java.io.IOException;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.stream.*;
+import java.util.*;
 
 public class TwistCraft extends JavaPlugin {
     public static TwistCraft instance;
 
+    public ItemStack[] opLootTableMaterials;
+    public ItemStack[] opLootTableBooks;
+    public ItemStack[] opLootTableTools;
+    public ItemStack[] opLootTableArmor;
+    public ItemStack[] opLootTableGear;
+    public ItemStack[] opLootTableFood;
+    public ItemStack[] opLootTableMisc;
     public ItemStack[] opLootTable;
 
     @Override
     public void onEnable() {
         instance = this;
 
-        // Setup OP Loot Table
-        setupOPLootTable();
+        // Setup OP Loot Tables
+        setupOPLootTables();
 
         // Setup commands
         getCommand("twist").setExecutor(new TwistCommand());
@@ -42,6 +49,7 @@ public class TwistCraft extends JavaPlugin {
         getCommand("halfhearteating").setExecutor(new HalfHeartEatingCommand());
         getCommand("manhunt").setExecutor(new ManhuntCommand());
         getCommand("everywherelooked").setExecutor(new EverywhereLookedCommand());
+        getCommand("everywherelookedselector").setExecutor(new EverywhereLookedSelectorCommand());
         getCommand("deathswap").setExecutor(new DeathSwapCommand());
         getCommand("tntrunner").setExecutor(new TNTRunnerCommand());
         getCommand("fallingblocks").setExecutor(new FallingBlocksCommand());
@@ -50,11 +58,13 @@ public class TwistCraft extends JavaPlugin {
         getCommand("allowedflight").setExecutor(new AllowedFlightCommand());
 
         // Setup Listeners
+        getServer().getPluginManager().registerEvents(new TwistSelectionScreenListener(), this);
         getServer().getPluginManager().registerEvents(new CraftableCommandBlocksListener(), this);
         getServer().getPluginManager().registerEvents(new OPMobsListener(), this);
         getServer().getPluginManager().registerEvents(new HalfHeartEatingListener(), this);
         getServer().getPluginManager().registerEvents(new ManhuntListener(), this);
         getServer().getPluginManager().registerEvents(new EverywhereLookedListener(), this);
+        getServer().getPluginManager().registerEvents(new EverywhereLookedScreenListener(), this);
         getServer().getPluginManager().registerEvents(new SneakInvisibilityListener(), this);
 
         // Setup enchantments
@@ -114,21 +124,21 @@ public class TwistCraft extends JavaPlugin {
                                 if (meta.hasLore()) {
                                     List<String> lore = meta.getLore();
                                     if (meta.getLore().contains("Lifesteal I") || meta.getLore().contains("Lifesteal II") || meta.getLore().contains("Lifesteal III") || meta.getLore().contains("Lifesteal IV") || meta.getLore().contains("Lifesteal V")) {
-                                        String l = "Lifesteal ";
+                                        String l = "Lifesteal";
                                         if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 1) {
-                                            l += "I";
+                                            l += " I";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 2) {
-                                            l += "II";
+                                            l += " II";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 3) {
-                                            l += "III";
+                                            l += " III";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 4) {
-                                            l += "IV";
+                                            l += " IV";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 5) {
-                                            l += "V";
+                                            l += " V";
                                         }
                                         int index = -1;
                                         if (meta.getLore().contains("Lifesteal I")) {
@@ -149,42 +159,42 @@ public class TwistCraft extends JavaPlugin {
                                         lore.set(index, l);
                                     }
                                     else {
-                                        String l = "Lifesteal ";
+                                        String l = "Lifesteal";
                                         if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 1) {
-                                            l += "I";
+                                            l += " I";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 2) {
-                                            l += "II";
+                                            l += " II";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 3) {
-                                            l += "III";
+                                            l += " III";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 4) {
-                                            l += "IV";
+                                            l += " IV";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 5) {
-                                            l += "V";
+                                            l += " V";
                                         }
                                         lore.add(l);
                                     }
                                     meta.setLore(lore);
                                 }
                                 else {
-                                    String l = "Lifesteal ";
+                                    String l = "Lifesteal";
                                     if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 1) {
-                                        l += "I";
+                                        l += " I";
                                     }
                                     else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 2) {
-                                        l += "II";
+                                        l += " II";
                                     }
                                     else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 3) {
-                                        l += "III";
+                                        l += " III";
                                     }
                                     else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 4) {
-                                        l += "IV";
+                                        l += " IV";
                                     }
                                     else if (item.getEnchantmentLevel(CustomEnchants.LIFESTEAL) == 5) {
-                                        l += "V";
+                                        l += " V";
                                     }
 
                                     List<String> lore = new ArrayList<String>();
@@ -196,12 +206,12 @@ public class TwistCraft extends JavaPlugin {
                                 if (meta.hasLore()) {
                                     List<String> lore = meta.getLore();
                                     if (meta.getLore().contains("Infection I") || meta.getLore().contains("Infection II")) {
-                                        String l = "Infection ";
+                                        String l = "Infection";
                                         if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 1) {
-                                            l += "I";
+                                            l += " I";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 2) {
-                                            l += "II";
+                                            l += " II";
                                         }
                                         int index = -1;
                                         if (meta.getLore().contains("Infection I")) {
@@ -213,24 +223,24 @@ public class TwistCraft extends JavaPlugin {
                                         lore.set(index, l);
                                     }
                                     else {
-                                        String l = "Infection ";
+                                        String l = "Infection";
                                         if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 1) {
-                                            l += "I";
+                                            l += " I";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 2) {
-                                            l += "II";
+                                            l += " II";
                                         }
                                         lore.add(l);
                                     }
                                     meta.setLore(lore);
                                 }
                                 else {
-                                    String l = "Infection ";
+                                    String l = "Infection";
                                     if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 1) {
-                                        l += "I";
+                                        l += " I";
                                     }
                                     else if (item.getEnchantmentLevel(CustomEnchants.INFECTION) == 2) {
-                                        l += "II";
+                                        l += " II";
                                     }
 
                                     List<String> lore = new ArrayList<String>();
@@ -242,12 +252,12 @@ public class TwistCraft extends JavaPlugin {
                                 if (meta.hasLore()) {
                                     List<String> lore = meta.getLore();
                                     if (meta.getLore().contains("Withering I") || meta.getLore().contains("Withering II")) {
-                                        String l = "Withering ";
+                                        String l = "Withering";
                                         if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 1) {
-                                            l += "I";
+                                            l += " I";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 2) {
-                                            l += "II";
+                                            l += " II";
                                         }
                                         int index = -1;
                                         if (meta.getLore().contains("Withering I")) {
@@ -259,24 +269,24 @@ public class TwistCraft extends JavaPlugin {
                                         lore.set(index, l);
                                     }
                                     else {
-                                        String l = "Withering ";
+                                        String l = "Withering";
                                         if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 1) {
-                                            l += "I";
+                                            l += " I";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 2) {
-                                            l += "II";
+                                            l += " II";
                                         }
                                         lore.add(l);
                                     }
                                     meta.setLore(lore);
                                 }
                                 else {
-                                    String l = "Withering ";
+                                    String l = "Withering";
                                     if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 1) {
-                                        l += "I";
+                                        l += " I";
                                     }
                                     else if (item.getEnchantmentLevel(CustomEnchants.WITHERING) == 2) {
-                                        l += "II";
+                                        l += " II";
                                     }
 
                                     List<String> lore = new ArrayList<String>();
@@ -288,12 +298,12 @@ public class TwistCraft extends JavaPlugin {
                                 if (meta.hasLore()) {
                                     List<String> lore = meta.getLore();
                                     if (meta.getLore().contains("Heaviness I") || meta.getLore().contains("Heaviness II")) {
-                                        String l = "Heaviness ";
+                                        String l = "Heaviness";
                                         if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 1) {
-                                            l += "I";
+                                            l += " I";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 2) {
-                                            l += "II";
+                                            l += " II";
                                         }
                                         int index = -1;
                                         if (meta.getLore().contains("Heaviness I")) {
@@ -305,24 +315,24 @@ public class TwistCraft extends JavaPlugin {
                                         lore.set(index, l);
                                     }
                                     else {
-                                        String l = "Heaviness ";
+                                        String l = "Heaviness";
                                         if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 1) {
-                                            l += "I";
+                                            l += " I";
                                         }
                                         else if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 2) {
-                                            l += "II";
+                                            l += " II";
                                         }
                                         lore.add(l);
                                     }
                                     meta.setLore(lore);
                                 }
                                 else {
-                                    String l = "Heaviness ";
+                                    String l = "Heaviness";
                                     if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 1) {
-                                        l += "I";
+                                        l += " I";
                                     }
                                     else if (item.getEnchantmentLevel(CustomEnchants.HEAVINESS) == 2) {
-                                        l += "II";
+                                        l += " II";
                                     }
 
                                     List<String> lore = new ArrayList<String>();
@@ -358,7 +368,13 @@ public class TwistCraft extends JavaPlugin {
         }
     }
 
-    public void setupOPLootTable() {
+    public ItemStack[] joinItemStacks(ItemStack[] first, ItemStack[] second) {
+        Stream<ItemStack> firstStream = Arrays.stream(first);
+        Stream<ItemStack> secondStream = Arrays.stream(second);
+        return Stream.concat(firstStream, secondStream).toArray(ItemStack[]::new); 
+    }
+
+    public void setupOPLootTables() {
         ItemStack netheriteHoe = new ItemStack(Material.NETHERITE_HOE, 1);
         netheriteHoe.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
         netheriteHoe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 7);
@@ -383,6 +399,9 @@ public class TwistCraft extends JavaPlugin {
         netheriteAxe.addUnsafeEnchantment(Enchantment.KNOCKBACK, 2);
         netheriteAxe.addUnsafeEnchantment(Enchantment.SWEEPING_EDGE, 6);
         netheriteAxe.addUnsafeEnchantment(Enchantment.MENDING, 3);
+
+        ItemStack riptideTrident = new ItemStack(Material.TRIDENT, 1);
+        riptideTrident.addUnsafeEnchantment(Enchantment.RIPTIDE, 1);
 
         ItemStack unbreakableHelmet = new ItemStack(Material.IRON_HELMET, 1);
         unbreakableHelmet.addUnsafeEnchantment(Enchantment.DURABILITY, 32767);
@@ -516,7 +535,352 @@ public class TwistCraft extends JavaPlugin {
         netheriteBoots.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 500);
         netheriteBoots.addUnsafeEnchantment(Enchantment.THORNS, 10000);
         netheriteBoots.addUnsafeEnchantment(Enchantment.MENDING, 10);
+
+        ItemStack opLootBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta opLootBookMeta = (EnchantmentStorageMeta) opLootBook.getItemMeta();
+        // opLootBookMeta.addStoredEnchant(CustomEnchants.OPLOOT, 1, true);
+        opLootBook.addUnsafeEnchantment(CustomEnchants.OPLOOT, 1);
+        opLootBook.setItemMeta(opLootBookMeta);
+
+        ItemStack telepathyBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta telepathyBookMeta = (EnchantmentStorageMeta) telepathyBook.getItemMeta();
+        // telepathyBookMeta.addStoredEnchant(CustomEnchants.TELEPATHY, 1, true);
+        telepathyBook.addUnsafeEnchantment(CustomEnchants.TELEPATHY, 1);
+        telepathyBook.setItemMeta(telepathyBookMeta);
+
+        ItemStack lifestealOneBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta lifestealOneBookMeta = (EnchantmentStorageMeta) lifestealOneBook.getItemMeta();
+        // lifestealOneBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 1, true);
+        lifestealOneBook.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 1);
+        lifestealOneBook.setItemMeta(lifestealOneBookMeta);
+
+        ItemStack lifestealTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta lifestealTwoBookMeta = (EnchantmentStorageMeta) lifestealTwoBook.getItemMeta();
+        // lifestealTwoBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 2, true);
+        lifestealTwoBook.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 2);
+        lifestealTwoBook.setItemMeta(lifestealTwoBookMeta);
+
+        ItemStack lifestealThreeBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta lifestealThreeBookMeta = (EnchantmentStorageMeta) lifestealThreeBook.getItemMeta();
+        // lifestealThreeBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 3, true);
+        lifestealThreeBook.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 3);
+        lifestealThreeBook.setItemMeta(lifestealThreeBookMeta);
+
+        ItemStack lifestealFourBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta lifestealFourBookMeta = (EnchantmentStorageMeta) lifestealFourBook.getItemMeta();
+        // lifestealFourBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 4, true);
+        lifestealFourBook.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 4);
+        lifestealFourBook.setItemMeta(lifestealFourBookMeta);
+
+        ItemStack lifestealFiveBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta lifestealFiveBookMeta = (EnchantmentStorageMeta) lifestealFiveBook.getItemMeta();
+        // lifestealFiveBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 5, true);
+        lifestealFiveBook.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 5);
+        lifestealFiveBook.setItemMeta(lifestealFiveBookMeta);
+
+        ItemStack infectionOneBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta infectionOneBookMeta = (EnchantmentStorageMeta) infectionOneBook.getItemMeta();
+        // infectionOneBookMeta.addStoredEnchant(CustomEnchants.INFECTION, 1, true);
+        infectionOneBook.addUnsafeEnchantment(CustomEnchants.INFECTION, 1);
+        infectionOneBook.setItemMeta(infectionOneBookMeta);
+
+        ItemStack infectionTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta infectionTwoBookMeta = (EnchantmentStorageMeta) infectionTwoBook.getItemMeta();
+        // infectionTwoBookMeta.addStoredEnchant(CustomEnchants.INFECTION, 2, true);
+        infectionTwoBook.addUnsafeEnchantment(CustomEnchants.INFECTION, 2);
+        infectionTwoBook.setItemMeta(infectionTwoBookMeta);
+
+        ItemStack witheringOneBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta witheringOneBookMeta = (EnchantmentStorageMeta) witheringOneBook.getItemMeta();
+        // witheringOneBookMeta.addStoredEnchant(CustomEnchants.WITHERING, 1, true);
+        witheringOneBook.addUnsafeEnchantment(CustomEnchants.WITHERING, 1);
+        witheringOneBook.setItemMeta(witheringOneBookMeta);
+
+        ItemStack witheringTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta witheringTwoBookMeta = (EnchantmentStorageMeta) witheringTwoBook.getItemMeta();
+        // witheringTwoBookMeta.addStoredEnchant(CustomEnchants.WITHERING, 2, true);
+        witheringTwoBook.addUnsafeEnchantment(CustomEnchants.WITHERING, 2);
+        witheringTwoBook.setItemMeta(witheringTwoBookMeta);
+
+        ItemStack heavinessOneBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta heavinessOneBookMeta = (EnchantmentStorageMeta) heavinessOneBook.getItemMeta();
+        // heavinessOneBookMeta.addStoredEnchant(CustomEnchants.HEAVINESS, 1, true);
+        heavinessOneBook.addUnsafeEnchantment(CustomEnchants.HEAVINESS, 1);
+        heavinessOneBook.setItemMeta(heavinessOneBookMeta);
+
+        ItemStack heavinessTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta heavinessTwoBookMeta = (EnchantmentStorageMeta) heavinessTwoBook.getItemMeta();
+        // heavinessTwoBookMeta.addStoredEnchant(CustomEnchants.HEAVINESS, 2, true);
+        heavinessTwoBook.addUnsafeEnchantment(CustomEnchants.HEAVINESS, 2);
+        heavinessTwoBook.setItemMeta(heavinessTwoBookMeta);
+
+        ItemStack sharpnessFiveBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta sharpnessFiveBookMeta = (EnchantmentStorageMeta) sharpnessFiveBook.getItemMeta();
+        sharpnessFiveBookMeta.addStoredEnchant(Enchantment.DAMAGE_ALL, 5, true);
+        // sharpnessFiveBook.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 5);
+        sharpnessFiveBook.setItemMeta(sharpnessFiveBookMeta);
         
-        opLootTable = new ItemStack[] { new ItemStack(Material.DIAMOND, 6), new ItemStack(Material.DIAMOND_BLOCK, 3), new ItemStack(Material.IRON_INGOT, 6), new ItemStack(Material.IRON_BLOCK, 3), new ItemStack(Material.NETHERITE_INGOT, 1), netheriteHoe, netheriteSword, netheriteAxe, ironChestplate, ironBoots, unbreakableHelmet, unbreakableChestplate, unbreakableLeggings, unbreakableBoots, frozenBoots, speedsterBoots, diamondHelmet, diamondLeggings, netheriteHelmet, netheriteChestplate, netheriteLeggings, netheriteBoots };
+        ItemStack sharpnessTenBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta sharpnessTenBookMeta = (EnchantmentStorageMeta) sharpnessTenBook.getItemMeta();
+        sharpnessTenBookMeta.addStoredEnchant(Enchantment.DAMAGE_ALL, 10, true);
+        // sharpnessTenBook.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
+        sharpnessTenBook.setItemMeta(sharpnessTenBookMeta);
+
+        ItemStack sharpnessMaxBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta sharpnessMaxBookMeta = (EnchantmentStorageMeta) sharpnessMaxBook.getItemMeta();
+        sharpnessMaxBookMeta.addStoredEnchant(Enchantment.DAMAGE_ALL, 32767, true);
+        // sharpnessMaxBook.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 32767);
+        sharpnessMaxBook.setItemMeta(sharpnessMaxBookMeta);
+
+        ItemStack protectionFiveBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta protectionFiveBookMeta = (EnchantmentStorageMeta) protectionFiveBook.getItemMeta();
+        protectionFiveBookMeta.addStoredEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
+        // protectionFiveBook.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
+        protectionFiveBook.setItemMeta(protectionFiveBookMeta);
+        
+        ItemStack protectionTenBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta protectionTenBookMeta = (EnchantmentStorageMeta) protectionTenBook.getItemMeta();
+        protectionTenBookMeta.addStoredEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 10, true);
+        // protectionTenBook.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 10);
+        protectionTenBook.setItemMeta(protectionTenBookMeta);
+
+        ItemStack protectionMaxBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta protectionMaxBookMeta = (EnchantmentStorageMeta) protectionMaxBook.getItemMeta();
+        protectionMaxBookMeta.addStoredEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 32767, true);
+        // protectionMaxBook.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 32767);
+        protectionMaxBook.setItemMeta(protectionMaxBookMeta);
+
+        ItemStack unbreakingThreeBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta unbreakingThreeBookMeta = (EnchantmentStorageMeta) unbreakingThreeBook.getItemMeta();
+        unbreakingThreeBookMeta.addStoredEnchant(Enchantment.DURABILITY, 3, true);
+        // unbreakingThreeBook.addUnsafeEnchantment(Enchantment.DURABILITY, 3);
+        unbreakingThreeBook.setItemMeta(unbreakingThreeBookMeta);
+        
+        ItemStack unbreakingFiveBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta unbreakingFiveBookMeta = (EnchantmentStorageMeta) unbreakingFiveBook.getItemMeta();
+        unbreakingFiveBookMeta.addStoredEnchant(Enchantment.DURABILITY, 5, true);
+        // unbreakingFiveBook.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
+        unbreakingFiveBook.setItemMeta(unbreakingFiveBookMeta);
+        
+        ItemStack unbreakingTenBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta unbreakingTenBookMeta = (EnchantmentStorageMeta) unbreakingTenBook.getItemMeta();
+        unbreakingTenBookMeta.addStoredEnchant(Enchantment.DURABILITY, 10, true);
+        // unbreakingTenBook.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
+        unbreakingTenBook.setItemMeta(unbreakingTenBookMeta);
+
+        ItemStack unbreakingMaxBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta unbreakingMaxBookMeta = (EnchantmentStorageMeta) unbreakingMaxBook.getItemMeta();
+        unbreakingMaxBookMeta.addStoredEnchant(Enchantment.DURABILITY, 32767, true);
+        // unbreakingMaxBook.addUnsafeEnchantment(Enchantment.DURABILITY, 32767);
+        unbreakingMaxBook.setItemMeta(unbreakingMaxBookMeta);
+        
+        ItemStack mendingFiveBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta mendingFiveBookMeta = (EnchantmentStorageMeta) mendingFiveBook.getItemMeta();
+        mendingFiveBookMeta.addStoredEnchant(Enchantment.MENDING, 5, true);
+        // mendingFiveBook.addUnsafeEnchantment(Enchantment.MENDING, 5);
+        mendingFiveBook.setItemMeta(mendingFiveBookMeta);
+        
+        ItemStack mendingTenBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta mendingTenBookMeta = (EnchantmentStorageMeta) mendingTenBook.getItemMeta();
+        mendingTenBookMeta.addStoredEnchant(Enchantment.MENDING, 10, true);
+        // mendingTenBook.addUnsafeEnchantment(Enchantment.MENDING, 10);
+        mendingTenBook.setItemMeta(mendingTenBookMeta);
+
+        ItemStack mendingMaxBook = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta mendingMaxBookMeta = (EnchantmentStorageMeta) mendingMaxBook.getItemMeta();
+        mendingMaxBookMeta.addStoredEnchant(Enchantment.MENDING, 32767, true);
+        // mendingMaxBook.addUnsafeEnchantment(Enchantment.MENDING, 32767);
+        mendingMaxBook.setItemMeta(mendingMaxBookMeta);
+        
+        opLootTableMaterials = new ItemStack[] {
+            new ItemStack(Material.DIAMOND, 3),
+            new ItemStack(Material.DIAMOND, 6),
+            new ItemStack(Material.DIAMOND_BLOCK, 1),
+            new ItemStack(Material.DIAMOND_BLOCK, 2),
+
+            new ItemStack(Material.IRON_INGOT, 2),
+            new ItemStack(Material.IRON_INGOT, 4),
+            new ItemStack(Material.IRON_INGOT, 7),
+            new ItemStack(Material.IRON_BLOCK, 1),
+            new ItemStack(Material.IRON_BLOCK, 2),
+            new ItemStack(Material.IRON_BLOCK, 3),
+
+            new ItemStack(Material.GOLD_INGOT, 3),
+            new ItemStack(Material.GOLD_INGOT, 5),
+            new ItemStack(Material.GOLD_INGOT, 8),
+            new ItemStack(Material.GOLD_BLOCK, 1),
+            new ItemStack(Material.GOLD_BLOCK, 2),
+            new ItemStack(Material.GOLD_BLOCK, 3),
+
+            new ItemStack(Material.EMERALD, 4),
+            new ItemStack(Material.EMERALD, 6),
+            new ItemStack(Material.EMERALD, 8),
+            new ItemStack(Material.EMERALD_BLOCK, 2),
+            new ItemStack(Material.EMERALD_BLOCK, 3),
+            new ItemStack(Material.EMERALD_BLOCK, 4),
+
+            new ItemStack(Material.ANCIENT_DEBRIS, 3),
+            new ItemStack(Material.ANCIENT_DEBRIS, 4),
+            new ItemStack(Material.ANCIENT_DEBRIS, 5),
+            new ItemStack(Material.NETHERITE_SCRAP, 3),
+            new ItemStack(Material.NETHERITE_SCRAP, 4),
+            new ItemStack(Material.NETHERITE_SCRAP, 5),
+            new ItemStack(Material.NETHERITE_INGOT, 1),
+            new ItemStack(Material.NETHERITE_INGOT, 2),
+            new ItemStack(Material.NETHERITE_INGOT, 3),
+            new ItemStack(Material.NETHERITE_BLOCK, 1)
+        };
+
+        opLootTableBooks = new ItemStack[] {
+            opLootBook,
+
+            telepathyBook,
+
+            lifestealOneBook,
+            lifestealTwoBook,
+            lifestealThreeBook,
+            lifestealFourBook,
+            lifestealFiveBook,
+
+            infectionOneBook,
+            infectionTwoBook,
+
+            witheringOneBook,
+            witheringTwoBook,
+
+            heavinessOneBook,
+            heavinessTwoBook,
+            
+            sharpnessFiveBook,
+            sharpnessTenBook,
+            sharpnessMaxBook,
+
+            protectionFiveBook,
+            protectionTenBook,
+            protectionMaxBook,
+
+            unbreakingThreeBook,
+            unbreakingFiveBook,
+            unbreakingTenBook,
+            unbreakingMaxBook,
+
+            mendingFiveBook,
+            mendingTenBook,
+            mendingMaxBook
+        };
+
+        opLootTableTools = new ItemStack[] {
+            netheriteHoe,
+            netheriteSword,
+            netheriteAxe,
+
+            new ItemStack(Material.TOTEM_OF_UNDYING, 1),
+
+            riptideTrident,
+            new ItemStack(Material.TRIDENT, 1)
+        };
+
+        opLootTableArmor = new ItemStack[] {
+            ironChestplate,
+            ironBoots,
+
+            unbreakableHelmet,
+            unbreakableChestplate,
+            unbreakableLeggings,
+            unbreakableBoots,
+
+            frozenBoots,
+
+            speedsterBoots,
+
+            diamondHelmet,
+            diamondLeggings,
+
+            netheriteHelmet,
+            netheriteChestplate,
+            netheriteLeggings,
+            netheriteBoots,
+
+            new ItemStack(Material.ELYTRA, 1)
+        };
+
+        opLootTableFood = new ItemStack[] {
+            new ItemStack(Material.COOKED_BEEF, 8),
+            new ItemStack(Material.COOKED_BEEF, 16),
+            new ItemStack(Material.COOKED_BEEF, 32),
+
+            new ItemStack(Material.COOKED_CHICKEN, 8),
+            new ItemStack(Material.COOKED_CHICKEN, 16),
+            new ItemStack(Material.COOKED_CHICKEN, 32),
+
+            new ItemStack(Material.COOKED_COD, 8),
+            new ItemStack(Material.COOKED_COD, 16),
+            new ItemStack(Material.COOKED_COD, 32),
+
+            new ItemStack(Material.COOKED_MUTTON, 8),
+            new ItemStack(Material.COOKED_MUTTON, 16),
+            new ItemStack(Material.COOKED_MUTTON, 32),
+
+            new ItemStack(Material.COOKED_PORKCHOP, 8),
+            new ItemStack(Material.COOKED_PORKCHOP, 16),
+            new ItemStack(Material.COOKED_PORKCHOP, 32),
+
+            new ItemStack(Material.COOKED_RABBIT, 8),
+            new ItemStack(Material.COOKED_RABBIT, 16),
+            new ItemStack(Material.COOKED_RABBIT, 32),
+
+            new ItemStack(Material.COOKED_SALMON, 8),
+            new ItemStack(Material.COOKED_SALMON, 16),
+            new ItemStack(Material.COOKED_SALMON, 32),
+
+            new ItemStack(Material.COOKIE, 8),
+            new ItemStack(Material.COOKIE, 16),
+            new ItemStack(Material.COOKIE, 32),
+
+            new ItemStack(Material.PUMPKIN_PIE, 8),
+            new ItemStack(Material.PUMPKIN_PIE, 16),
+            new ItemStack(Material.PUMPKIN_PIE, 32),
+
+            new ItemStack(Material.CAKE, 1),
+            
+            new ItemStack(Material.BREAD, 8),
+            new ItemStack(Material.BREAD, 16),
+            new ItemStack(Material.BREAD, 32),
+            new ItemStack(Material.HAY_BLOCK, 2),
+            new ItemStack(Material.HAY_BLOCK, 4),
+            new ItemStack(Material.HAY_BLOCK, 8),
+            new ItemStack(Material.HAY_BLOCK, 16),
+            new ItemStack(Material.HAY_BLOCK, 32),
+            
+            new ItemStack(Material.GOLDEN_APPLE, 2),
+            new ItemStack(Material.GOLDEN_APPLE, 4),
+            new ItemStack(Material.GOLDEN_APPLE, 8),
+            new ItemStack(Material.GOLDEN_APPLE, 16),
+            new ItemStack(Material.GOLDEN_APPLE, 32),
+            
+            new ItemStack(Material.ENCHANTED_GOLDEN_APPLE, 2),
+            new ItemStack(Material.ENCHANTED_GOLDEN_APPLE, 4),
+            new ItemStack(Material.ENCHANTED_GOLDEN_APPLE, 8)
+        };
+
+        opLootTableMisc = new ItemStack[] {
+            new ItemStack(Material.ENCHANTING_TABLE, 1),
+            new ItemStack(Material.BREWING_STAND, 1),
+
+            new ItemStack(Material.DEBUG_STICK, 1),
+
+            new ItemStack(Material.EXPERIENCE_BOTTLE, 16),
+            new ItemStack(Material.EXPERIENCE_BOTTLE, 32),
+            new ItemStack(Material.EXPERIENCE_BOTTLE, 64),
+
+            new ItemStack(Material.TNT, 8),
+            new ItemStack(Material.TNT, 16),
+            new ItemStack(Material.TNT, 32),
+            new ItemStack(Material.TNT, 64)
+        };
+
+        opLootTableGear = joinItemStacks(opLootTableTools, opLootTableArmor);
+        
+        opLootTable = joinItemStacks(joinItemStacks(opLootTableMaterials, opLootTableBooks), joinItemStacks(opLootTableGear, joinItemStacks(opLootTableFood, opLootTableMisc)));
     }
 }

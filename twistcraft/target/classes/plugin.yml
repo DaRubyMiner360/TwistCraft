@@ -36,6 +36,11 @@ commands:
     usage: /everywherelooked
     aliases:
       - el
+  everywherelookedselector:
+    usage: /everywherelookedselector
+    aliases:
+      - elselector
+      - els
   deathswap:
     usage: /deathswap <other>
     aliases:

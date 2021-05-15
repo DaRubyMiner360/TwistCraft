@@ -32,70 +32,83 @@ public class CustomEnchantsCommand implements CommandExecutor {
         Player p = (Player) sender;
 
         if (!enabled) {
-            // Add recipe
+            // Add recipes
             ItemStack opLootBook = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta opLootBookMeta = (EnchantmentStorageMeta) opLootBook.getItemMeta();
-            opLootBookMeta.addStoredEnchant(CustomEnchants.OPLOOT, 1, true);
+            // opLootBookMeta.addStoredEnchant(CustomEnchants.OPLOOT, 1, true);
+            opLootBook.addUnsafeEnchantment(CustomEnchants.OPLOOT, 1);
             opLootBook.setItemMeta(opLootBookMeta);
 
             ItemStack telepathyBook = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta telepathyBookMeta = (EnchantmentStorageMeta) telepathyBook.getItemMeta();
-            telepathyBookMeta.addStoredEnchant(CustomEnchants.TELEPATHY, 1, true);
+            // telepathyBookMeta.addStoredEnchant(CustomEnchants.TELEPATHY, 1, true);
+            telepathyBook.addUnsafeEnchantment(CustomEnchants.TELEPATHY, 1);
             telepathyBook.setItemMeta(telepathyBookMeta);
 
             ItemStack lifestealOneBook = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta lifestealOneBookMeta = (EnchantmentStorageMeta) lifestealOneBook.getItemMeta();
-            lifestealOneBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 1, true);
+            // lifestealOneBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 1, true);
+            lifestealOneBook.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 1);
             lifestealOneBook.setItemMeta(lifestealOneBookMeta);
 
             ItemStack lifestealTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta lifestealTwoBookMeta = (EnchantmentStorageMeta) lifestealTwoBook.getItemMeta();
-            lifestealTwoBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 2, true);
+            // lifestealTwoBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 2, true);
+            lifestealTwoBook.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 2);
             lifestealTwoBook.setItemMeta(lifestealTwoBookMeta);
 
             ItemStack lifestealThreeBook = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta lifestealThreeBookMeta = (EnchantmentStorageMeta) lifestealThreeBook.getItemMeta();
-            lifestealThreeBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 3, true);
+            // lifestealThreeBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 3, true);
+            lifestealThreeBook.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 3);
             lifestealThreeBook.setItemMeta(lifestealThreeBookMeta);
 
             ItemStack lifestealFourBook = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta lifestealFourBookMeta = (EnchantmentStorageMeta) lifestealFourBook.getItemMeta();
-            lifestealFourBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 4, true);
+            // lifestealFourBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 4, true);
+            lifestealFourBook.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 4);
             lifestealFourBook.setItemMeta(lifestealFourBookMeta);
 
             ItemStack lifestealFiveBook = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta lifestealFiveBookMeta = (EnchantmentStorageMeta) lifestealFiveBook.getItemMeta();
-            lifestealFiveBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 5, true);
+            // lifestealFiveBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 5, true);
+            lifestealFiveBook.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 5);
             lifestealFiveBook.setItemMeta(lifestealFiveBookMeta);
 
             ItemStack infectionOneBook = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta infectionOneBookMeta = (EnchantmentStorageMeta) infectionOneBook.getItemMeta();
-            infectionOneBookMeta.addStoredEnchant(CustomEnchants.INFECTION, 1, true);
+            // infectionOneBookMeta.addStoredEnchant(CustomEnchants.INFECTION, 1, true);
+            infectionOneBook.addUnsafeEnchantment(CustomEnchants.INFECTION, 1);
             infectionOneBook.setItemMeta(infectionOneBookMeta);
 
             ItemStack infectionTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta infectionTwoBookMeta = (EnchantmentStorageMeta) infectionTwoBook.getItemMeta();
-            infectionTwoBookMeta.addStoredEnchant(CustomEnchants.INFECTION, 2, true);
+            // infectionTwoBookMeta.addStoredEnchant(CustomEnchants.INFECTION, 2, true);
+            infectionTwoBook.addUnsafeEnchantment(CustomEnchants.INFECTION, 2);
             infectionTwoBook.setItemMeta(infectionTwoBookMeta);
 
             ItemStack witheringOneBook = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta witheringOneBookMeta = (EnchantmentStorageMeta) witheringOneBook.getItemMeta();
-            witheringOneBookMeta.addStoredEnchant(CustomEnchants.WITHERING, 1, true);
+            // witheringOneBookMeta.addStoredEnchant(CustomEnchants.WITHERING, 1, true);
+            witheringOneBook.addUnsafeEnchantment(CustomEnchants.WITHERING, 1);
             witheringOneBook.setItemMeta(witheringOneBookMeta);
 
             ItemStack witheringTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta witheringTwoBookMeta = (EnchantmentStorageMeta) witheringTwoBook.getItemMeta();
-            witheringTwoBookMeta.addStoredEnchant(CustomEnchants.WITHERING, 2, true);
+            // witheringTwoBookMeta.addStoredEnchant(CustomEnchants.WITHERING, 2, true);
+            witheringTwoBook.addUnsafeEnchantment(CustomEnchants.WITHERING, 2);
             witheringTwoBook.setItemMeta(witheringTwoBookMeta);
 
             ItemStack heavinessOneBook = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta heavinessOneBookMeta = (EnchantmentStorageMeta) heavinessOneBook.getItemMeta();
-            heavinessOneBookMeta.addStoredEnchant(CustomEnchants.HEAVINESS, 1, true);
+            // heavinessOneBookMeta.addStoredEnchant(CustomEnchants.HEAVINESS, 1, true);
+            heavinessOneBook.addUnsafeEnchantment(CustomEnchants.HEAVINESS, 1);
             heavinessOneBook.setItemMeta(heavinessOneBookMeta);
 
             ItemStack heavinessTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta heavinessTwoBookMeta = (EnchantmentStorageMeta) heavinessTwoBook.getItemMeta();
-            heavinessTwoBookMeta.addStoredEnchant(CustomEnchants.HEAVINESS, 2, true);
+            // heavinessTwoBookMeta.addStoredEnchant(CustomEnchants.HEAVINESS, 2, true);
+            heavinessTwoBook.addUnsafeEnchantment(CustomEnchants.HEAVINESS, 2);
             heavinessTwoBook.setItemMeta(heavinessTwoBookMeta);
 
             opLootBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "op_loot_enchanted_book"), opLootBook);
@@ -170,8 +183,20 @@ public class CustomEnchantsCommand implements CommandExecutor {
             enabled = true;
         }
         else {
-            // Remove recipe
+            // Remove recipes
             Bukkit.getServer().removeRecipe(opLootBookRecipe.getKey());
+            Bukkit.getServer().removeRecipe(telepathyBookRecipe.getKey());
+            Bukkit.getServer().removeRecipe(lifestealOneBookRecipe.getKey());
+            Bukkit.getServer().removeRecipe(lifestealTwoBookRecipe.getKey());
+            Bukkit.getServer().removeRecipe(lifestealThreeBookRecipe.getKey());
+            Bukkit.getServer().removeRecipe(lifestealFourBookRecipe.getKey());
+            Bukkit.getServer().removeRecipe(lifestealFiveBookRecipe.getKey());
+            Bukkit.getServer().removeRecipe(infectionOneBookRecipe.getKey());
+            Bukkit.getServer().removeRecipe(infectionTwoBookRecipe.getKey());
+            Bukkit.getServer().removeRecipe(witheringOneBookRecipe.getKey());
+            Bukkit.getServer().removeRecipe(witheringTwoBookRecipe.getKey());
+            Bukkit.getServer().removeRecipe(heavinessOneBookRecipe.getKey());
+            Bukkit.getServer().removeRecipe(heavinessTwoBookRecipe.getKey());
 
             TwistCraft.instance.messageServer("Custom Enchants disabled!", p);
             enabled = false;

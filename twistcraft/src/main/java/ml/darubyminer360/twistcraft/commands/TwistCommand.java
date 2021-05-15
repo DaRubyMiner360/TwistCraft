@@ -1,8 +1,11 @@
 package ml.darubyminer360.twistcraft.commands;
 
-import ml.darubyminer360.twistcraft.TwistCraft;
+import ml.darubyminer360.twistcraft.*;
+import ml.darubyminer360.twistcraft.util.*;
+import ml.darubyminer360.twistcraft.inventories.*;
 import org.bukkit.*;
 import org.bukkit.inventory.*;
+import org.bukkit.inventory.meta.*;
 import org.bukkit.command.*;
 import org.bukkit.entity.*;
 import org.bukkit.scheduler.BukkitScheduler;
@@ -271,6 +274,140 @@ public class TwistCommand implements CommandExecutor {
                     AllowedFlightCommand.enabled = true;
                 }
                 else if (args[1].equalsIgnoreCase("customenchants")) {
+                    // Add recipes
+                    ItemStack opLootBook = new ItemStack(Material.ENCHANTED_BOOK);
+                    EnchantmentStorageMeta opLootBookMeta = (EnchantmentStorageMeta) opLootBook.getItemMeta();
+                    opLootBookMeta.addStoredEnchant(CustomEnchants.OPLOOT, 1, true);
+                    opLootBook.setItemMeta(opLootBookMeta);
+
+                    ItemStack telepathyBook = new ItemStack(Material.ENCHANTED_BOOK);
+                    EnchantmentStorageMeta telepathyBookMeta = (EnchantmentStorageMeta) telepathyBook.getItemMeta();
+                    telepathyBookMeta.addStoredEnchant(CustomEnchants.TELEPATHY, 1, true);
+                    telepathyBook.setItemMeta(telepathyBookMeta);
+
+                    ItemStack lifestealOneBook = new ItemStack(Material.ENCHANTED_BOOK);
+                    EnchantmentStorageMeta lifestealOneBookMeta = (EnchantmentStorageMeta) lifestealOneBook.getItemMeta();
+                    lifestealOneBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 1, true);
+                    lifestealOneBook.setItemMeta(lifestealOneBookMeta);
+
+                    ItemStack lifestealTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
+                    EnchantmentStorageMeta lifestealTwoBookMeta = (EnchantmentStorageMeta) lifestealTwoBook.getItemMeta();
+                    lifestealTwoBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 2, true);
+                    lifestealTwoBook.setItemMeta(lifestealTwoBookMeta);
+
+                    ItemStack lifestealThreeBook = new ItemStack(Material.ENCHANTED_BOOK);
+                    EnchantmentStorageMeta lifestealThreeBookMeta = (EnchantmentStorageMeta) lifestealThreeBook.getItemMeta();
+                    lifestealThreeBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 3, true);
+                    lifestealThreeBook.setItemMeta(lifestealThreeBookMeta);
+
+                    ItemStack lifestealFourBook = new ItemStack(Material.ENCHANTED_BOOK);
+                    EnchantmentStorageMeta lifestealFourBookMeta = (EnchantmentStorageMeta) lifestealFourBook.getItemMeta();
+                    lifestealFourBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 4, true);
+                    lifestealFourBook.setItemMeta(lifestealFourBookMeta);
+
+                    ItemStack lifestealFiveBook = new ItemStack(Material.ENCHANTED_BOOK);
+                    EnchantmentStorageMeta lifestealFiveBookMeta = (EnchantmentStorageMeta) lifestealFiveBook.getItemMeta();
+                    lifestealFiveBookMeta.addStoredEnchant(CustomEnchants.LIFESTEAL, 5, true);
+                    lifestealFiveBook.setItemMeta(lifestealFiveBookMeta);
+
+                    ItemStack infectionOneBook = new ItemStack(Material.ENCHANTED_BOOK);
+                    EnchantmentStorageMeta infectionOneBookMeta = (EnchantmentStorageMeta) infectionOneBook.getItemMeta();
+                    infectionOneBookMeta.addStoredEnchant(CustomEnchants.INFECTION, 1, true);
+                    infectionOneBook.setItemMeta(infectionOneBookMeta);
+
+                    ItemStack infectionTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
+                    EnchantmentStorageMeta infectionTwoBookMeta = (EnchantmentStorageMeta) infectionTwoBook.getItemMeta();
+                    infectionTwoBookMeta.addStoredEnchant(CustomEnchants.INFECTION, 2, true);
+                    infectionTwoBook.setItemMeta(infectionTwoBookMeta);
+
+                    ItemStack witheringOneBook = new ItemStack(Material.ENCHANTED_BOOK);
+                    EnchantmentStorageMeta witheringOneBookMeta = (EnchantmentStorageMeta) witheringOneBook.getItemMeta();
+                    witheringOneBookMeta.addStoredEnchant(CustomEnchants.WITHERING, 1, true);
+                    witheringOneBook.setItemMeta(witheringOneBookMeta);
+
+                    ItemStack witheringTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
+                    EnchantmentStorageMeta witheringTwoBookMeta = (EnchantmentStorageMeta) witheringTwoBook.getItemMeta();
+                    witheringTwoBookMeta.addStoredEnchant(CustomEnchants.WITHERING, 2, true);
+                    witheringTwoBook.setItemMeta(witheringTwoBookMeta);
+
+                    ItemStack heavinessOneBook = new ItemStack(Material.ENCHANTED_BOOK);
+                    EnchantmentStorageMeta heavinessOneBookMeta = (EnchantmentStorageMeta) heavinessOneBook.getItemMeta();
+                    heavinessOneBookMeta.addStoredEnchant(CustomEnchants.HEAVINESS, 1, true);
+                    heavinessOneBook.setItemMeta(heavinessOneBookMeta);
+
+                    ItemStack heavinessTwoBook = new ItemStack(Material.ENCHANTED_BOOK);
+                    EnchantmentStorageMeta heavinessTwoBookMeta = (EnchantmentStorageMeta) heavinessTwoBook.getItemMeta();
+                    heavinessTwoBookMeta.addStoredEnchant(CustomEnchants.HEAVINESS, 2, true);
+                    heavinessTwoBook.setItemMeta(heavinessTwoBookMeta);
+
+                    CustomEnchantsCommand.opLootBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "op_loot_enchanted_book"), opLootBook);
+                    CustomEnchantsCommand.opLootBookRecipe.addIngredient(1, Material.BOOK);
+                    CustomEnchantsCommand.opLootBookRecipe.addIngredient(1, Material.IRON_INGOT);
+                    CustomEnchantsCommand.opLootBookRecipe.addIngredient(1, Material.GOLD_INGOT);
+                    CustomEnchantsCommand.opLootBookRecipe.addIngredient(1, Material.DIAMOND);
+                    Bukkit.getServer().addRecipe(CustomEnchantsCommand.opLootBookRecipe);
+
+                    CustomEnchantsCommand.telepathyBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "telepathy_enchanted_book"), telepathyBook);
+                    CustomEnchantsCommand.telepathyBookRecipe.addIngredient(1, Material.BOOK);
+                    CustomEnchantsCommand.telepathyBookRecipe.addIngredient(1, Material.ENDER_PEARL);
+                    Bukkit.getServer().addRecipe(CustomEnchantsCommand.telepathyBookRecipe);
+
+                    CustomEnchantsCommand.lifestealOneBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_one_enchanted_book"), lifestealOneBook);
+                    CustomEnchantsCommand.lifestealOneBookRecipe.addIngredient(1, Material.BOOK);
+                    CustomEnchantsCommand.lifestealOneBookRecipe.addIngredient(1, Material.REDSTONE);
+                    Bukkit.getServer().addRecipe(CustomEnchantsCommand.lifestealOneBookRecipe);
+
+                    CustomEnchantsCommand.lifestealTwoBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_two_enchanted_book"), lifestealTwoBook);
+                    CustomEnchantsCommand.lifestealTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealOneBook));
+                    CustomEnchantsCommand.lifestealTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealOneBook));
+                    Bukkit.getServer().addRecipe(CustomEnchantsCommand.lifestealTwoBookRecipe);
+
+                    CustomEnchantsCommand.lifestealThreeBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_three_enchanted_book"), lifestealThreeBook);
+                    CustomEnchantsCommand.lifestealThreeBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealTwoBook));
+                    CustomEnchantsCommand.lifestealThreeBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealTwoBook));
+                    Bukkit.getServer().addRecipe(CustomEnchantsCommand.lifestealThreeBookRecipe);
+
+                    CustomEnchantsCommand.lifestealFourBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_four_enchanted_book"), lifestealFourBook);
+                    CustomEnchantsCommand.lifestealFourBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealThreeBook));
+                    CustomEnchantsCommand.lifestealFourBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealThreeBook));
+                    Bukkit.getServer().addRecipe(CustomEnchantsCommand.lifestealFourBookRecipe);
+
+                    CustomEnchantsCommand.lifestealFiveBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "lifesteal_five_enchanted_book"), lifestealFiveBook);
+                    CustomEnchantsCommand.lifestealFiveBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealFourBook));
+                    CustomEnchantsCommand.lifestealFiveBookRecipe.addIngredient(new RecipeChoice.ExactChoice(lifestealFourBook));
+                    Bukkit.getServer().addRecipe(CustomEnchantsCommand.lifestealFiveBookRecipe);
+
+                    CustomEnchantsCommand.infectionOneBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "infection_one_enchanted_book"), infectionOneBook);
+                    CustomEnchantsCommand.infectionOneBookRecipe.addIngredient(1, Material.BOOK);
+                    CustomEnchantsCommand.infectionOneBookRecipe.addIngredient(1, Material.SPIDER_EYE);
+                    Bukkit.getServer().addRecipe(CustomEnchantsCommand.infectionOneBookRecipe);
+
+                    CustomEnchantsCommand.infectionTwoBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "infection_two_enchanted_book"), infectionTwoBook);
+                    CustomEnchantsCommand.infectionTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(infectionOneBook));
+                    CustomEnchantsCommand.infectionTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(infectionOneBook));
+                    Bukkit.getServer().addRecipe(CustomEnchantsCommand.infectionTwoBookRecipe);
+
+                    CustomEnchantsCommand.witheringOneBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "withering_one_enchanted_book"), witheringOneBook);
+                    CustomEnchantsCommand.witheringOneBookRecipe.addIngredient(1, Material.BOOK);
+                    CustomEnchantsCommand.witheringOneBookRecipe.addIngredient(1, Material.COAL);
+                    CustomEnchantsCommand.witheringOneBookRecipe.addIngredient(1, Material.BONE);
+                    Bukkit.getServer().addRecipe(CustomEnchantsCommand.witheringOneBookRecipe);
+
+                    CustomEnchantsCommand.witheringTwoBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "withering_two_enchanted_book"), witheringTwoBook);
+                    CustomEnchantsCommand.witheringTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(witheringOneBook));
+                    CustomEnchantsCommand.witheringTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(witheringOneBook));
+                    Bukkit.getServer().addRecipe(CustomEnchantsCommand.witheringTwoBookRecipe);
+
+                    CustomEnchantsCommand.heavinessOneBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "heaviness_one_enchanted_book"), heavinessOneBook);
+                    CustomEnchantsCommand.heavinessOneBookRecipe.addIngredient(1, Material.BOOK);
+                    CustomEnchantsCommand.heavinessOneBookRecipe.addIngredient(1, Material.IRON_BLOCK);
+                    Bukkit.getServer().addRecipe(CustomEnchantsCommand.heavinessOneBookRecipe);
+
+                    CustomEnchantsCommand.heavinessTwoBookRecipe = new ShapelessRecipe(new NamespacedKey(TwistCraft.instance, "heaviness_two_enchanted_book"), heavinessTwoBook);
+                    CustomEnchantsCommand.heavinessTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(heavinessOneBook));
+                    CustomEnchantsCommand.heavinessTwoBookRecipe.addIngredient(new RecipeChoice.ExactChoice(heavinessOneBook));
+                    Bukkit.getServer().addRecipe(CustomEnchantsCommand.heavinessTwoBookRecipe);
+
                     TwistCraft.instance.messageServer("Custom Enchants enabled!", p);
                     CustomEnchantsCommand.enabled = true;
                 }
@@ -363,6 +500,21 @@ public class TwistCommand implements CommandExecutor {
                     AllowedFlightCommand.enabled = false;
                 }
                 else if (args[1].equalsIgnoreCase("customenchants")) {
+                    // Remove recipes
+                    Bukkit.getServer().removeRecipe(CustomEnchantsCommand.opLootBookRecipe.getKey());
+                    Bukkit.getServer().removeRecipe(CustomEnchantsCommand.telepathyBookRecipe.getKey());
+                    Bukkit.getServer().removeRecipe(CustomEnchantsCommand.lifestealOneBookRecipe.getKey());
+                    Bukkit.getServer().removeRecipe(CustomEnchantsCommand.lifestealTwoBookRecipe.getKey());
+                    Bukkit.getServer().removeRecipe(CustomEnchantsCommand.lifestealThreeBookRecipe.getKey());
+                    Bukkit.getServer().removeRecipe(CustomEnchantsCommand.lifestealFourBookRecipe.getKey());
+                    Bukkit.getServer().removeRecipe(CustomEnchantsCommand.lifestealFiveBookRecipe.getKey());
+                    Bukkit.getServer().removeRecipe(CustomEnchantsCommand.infectionOneBookRecipe.getKey());
+                    Bukkit.getServer().removeRecipe(CustomEnchantsCommand.infectionTwoBookRecipe.getKey());
+                    Bukkit.getServer().removeRecipe(CustomEnchantsCommand.witheringOneBookRecipe.getKey());
+                    Bukkit.getServer().removeRecipe(CustomEnchantsCommand.witheringTwoBookRecipe.getKey());
+                    Bukkit.getServer().removeRecipe(CustomEnchantsCommand.heavinessOneBookRecipe.getKey());
+                    Bukkit.getServer().removeRecipe(CustomEnchantsCommand.heavinessTwoBookRecipe.getKey());
+
                     TwistCraft.instance.messageServer("Custom Enchants disabled!", p);
                     CustomEnchantsCommand.enabled = false;
                 }
@@ -372,10 +524,10 @@ public class TwistCommand implements CommandExecutor {
                     TwistCraft.instance.messageServer("Craftable Command Blocks allows you to craft and use command blocks in survival mode.", p);
                 }
                 else if (args[1].equalsIgnoreCase("craftablebarrierblocks")) {
-                    TwistCraft.instance.messageServer("Craftable Barrier Blocks you to craft barrier blocks.", p);
+                    TwistCraft.instance.messageServer("Craftable Barrier Blocks allows you to craft barrier blocks.", p);
                 }
                 else if (args[1].equalsIgnoreCase("craftableenchantedgoldenapples")) {
-                    TwistCraft.instance.messageServer("Craftable Enchanted Golden Apples you to craft enchanted golden apples.", p);
+                    TwistCraft.instance.messageServer("Craftable Enchanted Golden Apples allows you to craft enchanted golden apples.", p);
                 }
                 else if (args[1].equalsIgnoreCase("opmobs")) {
                     TwistCraft.instance.messageServer("OP Mobs makes every mob extremely overpowered.", p);
@@ -387,7 +539,7 @@ public class TwistCommand implements CommandExecutor {
                     TwistCraft.instance.messageServer("Manhunt is the gamemode where a speedrunner attempts to defeat the Ender Dragon while one or more hunters try to kill the speedrunner.", p);
                 }
                 else if (args[1].equalsIgnoreCase("everywherelooked")) {
-                    TwistCraft.instance.messageServer("Everywhere Looked is the gamemode where whereever a player looks, something happens!", p);
+                    TwistCraft.instance.messageServer("Everywhere Looked makes it to where whereever a player looks, something happens!", p);
                 }
                 else if (args[1].equalsIgnoreCase("deathswap")) {
                     TwistCraft.instance.messageServer("Death Swap is the gamemode where two players try to kill each other with traps when they swap positions!", p);
@@ -412,7 +564,8 @@ public class TwistCommand implements CommandExecutor {
                 }
                 break;
             default:
-                p.sendMessage("Use '/twist list' for a list of possible twists");
+                TwistSelectionScreen twistSelector = new TwistSelectionScreen();
+                p.openInventory(twistSelector.getInventory());
                 break;
         }
 

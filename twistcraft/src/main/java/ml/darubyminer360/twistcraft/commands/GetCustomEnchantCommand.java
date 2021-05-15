@@ -18,6 +18,13 @@ public class GetCustomEnchantCommand implements CommandExecutor {
                 Player player = (Player) sender;
                 ItemStack item = new ItemStack(Material.ENCHANTED_BOOK);
 
+                if (args[0].equalsIgnoreCase("debugtest")) {
+                    EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
+//                    meta.addStoredEnchant(CustomEnchants.OPLOOT, 100, true);
+                     item.addUnsafeEnchantment(CustomEnchants.OPLOOT, 100);
+                    item.setItemMeta(meta);
+                }
+                
                 if (args[0].equalsIgnoreCase("oploot")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
 //                    meta.addStoredEnchant(CustomEnchants.OPLOOT, 1, true);

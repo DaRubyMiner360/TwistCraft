@@ -113,7 +113,9 @@ public class CustomEnchantsListener implements Listener {
                     Random rand = new Random();
                     for (ItemStack item : drops) {
                         drops.remove(item);
-                        drops.add(TwistCraft.instance.opLootTable[rand.nextInt(TwistCraft.instance.opLootTable.length)]);
+                        for (int i = 0; i < rand.nextInt(player.getInventory().getItemInMainHand().getItemMeta().getEnchantLevel(CustomEnchants.OPLOOT) - 1 + 1) + 1; i++) {
+                            drops.add(TwistCraft.instance.opLootTable[rand.nextInt(TwistCraft.instance.opLootTable.length)]);
+                        }
                     }
                 }
             }
@@ -168,7 +170,9 @@ public class CustomEnchantsListener implements Listener {
                     Random rand = new Random();
                     for (ItemStack item : drops) {
                         drops.remove(item);
-                        drops.add(TwistCraft.instance.opLootTable[rand.nextInt(TwistCraft.instance.opLootTable.length)]);
+                        for (int i = 0; i < rand.nextInt(player.getInventory().getItemInMainHand().getItemMeta().getEnchantLevel(CustomEnchants.OPLOOT) - 1 + 1) + 1; i++) {
+                            drops.add(TwistCraft.instance.opLootTable[rand.nextInt(TwistCraft.instance.opLootTable.length)]);
+                        }
                     }
                 }
             }
