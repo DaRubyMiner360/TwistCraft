@@ -57,13 +57,14 @@ public class CustomEnchantsListener implements Listener {
                                     }
                                     book.removeEnchantment(entry.getKey());
 //                                    meta.removeStoredEnchant(entry.getKey());
+
+                                    if (book.getEnchantments().size() == 0) {
+//                                        if (meta.getStoredEnchants().size() == 0) {
+                                        player.setItemOnCursor(new ItemStack(Material.AIR));
+                                    }
                                 }
                             }
 //                            book.setItemMeta(meta);
-                            if (book.getEnchantments().size() == 0) {
-//                            if (meta.getStoredEnchants().size() == 0) {
-                                player.setItemOnCursor(new ItemStack(Material.AIR));
-                            }
                         }
                     }
                 }
