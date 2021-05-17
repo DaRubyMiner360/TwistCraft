@@ -3,6 +3,8 @@ version: ${project.version}
 api-version: 1.16
 main: ml.darubyminer360.twistcraft.TwistCraft
 
+depend: [ProtocolLib]
+
 prefix: TwistCraft
 authors: [DaRubyMiner360]
 description: The official TwistCraft server plugin!
@@ -66,3 +68,5 @@ commands:
     usage: /addcustomenchant
   getcustomenchant:
     usage: /addcustomenchant
+  oploot:
+    usage: /oploot <method>

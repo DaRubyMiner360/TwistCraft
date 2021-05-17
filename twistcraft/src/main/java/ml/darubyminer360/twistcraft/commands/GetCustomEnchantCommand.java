@@ -22,20 +22,20 @@ public class GetCustomEnchantCommand implements CommandExecutor {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
 //                    meta.addStoredEnchant(CustomEnchants.OPLOOT, 100, true);
                      item.addUnsafeEnchantment(CustomEnchants.OPLOOT, 100);
-                    item.setItemMeta(meta);
+//                    item.setItemMeta(meta);
                 }
                 
                 if (args[0].equalsIgnoreCase("oploot")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
 //                    meta.addStoredEnchant(CustomEnchants.OPLOOT, 1, true);
                      item.addUnsafeEnchantment(CustomEnchants.OPLOOT, 1);
-                    item.setItemMeta(meta);
+//                    item.setItemMeta(meta);
                 }
                 if (args[0].equalsIgnoreCase("telepathy")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
 //                    meta.addStoredEnchant(CustomEnchants.TELEPATHY, 1, true);
                      item.addUnsafeEnchantment(CustomEnchants.TELEPATHY, 1);
-                    item.setItemMeta(meta);
+//                    item.setItemMeta(meta);
                 }
                 if (args[0].equalsIgnoreCase("lifesteal")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
@@ -65,7 +65,7 @@ public class GetCustomEnchantCommand implements CommandExecutor {
                         meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 1, true);
 //                         item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 1);
                     }
-                    item.setItemMeta(meta);
+//                    item.setItemMeta(meta);
                 }
                 if (args[0].equalsIgnoreCase("infection")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
@@ -77,7 +77,7 @@ public class GetCustomEnchantCommand implements CommandExecutor {
 //                        meta.addStoredEnchant(CustomEnchants.INFECTION, 1, true);
                          item.addUnsafeEnchantment(CustomEnchants.INFECTION, 1);
                     }
-                    item.setItemMeta(meta);
+//                    item.setItemMeta(meta);
                 }
                 if (args[0].equalsIgnoreCase("withering")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
@@ -89,7 +89,7 @@ public class GetCustomEnchantCommand implements CommandExecutor {
 //                        meta.addStoredEnchant(CustomEnchants.WITHERING, 1, true);
                          item.addUnsafeEnchantment(CustomEnchants.WITHERING, 1);
                     }
-                    item.setItemMeta(meta);
+//                    item.setItemMeta(meta);
                 }
                 if (args[0].equalsIgnoreCase("heaviness")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
@@ -101,7 +101,7 @@ public class GetCustomEnchantCommand implements CommandExecutor {
 //                        meta.addStoredEnchant(CustomEnchants.HEAVINESS, 1, true);
                          item.addUnsafeEnchantment(CustomEnchants.HEAVINESS, 1);
                     }
-                    item.setItemMeta(meta);
+//                    item.setItemMeta(meta);
                 }
 
                 if (player.getInventory().firstEmpty() != -1) {

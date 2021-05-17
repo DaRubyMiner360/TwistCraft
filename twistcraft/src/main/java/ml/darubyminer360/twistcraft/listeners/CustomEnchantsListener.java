@@ -24,7 +24,7 @@ import java.util.*;
 
 public class CustomEnchantsListener implements Listener {
     @EventHandler
-	public void addEnchantment(InventoryClickEvent e) {
+	public void onAddEnchantment(InventoryClickEvent e) {
         if (CustomEnchantsCommand.enabled) {
             Inventory inv = e.getInventory();
 		    Player player = (Player) e.getWhoClicked();
@@ -59,11 +59,11 @@ public class CustomEnchantsListener implements Listener {
 //                                    meta.removeStoredEnchant(entry.getKey());
                                 }
                             }
+//                            book.setItemMeta(meta);
                             if (book.getEnchantments().size() == 0) {
 //                            if (meta.getStoredEnchants().size() == 0) {
                                 player.setItemOnCursor(new ItemStack(Material.AIR));
                             }
-                            book.setItemMeta(meta);
                         }
                     }
                 }
@@ -137,7 +137,8 @@ public class CustomEnchantsListener implements Listener {
                             player.getInventory().addItem(item);
                         }
                         else {
-                            player.getWorld().dropItem(player.getLocation(), item);
+                            block.getWorld().dropItemNaturally(block.getLocation(), item);
+//                            player.getWorld().dropItem(player.getLocation(), item);
                         }
                     }
                 }

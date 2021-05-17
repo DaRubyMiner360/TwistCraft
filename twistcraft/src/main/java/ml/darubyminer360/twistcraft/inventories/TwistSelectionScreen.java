@@ -10,13 +10,13 @@ public class TwistSelectionScreen implements InventoryHolder {
     Inventory inv;
 
     public TwistSelectionScreen() {
-        inv = Bukkit.createInventory(this, 36, "Twist Selector"); // 54 is the max size
+        inv = Bukkit.createInventory(this, 45, "Twist Selector"); // 54 is the max size
         init();
     }
 
     void init() {
-        ItemStack fillerItem = createItem("", Material.BLACK_STAINED_GLASS_PANE, "");
-        for (int i = 0; i < 36; i++) {
+        ItemStack fillerItem = createItem(" ", Material.BLACK_STAINED_GLASS_PANE);
+        for (int i = 0; i < inv.getSize(); i++) {
             if (i == 10) {
                 // Craftable Command Blocks
                 ItemStack item = createItem("Craftable Command Blocks", Material.COMMAND_BLOCK, "§1Twist", "", "Craftable Command Blocks allows you to craft and use command blocks in survival mode.");
@@ -84,7 +84,12 @@ public class TwistSelectionScreen implements InventoryHolder {
             }
             else if (i == 25) {
                 // Death Swap
-                ItemStack item = createItem("Death Swap", Material.NETHERITE_SWORD, "§4GameMode", "", "Death Swap is the gamemode where two players try to kill each other with traps when they swap positions!");
+                ItemStack item = createItem("Death Swap", Material.NETHERITE_SWORD, "§4GameMode", "", "Death Swap is the gamemode where two players try to kill each other with traps when they swap positions.");
+                inv.setItem(i, item);
+            }
+            else if (i == 28) {
+                // OP Loot
+                ItemStack item = createItem("OP Loot", Material.BEACON, "§1Twist", "", "OP Loot makes things give OP Loot.");
                 inv.setItem(i, item);
             }
             else {

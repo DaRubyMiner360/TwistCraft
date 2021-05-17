@@ -15,7 +15,7 @@ public class EverywhereLookedScreen implements InventoryHolder {
     }
 
     void init() {
-        ItemStack fillerItem = createItem("", Material.BLACK_STAINED_GLASS_PANE, "");
+        ItemStack fillerItem = createItem(" ", Material.BLACK_STAINED_GLASS_PANE);
         for (int i = 0; i < 27; i++) {
             if (i == 11) {
                 // Turns to Random Blocks
