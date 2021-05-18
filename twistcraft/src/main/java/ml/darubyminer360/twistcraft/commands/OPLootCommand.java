@@ -37,6 +37,26 @@ public class OPLootCommand implements CommandExecutor {
                     enabled.replace("trapdoors", false);
                 }
             }
+            else if (args[0].equalsIgnoreCase("shearing")) {
+                if (!enabled.get("shearing")) {
+                    TwistCraft.instance.messageServer("Shearing Animals Drops OP Loot enabled!", p);
+                    enabled.replace("shearing", true);
+                }
+                else {
+                    TwistCraft.instance.messageServer("Shearing Animals Drops OP Loot disabled!", p);
+                    enabled.replace("shearing", false);
+                }
+            }
+            else if (args[0].equalsIgnoreCase("mending")) {
+                if (!enabled.get("mending")) {
+                    TwistCraft.instance.messageServer("Mending Items Drops OP Loot enabled!", p);
+                    enabled.replace("mending", true);
+                }
+                else {
+                    TwistCraft.instance.messageServer("Mending Items Drops OP Loot disabled!", p);
+                    enabled.replace("mending", false);
+                }
+            }
         }
         else {
             OPLootSelectionScreen opLootSelector = new OPLootSelectionScreen();

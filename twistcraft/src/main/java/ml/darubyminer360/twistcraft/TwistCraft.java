@@ -15,6 +15,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.attribute.*;
 import org.bukkit.inventory.*;
 import org.bukkit.inventory.meta.*;
+import org.bukkit.inventory.meta.tags.*;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.*;
 
@@ -74,6 +75,7 @@ public class TwistCraft extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new SneakInvisibilityListener(), this);
         getServer().getPluginManager().registerEvents(new OPLootListener(), this);
         getServer().getPluginManager().registerEvents(new OPLootSelectionScreenListener(), this);
+        getServer().getPluginManager().registerEvents(new OPItemsListener(), this);
 
         // Setup enchantments
         CustomEnchants.register();
@@ -84,6 +86,8 @@ public class TwistCraft extends JavaPlugin {
 
         OPLootCommand.enabled.put("doors", false);
         OPLootCommand.enabled.put("trapdoors", false);
+        OPLootCommand.enabled.put("shearing", false);
+        OPLootCommand.enabled.put("mending", false);
 //        OPLootCommand.enabled.put("oplootenchant", false);
 
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
@@ -582,6 +586,13 @@ public class TwistCraft extends JavaPlugin {
         netheriteBoots.addUnsafeEnchantment(Enchantment.THORNS, 10000);
         netheriteBoots.addUnsafeEnchantment(Enchantment.MENDING, 10);
 
+        ItemStack regeneratingTotem = new ItemStack(Material.TOTEM_OF_UNDYING, 1);
+        NamespacedKey regeneratingTotemKey = new NamespacedKey(this, "regenerating_totem");
+        ItemMeta regeneratingTotemMeta = regeneratingTotem.getItemMeta();
+        regeneratingTotemMeta.setDisplayName("Regenerating Totem");
+        regeneratingTotemMeta.getCustomTagContainer().setCustomTag(regeneratingTotemKey, ItemTagType.DOUBLE, 1);
+        regeneratingTotem.setItemMeta(regeneratingTotemMeta);
+
         ItemStack opLootBook = new ItemStack(Material.ENCHANTED_BOOK);
         EnchantmentStorageMeta opLootBookMeta = (EnchantmentStorageMeta) opLootBook.getItemMeta();
         // opLootBookMeta.addStoredEnchant(CustomEnchants.OPLOOT, 1, true);
@@ -823,7 +834,9 @@ public class TwistCraft extends JavaPlugin {
             new ItemStack(Material.TOTEM_OF_UNDYING, 1),
 
             riptideTrident,
-            new ItemStack(Material.TRIDENT, 1)
+            new ItemStack(Material.TRIDENT, 1),
+
+            regeneratingTotem
         };
 
         opLootTableArmor = new ItemStack[] {

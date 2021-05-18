@@ -30,6 +30,16 @@ public class OPLootSelectionScreen implements InventoryHolder {
                 ItemStack item = createItem("Trapdoors Drop OP Loot", Material.OAK_TRAPDOOR, "§1Twist", "", "Check this twist's name.");
                 inv.setItem(i, item);
             }
+            else if (i == 12) {
+                // Shearing Animals Drops OP Loot
+                ItemStack item = createItem("Shearing Animals Drops OP Loot", Material.SHEARS, "§1Twist", "", "Check this twist's name.");
+                inv.setItem(i, item);
+            }
+            else if (i == 12) {
+                // Mending Items Drops OP Loot
+                ItemStack item = createItem("Mending Items Drops OP Loot", Material.ANVIL, "§1Twist", "", "Check this twist's name.");
+                inv.setItem(i, item);
+            }
             else {
                 inv.setItem(i, fillerItem);
             }

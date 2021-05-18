@@ -11,6 +11,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.entity.*;
+import org.bukkit.event.entity.*;
+import org.bukkit.event.player.*;
 
 import java.util.Collection;
 import java.util.Random;
@@ -42,6 +45,32 @@ public class OPLootListener implements Listener {
                         block.getWorld().dropItemNaturally(block.getLocation(), TwistCraft.instance.opLootTable[rand.nextInt(TwistCraft.instance.opLootTable.length)]);
                     }
                 }
+            }
+        }
+    }
+
+    @EventHandler
+    public void onEntityDropItem(EntityDropItemEvent event) {
+        if (event.getEntity() instanceof Sheep) {
+            Random rand = new Random();
+            for (int i = 0; i < rand.nextInt(3 - 1 + 1) + 1; i++) {
+                if (OPLootCommand.enabled.get("shearing")) {
+                    event.setCancelled(true);
+                    event.getEntity().getWorld().dropItemNaturally(event.getEntity().getLocation(), TwistCraft.instance.opLootTable[rand.nextInt(TwistCraft.instance.opLootTable.length)]);
+                }
+            }
+        }
+    }
+
+    @EventHandler
+    public void onItemMend(PlayerItemMendEvent event) {
+        Player player = event.getPlayer();
+        
+        Random rand = new Random();
+        for (int i = 0; i < rand.nextInt(3 - 1 + 1) + 1; i++) {
+            if (OPLootCommand.enabled.get("mending")) {
+                event.setCancelled(true);
+                player.getWorld().dropItemNaturally(player.getLocation(), TwistCraft.instance.opLootTable[rand.nextInt(TwistCraft.instance.opLootTable.length)]);
             }
         }
     }

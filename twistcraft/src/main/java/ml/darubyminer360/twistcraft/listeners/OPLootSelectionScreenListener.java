@@ -34,6 +34,18 @@ public class OPLootSelectionScreenListener implements Listener {
 
                 p.performCommand("oploot trapdoors");
             }
+            else if (event.getCurrentItem().getType() == Material.SHEARS) {
+                // Shearing Animals Drops OP Loot
+                p.closeInventory();
+
+                p.performCommand("oploot shearing");
+            }
+            else if (event.getCurrentItem().getType() == Material.ANVIL) {
+                // Mending Items Drops OP Loot
+                p.closeInventory();
+
+                p.performCommand("oploot mending");
+            }
         }
     }
 }
