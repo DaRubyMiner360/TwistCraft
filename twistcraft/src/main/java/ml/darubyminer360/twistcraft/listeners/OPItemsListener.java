@@ -11,6 +11,7 @@ import org.bukkit.inventory.*;
 import org.bukkit.inventory.meta.*;
 import org.bukkit.inventory.meta.tags.*;
 import org.bukkit.*;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.*;
 
@@ -23,44 +24,26 @@ public class OPItemsListener implements Listener {
 
                 NamespacedKey key = new NamespacedKey(TwistCraft.instance, "regenerating_totem");
                 
-                ItemStack totem;
+                ItemStack totem = null;
                 ItemStack mainhand = player.getInventory().getItemInMainHand();
                 ItemStack offhand = player.getInventory().getItemInOffHand();
                 boolean shouldContinue = true;
                 if (offhand != null && offhand.getType() == Material.TOTEM_OF_UNDYING) {
-                    if (!offhand.getItemMeta().getCustomTagContainer().hasCustomTag(key, ItemTagType.DOUBLE)) {
+                    if (!offhand.getItemMeta().getPersistentDataContainer().has(key, PersistentDataType.DOUBLE)) {
                         shouldContinue = false;
                     }
                     totem = offhand;
                 }
                 else if (mainhand != null && mainhand.getType() == Material.TOTEM_OF_UNDYING) {
-                    if (!mainhand.getItemMeta().getCustomTagContainer().hasCustomTag(key, ItemTagType.DOUBLE)) {
+                    if (!mainhand.getItemMeta().getPersistentDataContainer().has(key, PersistentDataType.DOUBLE)) {
                         shouldContinue = false;
                     }
                     totem = mainhand;
                 }
                 if (totem != null && shouldContinue) {
-                    ItemMeta totemMeta = totem.getItemMeta();
-                    ItemStack newTotem = new ItemStack(Material.TOTEM_OF_UNDYING, 1);
-                    newTotem.setItemMeta(totemMeta);
-                    if (player.getInventory().firstEmpty() != -1) {
-                        player.getInventory().addItem(item);
-                    }
-                    else {
-                        player.getWorld().dropItem(player.getLocation(), item);
-                    }
-                    // totem.setAmount(2);
+                     totem.setAmount(2);
                 }
             }
         }
-
-
-        
-        // ItemStack regeneratingTotem = new ItemStack(Material.TOTEM_OF_UNDYING, 1);
-        // NamespacedKey regeneratingTotemKey = new NamespacedKey(this, "regenerating_totem");
-        // ItemMeta regeneratingTotemMeta = regeneratingTotem.getItemMeta();
-        // regeneratingTotemMeta.setDisplayName("Regenerating Totem");
-        // regeneratingTotemMeta.getCustomTagContainer().setCustomTag(regeneratingTotemKey, ItemTagType.DOUBLE, 1);
-        // regeneratingTotem.setItemMeta(regeneratingTotemMeta);
     }
 }

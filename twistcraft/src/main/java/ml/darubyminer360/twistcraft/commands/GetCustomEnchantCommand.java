@@ -17,89 +17,124 @@ public class GetCustomEnchantCommand implements CommandExecutor {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
                 ItemStack item = new ItemStack(Material.ENCHANTED_BOOK);
-
-                if (args[0].equalsIgnoreCase("debugtest")) {
-                    EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
-//                    meta.addStoredEnchant(CustomEnchants.OPLOOT, 100, true);
-                     item.addUnsafeEnchantment(CustomEnchants.OPLOOT, 100);
-//                    item.setItemMeta(meta);
-                }
                 
                 if (args[0].equalsIgnoreCase("oploot")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
-//                    meta.addStoredEnchant(CustomEnchants.OPLOOT, 1, true);
-                     item.addUnsafeEnchantment(CustomEnchants.OPLOOT, 1);
+                    if (args.length > 2 && args[2].equals("true")) {
+//                        meta.addStoredEnchant(CustomEnchants.OPLOOT, Integer.parseInt(args[1]), true);
+                        item.addUnsafeEnchantment(CustomEnchants.OPLOOT, Integer.parseInt(args[1]));
+                    }
+                    else {
+//                        meta.addStoredEnchant(CustomEnchants.OPLOOT, 1, true);
+                        item.addUnsafeEnchantment(CustomEnchants.OPLOOT, 1);
+                    }
 //                    item.setItemMeta(meta);
                 }
                 if (args[0].equalsIgnoreCase("telepathy")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
-//                    meta.addStoredEnchant(CustomEnchants.TELEPATHY, 1, true);
-                     item.addUnsafeEnchantment(CustomEnchants.TELEPATHY, 1);
+                    if (args.length > 2 && args[2].equals("true")) {
+//                        meta.addStoredEnchant(CustomEnchants.TELEPATHY, Integer.parseInt(args[1]), true);
+                        item.addUnsafeEnchantment(CustomEnchants.TELEPATHY, Integer.parseInt(args[1]));
+                    }
+                    else {
+//                        meta.addStoredEnchant(CustomEnchants.TELEPATHY, 1, true);
+                        item.addUnsafeEnchantment(CustomEnchants.TELEPATHY, 1);
+                    }
 //                    item.setItemMeta(meta);
                 }
                 if (args[0].equalsIgnoreCase("lifesteal")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
                     if (args.length > 1) {
-                        if (args[1] == "2") {
-//                            meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 2, true);
-                             item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 2);
-                        }
-                        else if (args[1] == "3") {
-//                            meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 3, true);
-                             item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 3);
-                        }
-                        else if (args[1] == "4") {
-//                            meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 4, true);
-                             item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 4);
-                        }
-                        else if (args[1] == "5") {
-//                            meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 5, true);
-                             item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 5);
-                        }
-                        else {
-//                            meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 1, true);
-                             item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 1);
+                        switch (args[1]) {
+                            case "1":
+//                                meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 1, true);
+                                item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 1);
+                                break;
+                            case "2":
+//                                meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 2, true);
+                                item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 2);
+                                break;
+                            case "3":
+//                                meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 3, true);
+                                item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 3);
+                                break;
+                            case "4":
+//                                meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 4, true);
+                                item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 4);
+                                break;
+                            case "5":
+//                                meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 5, true);
+                                item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 5);
+                                break;
+                            default:
+                                if (args.length > 2 && args[2].equals("true")) {
+//                                    meta.addStoredEnchant(CustomEnchants.LIFESTEAL, Integer.parseInt(args[1]), true);
+                                    item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, Integer.parseInt(args[1]));
+                                }
+                                else {
+//                                    meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 1, true);
+                                    item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 1);
+                                }
+                                break;
                         }
                     }
                     else {
-                        meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 1, true);
-//                         item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 1);
+//                        meta.addStoredEnchant(CustomEnchants.LIFESTEAL, 1, true);
+                         item.addUnsafeEnchantment(CustomEnchants.LIFESTEAL, 1);
                     }
 //                    item.setItemMeta(meta);
                 }
                 if (args[0].equalsIgnoreCase("infection")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
-                    if (args.length > 1 && args[1] == "2") {
+                    if (args.length > 1 && args[1].equals("2")) {
 //                        meta.addStoredEnchant(CustomEnchants.INFECTION, 2, true);
                          item.addUnsafeEnchantment(CustomEnchants.INFECTION, 2);
                     }
                     else {
-//                        meta.addStoredEnchant(CustomEnchants.INFECTION, 1, true);
-                         item.addUnsafeEnchantment(CustomEnchants.INFECTION, 1);
+                        if (args.length > 2 && args[2].equals("true")) {
+//                            meta.addStoredEnchant(CustomEnchants.INFECTION, Integer.parseInt(args[1]), true);
+                            item.addUnsafeEnchantment(CustomEnchants.INFECTION, Integer.parseInt(args[2]));
+                        }
+                        else {
+//                            meta.addStoredEnchant(CustomEnchants.INFECTION, 1, true);
+                            item.addUnsafeEnchantment(CustomEnchants.INFECTION, 1);
+                        }
                     }
 //                    item.setItemMeta(meta);
                 }
                 if (args[0].equalsIgnoreCase("withering")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
-                    if (args.length > 1 && args[1] == "2") {
+                    if (args.length > 1 && args[1].equals("2")) {
 //                        meta.addStoredEnchant(CustomEnchants.WITHERING, 2, true);
                          item.addUnsafeEnchantment(CustomEnchants.WITHERING, 2);
                     }
                     else {
-//                        meta.addStoredEnchant(CustomEnchants.WITHERING, 1, true);
-                         item.addUnsafeEnchantment(CustomEnchants.WITHERING, 1);
+                        if (args.length > 2 && args[2].equals("true")) {
+//                            meta.addStoredEnchant(CustomEnchants.WITHERING, Integer.parseInt(args[1]), true);
+                            item.addUnsafeEnchantment(CustomEnchants.WITHERING, Integer.parseInt(args[2]));
+                        }
+                        else {
+//                            meta.addStoredEnchant(CustomEnchants.WITHERING, 1, true);
+                            item.addUnsafeEnchantment(CustomEnchants.WITHERING, 1);
+                        }
                     }
 //                    item.setItemMeta(meta);
                 }
                 if (args[0].equalsIgnoreCase("heaviness")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
-                    if (args.length > 1 && args[1] == "2") {
+                    if (args.length > 1 && args[1].equals("2")) {
 //                        meta.addStoredEnchant(CustomEnchants.HEAVINESS, 2, true);
                          item.addUnsafeEnchantment(CustomEnchants.HEAVINESS, 2);
                     }
                     else {
-//                        meta.addStoredEnchant(CustomEnchants.HEAVINESS, 1, true);
-                         item.addUnsafeEnchantment(CustomEnchants.HEAVINESS, 1);
+                        if (args.length > 2 && args[2].equals("true")) {
+//                            meta.addStoredEnchant(CustomEnchants.HEAVINESS, Integer.parseInt(args[1]), true);
+                            item.addUnsafeEnchantment(CustomEnchants.HEAVINESS, Integer.parseInt(args[2]));
+                        }
+                        else {
+//                            meta.addStoredEnchant(CustomEnchants.HEAVINESS, 1, true);
+                            item.addUnsafeEnchantment(CustomEnchants.HEAVINESS, 1);
+                        }
                     }
 //                    item.setItemMeta(meta);
                 }

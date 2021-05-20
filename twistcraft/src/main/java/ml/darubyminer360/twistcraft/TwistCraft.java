@@ -16,6 +16,7 @@ import org.bukkit.attribute.*;
 import org.bukkit.inventory.*;
 import org.bukkit.inventory.meta.*;
 import org.bukkit.inventory.meta.tags.*;
+import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.*;
 
@@ -590,7 +591,7 @@ public class TwistCraft extends JavaPlugin {
         NamespacedKey regeneratingTotemKey = new NamespacedKey(this, "regenerating_totem");
         ItemMeta regeneratingTotemMeta = regeneratingTotem.getItemMeta();
         regeneratingTotemMeta.setDisplayName("Regenerating Totem");
-        regeneratingTotemMeta.getCustomTagContainer().setCustomTag(regeneratingTotemKey, ItemTagType.DOUBLE, 1);
+        regeneratingTotemMeta.getPersistentDataContainer().set(regeneratingTotemKey, PersistentDataType.DOUBLE, 1.0);
         regeneratingTotem.setItemMeta(regeneratingTotemMeta);
 
         ItemStack opLootBook = new ItemStack(Material.ENCHANTED_BOOK);

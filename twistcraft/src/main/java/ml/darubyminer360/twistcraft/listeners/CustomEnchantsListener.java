@@ -49,8 +49,22 @@ public class CustomEnchantsListener implements Listener {
 //							for (Map.Entry<Enchantment, Integer> entry : meta.getStoredEnchants().entrySet()) {
                                 if (entry.getKey() instanceof ml.darubyminer360.twistcraft.util.EnchantmentWrapper) {
                                     if (item.getType() == Material.ENCHANTED_BOOK) {
-                                        item.addUnsafeEnchantment(entry.getKey(), entry.getValue());
-//										meta.addStoredEnchant(entry.getKey(), entry.getValue(), false);
+                                        for (Map.Entry<Enchantment, Integer> entry1 : item.getEnchantments().entrySet()) {
+                                            if (entry1.getKey() == entry.getKey() && entry1.getValue() + 1 <= entry1.getKey().getMaxLevel()) {
+                                                if (entry1.getValue().equals(entry.getValue())) {
+                                                    item.addUnsafeEnchantment(entry.getKey(), entry.getValue() + 1);
+//                                                    meta.addStoredEnchant(entry.getKey(), entry.getValue() + 1, false);
+                                                }
+                                                else if (entry1.getValue() < entry.getValue()) {
+                                                    item.addUnsafeEnchantment(entry.getKey(), entry.getValue());
+//                                                    meta.addStoredEnchant(entry.getKey(), entry.getValue() + 1, false);
+                                                }
+                                            }
+                                            else {
+                                                item.addUnsafeEnchantment(entry.getKey(), entry.getValue());
+//                                                meta.addStoredEnchant(entry.getKey(), entry.getValue(), false);
+                                            }
+                                        }
                                     }
                                     else {
                                         item.addUnsafeEnchantment(entry.getKey(), entry.getValue());
@@ -90,6 +104,8 @@ public class CustomEnchantsListener implements Listener {
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         if (CustomEnchantsCommand.enabled) {
+            event.setDropItems(false);
+
             Player player = event.getPlayer();
             Block block = event.getBlock();
 
@@ -111,13 +127,14 @@ public class CustomEnchantsListener implements Listener {
                     valid = false;
 
                 if (valid) {
+                    Collection<ItemStack> drops2 = new ArrayList<ItemStack>();
                     Random rand = new Random();
                     for (ItemStack item : drops) {
-                        drops.remove(item);
                         for (int i = 0; i < rand.nextInt(player.getInventory().getItemInMainHand().getItemMeta().getEnchantLevel(CustomEnchants.OPLOOT) - 1 + 1) + 1; i++) {
-                            drops.add(TwistCraft.instance.opLootTable[rand.nextInt(TwistCraft.instance.opLootTable.length)]);
+                            drops2.add(TwistCraft.instance.opLootTable[rand.nextInt(TwistCraft.instance.opLootTable.length)]);
                         }
                     }
+                    drops = drops2;
                 }
             }
             if (player.getInventory().getItemInMainHand().getItemMeta().hasEnchant(CustomEnchants.TELEPATHY)) {
@@ -131,8 +148,6 @@ public class CustomEnchantsListener implements Listener {
                     valid = false;
 
                 if (valid) {
-                    event.setDropItems(false);
-                    
                     for (ItemStack item : drops) {
                         if (player.getInventory().firstEmpty() != -1) {
                             player.getInventory().addItem(item);
@@ -144,12 +159,22 @@ public class CustomEnchantsListener implements Listener {
                     }
                 }
             }
+            else {
+                if (!drops.isEmpty()) {
+                    for (ItemStack item : drops) {
+                        block.getWorld().dropItemNaturally(block.getLocation(), item);
+//                        player.getWorld().dropItem(player.getLocation(), item);
+                    }
+                }
+            }
         }
     }
 
     @EventHandler
     public void onEntityDeath(EntityDeathEvent event) {
         if (CustomEnchantsCommand.enabled && event.getEntity().getKiller() instanceof Player) {
+            event.getDrops().clear();
+
             LivingEntity victim = event.getEntity();
             Player player = victim.getKiller();
 
@@ -169,13 +194,14 @@ public class CustomEnchantsListener implements Listener {
                     valid = false;
 
                 if (valid) {
+                    List<ItemStack> drops2 = new ArrayList<ItemStack>();
                     Random rand = new Random();
                     for (ItemStack item : drops) {
-                        drops.remove(item);
                         for (int i = 0; i < rand.nextInt(player.getInventory().getItemInMainHand().getItemMeta().getEnchantLevel(CustomEnchants.OPLOOT) - 1 + 1) + 1; i++) {
-                            drops.add(TwistCraft.instance.opLootTable[rand.nextInt(TwistCraft.instance.opLootTable.length)]);
+                            drops2.add(TwistCraft.instance.opLootTable[rand.nextInt(TwistCraft.instance.opLootTable.length)]);
                         }
                     }
+                    drops = drops2;
                 }
             }
             if (player.getInventory().getItemInMainHand().getItemMeta().hasEnchant(CustomEnchants.TELEPATHY)) {
@@ -187,8 +213,6 @@ public class CustomEnchantsListener implements Listener {
                     valid = false;
 
                 if (valid) {
-                    event.getDrops().clear();
-                    
                     for (ItemStack item : drops) {
                         if (player.getInventory().firstEmpty() != -1) {
                             player.getInventory().addItem(item);
@@ -196,6 +220,20 @@ public class CustomEnchantsListener implements Listener {
                         else {
                             player.getWorld().dropItem(player.getLocation(), item);
                         }
+                    }
+                }
+                else {
+                    if (!drops.isEmpty()) {
+                        for (ItemStack item : drops) {
+                            player.getWorld().dropItem(player.getLocation(), item);
+                        }
+                    }
+                }
+            }
+            else {
+                if (!drops.isEmpty()) {
+                    for (ItemStack item : drops) {
+                        player.getWorld().dropItem(player.getLocation(), item);
                     }
                 }
             }
