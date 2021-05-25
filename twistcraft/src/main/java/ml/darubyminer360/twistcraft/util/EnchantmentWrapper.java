@@ -3,16 +3,22 @@ package ml.darubyminer360.twistcraft.util;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
-import org.bukkit.inventory.ItemStack;;
+import org.bukkit.inventory.ItemStack;
 
 public class EnchantmentWrapper extends Enchantment {
     final String name;
     final int maxLevel;
+
+    final boolean cursed;
+    final boolean treasure;
     
-    public EnchantmentWrapper(String namespace, String name, int level) {
+    public EnchantmentWrapper(String namespace, String name, int level, boolean cursed = false, boolean treasure = false) {
         super(NamespacedKey.minecraft(namespace));
         this.maxLevel = level;
         this.name = name;
+        
+        this.cursed = cursed;
+        this.treasure = treasure;
     }
 
     @Override
@@ -47,11 +53,11 @@ public class EnchantmentWrapper extends Enchantment {
 
     @Override
     public boolean isCursed() {
-        return false;
+        return this.cursed;
     }
-
+    
     @Override
     public boolean isTreasure() {
-        return false;
+        return this.treasure;
     }
 }

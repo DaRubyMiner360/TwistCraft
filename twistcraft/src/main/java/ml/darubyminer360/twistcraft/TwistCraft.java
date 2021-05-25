@@ -145,6 +145,26 @@ public class TwistCraft extends JavaPlugin {
                                     meta.setLore(lore);
                                 }
                             }
+                            if (item.containsEnchantment(CustomEnchants.CURSE_OF_GRINDING)) {
+                                if (meta.hasLore()) {
+                                    List<String> lore = meta.getLore();
+                                    boolean hasLore = false;
+                                    for (String lo : lore) {
+                                        if (lo.contains("Curse of Grinding")) {
+                                            hasLore = true;
+                                        }
+                                    }
+                                    if (!hasLore) {
+                                        lore.add("§cCurse of Grinding");
+                                    }
+                                    meta.setLore(lore);
+                                }
+                                else {
+                                    List<String> lore = new ArrayList<String>();
+                                    lore.add("§cCurse of Grinding");
+                                    meta.setLore(lore);
+                                }
+                            }
                             if (item.containsEnchantment(CustomEnchants.LIFESTEAL)) {
                                 if (meta.hasLore()) {
                                     List<String> lore = meta.getLore();

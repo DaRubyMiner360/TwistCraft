@@ -10,6 +10,9 @@ import org.bukkit.enchantments.Enchantment;
 public class CustomEnchants {
     public static final Enchantment OPLOOT = new EnchantmentWrapper("oploot", "OP Loot", 1);
     public static final Enchantment TELEPATHY = new EnchantmentWrapper("telepathy", "Telepathy", 1);
+
+    public static final Enchantment CURSE_OF_GRINDING = new EnchantmentWrapper("curse_of_grinding", "Curse of Grinding", 1, true, false);
+    
     public static final Enchantment LIFESTEAL = new EnchantmentWrapper("lifesteal", "Lifesteal", 5);
 
     public static final Enchantment INFECTION = new EnchantmentWrapper("infection", "Infection", 2);
@@ -22,6 +25,9 @@ public class CustomEnchants {
         if (!registered) {
             registerEnchantment(OPLOOT);
             registerEnchantment(TELEPATHY);
+
+            registerEnchantment(CURSE_OF_GRINDING);
+            
             registerEnchantment(LIFESTEAL);
 
             registerEnchantment(INFECTION);

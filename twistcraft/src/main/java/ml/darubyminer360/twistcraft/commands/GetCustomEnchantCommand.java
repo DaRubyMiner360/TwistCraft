@@ -42,6 +42,18 @@ public class GetCustomEnchantCommand implements CommandExecutor {
                     }
 //                    item.setItemMeta(meta);
                 }
+                if (args[0].equalsIgnoreCase("curse_of_grinding")) {
+                    EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
+                    if (args.length > 2 && args[2].equals("true")) {
+//                        meta.addStoredEnchant(CustomEnchants.CURSE_OF_GRINDING, Integer.parseInt(args[1]), true);
+                        item.addUnsafeEnchantment(CustomEnchants.CURSE_OF_GRINDING, Integer.parseInt(args[1]));
+                    }
+                    else {
+//                        meta.addStoredEnchant(CustomEnchants.CURSE_OF_GRINDING, 1, true);
+                        item.addUnsafeEnchantment(CustomEnchants.CURSE_OF_GRINDING, 1);
+                    }
+//                    item.setItemMeta(meta);
+                }
                 if (args[0].equalsIgnoreCase("lifesteal")) {
                     EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item.getItemMeta();
                     if (args.length > 1) {
