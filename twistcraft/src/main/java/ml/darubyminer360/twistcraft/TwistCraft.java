@@ -89,7 +89,6 @@ public class TwistCraft extends JavaPlugin {
         OPLootCommand.enabled.put("trapdoors", false);
         OPLootCommand.enabled.put("shearing", false);
         OPLootCommand.enabled.put("mending", false);
-//        OPLootCommand.enabled.put("oplootenchant", false);
 
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
             @Override
@@ -98,13 +97,6 @@ public class TwistCraft extends JavaPlugin {
                     for (ItemStack item : player.getInventory().getContents()) {
                         if (item != null && item.getType() != null && item.getType() != Material.AIR) {
                             ItemMeta meta = item.getItemMeta();
-//                            ItemMeta meta;
-//                            if (item.hasItemMeta()) {
-//                                meta = item.getItemMeta();
-//                            }
-//                            else {
-//                                meta = Bukkit.getItemFactory().getItemMeta(item.getType());
-//                            }
                             if (item.containsEnchantment(CustomEnchants.OPLOOT)) {
                                 if (meta.hasLore()) {
                                     List<String> lore = meta.getLore();
@@ -446,6 +438,7 @@ public class TwistCraft extends JavaPlugin {
     }
 
     public void setupOPLootTables() {
+        // Create Items
         ItemStack netheriteHoe = new ItemStack(Material.NETHERITE_HOE, 1);
         netheriteHoe.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
         netheriteHoe.addUnsafeEnchantment(Enchantment.DIG_SPEED, 7);
@@ -769,7 +762,8 @@ public class TwistCraft extends JavaPlugin {
         mendingMaxBookMeta.addStoredEnchant(Enchantment.MENDING, 32767, true);
         // mendingMaxBook.addUnsafeEnchantment(Enchantment.MENDING, 32767);
         mendingMaxBook.setItemMeta(mendingMaxBookMeta);
-        
+
+        // Create loot table arrays
         opLootTableMaterials = new ItemStack[] {
             new ItemStack(Material.DIAMOND, 3),
             new ItemStack(Material.DIAMOND, 6),
