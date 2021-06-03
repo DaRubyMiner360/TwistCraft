@@ -22,6 +22,9 @@ public class AddCustomEnchantCommand implements CommandExecutor {
                     if (args[0].equalsIgnoreCase("telepathy")) {
                         player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.TELEPATHY, 1);
                     }
+                    if (args[0].equalsIgnoreCase("curse_of_grinding")) {
+                        player.getInventory().getItemInMainHand().addUnsafeEnchantment(CustomEnchants.CURSE_OF_GRINDING, 1);
+                    }
                     if (args[0].equalsIgnoreCase("lifesteal")) {
                         if (args.length > 1) {
                             if (args[1].equals("2")) {

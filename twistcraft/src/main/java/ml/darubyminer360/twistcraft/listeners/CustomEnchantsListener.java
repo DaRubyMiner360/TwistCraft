@@ -286,4 +286,25 @@ public class CustomEnchantsListener implements Listener {
             }
         }
     }
+
+    @EventHandler
+    public void onItemDamage(PlayerItemDamageEvent event) {
+        if (CustomEnchantsCommand.enabled) {
+            Player player = event.getPlayer();
+            ItemStack item = event.getItem();
+
+            if (item.getItemMeta().hasEnchant(CustomEnchants.CURSE_OF_GRINDING)) {
+                boolean valid = true;
+
+                if (valid) {
+                    // Make item lose 5 times the amount of durability lost
+                    int damage = event.getDamage();
+                    if (damage < 1) {
+                        damage = 1;
+                    }
+                    event.setDamage(damage * 5 * (item.getItemMeta().getEnchantLevel(CustomEnchants.CURSE_OF_GRINDING)));
+                }
+            }
+        }
+    }
 }
