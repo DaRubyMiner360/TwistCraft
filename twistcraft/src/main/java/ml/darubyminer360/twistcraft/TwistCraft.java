@@ -60,7 +60,7 @@ public class TwistCraft extends JavaPlugin {
         getCommand("deathswap").setExecutor(new DeathSwapCommand());
         getCommand("tntrunner").setExecutor(new TNTRunnerCommand());
         getCommand("fallingblocks").setExecutor(new FallingBlocksCommand());
-        getCommand("fallingblocks").setExecutor(new FallingBlocksCommand());
+        getCommand("rainingitems").setExecutor(new RainingItemsCommand());
         getCommand("sneakinvisibility").setExecutor(new SneakInvisibilityCommand());
         getCommand("allowedflight").setExecutor(new AllowedFlightCommand());
         getCommand("oploot").setExecutor(new OPLootCommand());

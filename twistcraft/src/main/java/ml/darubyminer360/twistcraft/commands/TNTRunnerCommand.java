@@ -31,7 +31,7 @@ public class TNTRunnerCommand implements CommandExecutor {
                     }
                 }, cooldown, cooldown);
 
-                TwistCraft.instance.messageServer("TNT Runner enabled with a cooldown of " + args[0] + "!", p);
+                TwistCraft.instance.messageServer("TNT Runner enabled with a cooldown of " + args[0] + " ticks!", p);
                 enabled = true;
         }
             else {

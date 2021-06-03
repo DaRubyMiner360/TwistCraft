@@ -37,7 +37,7 @@ public class RainingItemsCommand implements CommandExecutor {
                         Random rnd = new Random();
                         Material material = mats[rnd.nextInt(mats.length)];
 
-                        while (material.isLegacy()) {
+                        while (material.isLegacy() || material.isAir()) {
                             material = mats[rnd.nextInt(mats.length)];
                         }
 
@@ -59,7 +59,7 @@ public class RainingItemsCommand implements CommandExecutor {
                     }
                 }, cooldown, cooldown);
 
-                TwistCraft.instance.messageServer("Raining Items enabled with a cooldown of " + args[0] + "!", p);
+                TwistCraft.instance.messageServer("Raining Items enabled with a cooldown of " + args[0] + " ticks!", p);
                 enabled = true;
             }
             else {

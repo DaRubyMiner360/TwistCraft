@@ -69,7 +69,30 @@ public class TwistSelectionScreenListener implements Listener {
                 // TNT Runner
                 p.closeInventory();
 
-                p.performCommand("tntrunner");
+                if (TNTRunnerCommand.enabled) {
+                    p.performCommand("tntrunner");
+                }
+                else {
+                    // Open GUI to select cooldown
+//                    new AnvilGUI.Builder()
+//                        .onComplete((player, text) -> {
+//                            player.performCommand("tntrunner " + text);
+//                            return AnvilGUI.Response.close();
+//                        })
+//                        .text("Cooldown")
+//                        .itemLeft(new ItemStack(Material.PAPER))
+//                        .title("Cooldown")
+//                        .plugin(TwistCraft.instance)
+//                        .open(p);
+                    SignMenuFactory.Menu menu = TwistCraft.instance.getSignMenuFactory().newMenu(Arrays.asList("", "^^^^^^^^^^^^^^^", "Cooldown", "in ticks"))
+                            .reopenIfFail(true)
+                            .response((player, strings) -> {
+                                Bukkit.getScheduler().callSyncMethod(TwistCraft.instance, () -> player.performCommand("tntrunner " + strings[0]));
+                                return true;
+                            });
+
+                    menu.open(p);
+                }
             }
             else if (event.getCurrentItem().getType() == Material.COBBLESTONE) {
                 // Falling Blocks
